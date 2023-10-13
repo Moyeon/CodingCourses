@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk buckets</title>
+    <style>
+        .cow{
+            display: flex;
+            flex-direction: column;
+            width: 140px;
+            align-items: center;
+            background-color: rgb(238, 238, 238);
+            padding: 10px;
+            border-radius: 20px;
+            margin: 10px;
+        }
+        #cowList{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <h3>Number of Cows</h3>
+    <input type="range" min="1" max="100" value="1" id="cowNum">
+    <button onclick="setCows();">Set</button>
+    <button onclick="solve();">Solve</button>
+
+    <h3>Information of Each Cows</h3>
+    <div id="cowList">
+        <div class="cow">
+            <p>Cow 0</p>
+            <input type="range" min="1" max="1000" value="10" id="start0">
+            <input type="range" min="1" max="1000" value="10" id="end0">
+            <input type="range" min="1" max="10" value="1" id="bucket0">
+        </div>
+    </div>
+    
+
+    <script src="1015bucket.js"></script>
+</body>
+</html>

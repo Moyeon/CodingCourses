@@ -1,0 +1,26 @@
+.a{
+    width: 150px;
+    height: 100px;
+    border-top: 100px solid yellow;
+    border-left: 100px solid skyblue;
+    border-bottom: 100px solid red;
+    border-right: 100px solid transparent;
+}
+.b{
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid olive;
+    border-right: 140px solid transparent;
+}
+
+.c{
+    width: 0;
+    height: 0;
+    margin: 100px;
+    border-bottom: 200px solid cornflowerblue;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+}
+.c:hover{
+    transform: rotate(180deg);
+}

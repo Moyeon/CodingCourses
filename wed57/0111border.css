@@ -1,0 +1,13 @@
+div {
+    width: 0;
+    height: 0;
+    margin: 50px;
+    border: 5px dotted goldenrod;
+}
+
+.colorful {
+    border-top: 40px solid yellowgreen;
+    border-left: 30px solid transparent;
+    border-right: 30px solid black;
+    border-bottom: 50px solid wheat;
+}

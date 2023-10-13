@@ -1,0 +1,37 @@
+p{
+    color: indianred;
+}
+
+h4{
+    background-color: mediumpurple;
+}
+
+.blue{
+    color: mediumblue;
+    width: 200px;
+    height: 200px;
+    border: 3px solid gold;
+    transition: 1s;
+}
+
+.circle{
+    width: 300px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: antiquewhite;
+}
+
+.blue:hover{
+    font-size: 40px;
+    color: red;
+}
+
+.hi{
+    transition: 2s;
+    background-color: red;
+}
+
+.hi:hover{
+    background-color: black;
+}
+

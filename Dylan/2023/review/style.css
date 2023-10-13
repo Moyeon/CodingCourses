@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@900&display=swap');
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+h2{
+    font-family: 'Kanit', sans-serif;
+    font-size: 70px;
+    position: absolute;
+    opacity: 0;
+    left: 100px;
+}
+
+#h1{
+    color: red;
+    animation: hello 4s infinite;
+    opacity: 1;
+}
+#h2{
+    color: red;
+    animation: hello 4s infinite 1s;
+    opacity: 1;
+}
+#h3{
+    color: red;
+    animation: hello 4s infinite 2s;
+    opacity: 1;
+}
+#h4{
+    color: red;
+    animation: hello 4s infinite 3s;
+    opacity: 1;
+}
+
+@keyframes hello {
+    0%{
+        color: transparent;
+        transform: translate(0, 100px);
+    }
+    5%{
+        color: transparent;
+        transform: translate(0, 100px);
+        opacity: 0;
+    }
+    20%{
+        color: transparent;
+        transform: translate(0, 50px);
+        -webkit-text-stroke: 1px red;
+        opacity: 1;
+    }
+    30%{
+        color: transparent;
+        transform: translate(0, 50px);
+        -webkit-text-stroke: 1px red;
+    }
+    45%{
+        color: red;
+        transform: translate(0, 0);
+    }
+    55%{
+        color: red;
+        transform: translate(0, 0);
+    }
+    70%{
+        color: transparent;
+        transform: translate(0, -50px);
+        -webkit-text-stroke: 1px red;
+    }
+    80%{
+        color: transparent;
+        transform: translate(0, -50px);
+        -webkit-text-stroke: 1px red;
+        opacity: 1;
+    }
+    95%{
+        color: transparent;
+        transform: translate(0, -100px);
+        opacity: 0;
+    }
+    100%{
+        color: transparent;
+        transform: translate(0, -100px);
+    }
+}
+
+
+#w1{
+    animation: water 3s infinite;
+}
+#w2{
+    animation: water2 3s infinite;
+}
+#w3{
+    animation: water3 3s infinite;
+}
+#w4{
+    animation: water4 3s infinite;
+}
+
+h3{
+    font-size: 40px;
+    position: absolute;
+    left: 400px;
+}
+
+@keyframes water {
+    0%{
+        transform: translate(0, 0);
+    }
+    50%{
+        transform: translate(0, 300px);
+    }
+    75%{
+        transform: translate(100px, 200px);
+    }
+    100%{
+        transform: translate(100px, 300px);
+    }
+}
+
+@keyframes water2 {
+    0%{
+        transform: translate(0, 0);
+    }
+    50%{
+        transform: translate(0, 300px);
+    }
+    75%{
+        transform: translate(-100px, 200px);
+    }
+    100%{
+        transform: translate(-100px, 300px);
+    }
+}
+
+@keyframes water3 {
+    0%{
+        transform: translate(0, 0);
+    }
+    50%{
+        transform: translate(0, 300px);
+    }
+    75%{
+        transform: translate(200px, 200px);
+    }
+    100%{
+        transform: translate(200px, 300px);
+    }
+}
+
+@keyframes water4 {
+    0%{
+        transform: translate(0, 0);
+    }
+    50%{
+        transform: translate(0, 300px);
+    }
+    75%{
+        transform: translate(-200px, 200px);
+    }
+    100%{
+        transform: translate(-200px, 300px);
+    }
+}

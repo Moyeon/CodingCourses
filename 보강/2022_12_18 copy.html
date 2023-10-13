@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        button{
+            width:100px;
+            height:100px;
+            text-align: center;
+            font-size:40px;
+        }
+    </style>
+    <script>
+        number1="";
+        number2="";
+        result=0;
+        op="";
+        function one(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="1";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="1";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function two(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="2";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="2";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function three(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="3";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="3";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function four(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="4";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="4";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function five(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="5";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="5";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function six(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="6";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="6";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function seven(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="7";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="7";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function eight(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="8";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="8";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function nine(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="9";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="9";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function zero(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+="0";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+="0";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function dot(){
+            if(op==""){ // ==(똑같다) !=(다르다) < (작다) >(크다) <=(작거나 같다) >=(크거나 같다)
+                number1+=".";
+                document.getElementById("number1").innerHTML=number1;
+            }
+            else{
+                number2+=".";
+                document.getElementById("number2").innerHTML=number2;    
+            }
+        }
+        function plus(){
+            if(op==""){
+                if(number1!=""){
+                    op="+";
+                    document.getElementById("number1").innerHTML+="+";
+                }   
+            }
+        }
+        
+        function minus(){
+            if(op==""){
+                if(number1!=""){
+                    op="-";
+                    document.getElementById("number1").innerHTML+="-";
+                }   
+            }
+        }
+        
+        function mul(){
+            if(op==""){
+                if(number1!=""){
+                    op="*";
+                    document.getElementById("number1").innerHTML+="*";
+                }   
+            }
+        }
+        
+        function div(){
+            if(op==""){
+                if(number1!=""){
+                    op="/";
+                    document.getElementById("number1").innerHTML+="/";
+                }   
+            }
+        }
+    
+        function eq(){
+            number1 = parseFloat(number1);
+            number2 = parseFloat(number2);
+
+            if(op=="+"){
+                result = number1 + number2;
+            }
+            if(op=="-"){
+                result = number1 - number2;
+            }
+            if(op=="*"){
+                result = number1 * number2;
+            }
+            if(op=="/"){
+                result = number1 / number2;
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+
+    </script>
+
+</head>
+<body>
+    <button onclick="one()">1</button>
+    <button onclick="two()">2</button>
+    <button onclick="three()">3</button>
+    <button onclick="plus()">+</button><br>
+    <button onclick="four()">4</button>
+    <button onclick="five()">5</button>
+    <button onclick="six()">6</button>
+    <button onclick="minus()">-</button><br>
+    <button onclick="seven()">7</button>
+    <button onclick="eight()">8</button>
+    <button onclick="nine()">9</button>
+    <button onclick="div()">/</button><br>
+    <button onclick="dot()">.</button>
+    <button onclick="zero()">0</button>
+    <button onclick="eq()">=</button>
+    <button onclick="mul()">*</button><br>
+    
+    
+    
+    number 1 : <label id="number1"></label><br>
+    number 2 : <label id="number2"></label><br>
+    result : <label id="result"></label>
+</body>
+</html>

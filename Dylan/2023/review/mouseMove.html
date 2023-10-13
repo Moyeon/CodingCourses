@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Move</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        #screen{
+            width: 100vw;
+            height: 100vh;
+            background-color: transparent;
+            position: absolute;
+            z-index: 100;
+        }
+        #circle{
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        #diamond{
+            width: 40px;
+            height: 40px;
+            background-color: blue;
+            position: absolute;
+            transform: rotate(45deg);
+        }
+        #rsquare{
+            width: 40px;
+            height: 40px;
+            background-color: gold;
+            border-radius: 5px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body id="body">
+    <h2 class="mouseX">X : <span id="mX">100</span></h2>
+    <h2 class="mouseY">Y : <span id="mY">100</span></h2>
+    <div id="screen"></div>
+    <div id="circle"></div>
+    <div id="diamond"></div>
+    <div id="rsquare"></div>
+
+    <script>
+        var mX = document.getElementById("mX");
+        var mY = document.getElementById("mY");
+        var circle = document.getElementById("circle");
+        var diamond = document.getElementById("diamond");
+        var rsquare = document.getElementById("rsquare");
+
+        window.addEventListener("mousemove", (event) => {
+            mX.innerHTML = event.offsetX;
+            mY.innerHTML = event.offsetY;
+            circle.style.left = event.offsetX - 20 + "px";
+            circle.style.top = event.offsetY - 20 + "px";
+        });
+
+        window.addEventListener("mousedown", (event) => {
+            diamond.style.left = event.offsetX - 20 + "px";
+            diamond.style.top = event.offsetY - 20 + "px";
+        });
+
+        window.addEventListener("mouseup", (event) => {
+            rsquare.style.left = event.offsetX - 20 + "px";
+            rsquare.style.top = event.offsetY - 20 + "px";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+        p{
+            font-size: 40px;
+            margin: 15px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <p id="w1">Sunday</p>
+    <p id="w2">Monday</p>
+    <p id="w3">Tuesday</p>
+    <p id="w4">Wednesday</p>
+    <p id="w5">Thursday</p>
+    <p id="w6">Friday</p>
+    <p id="w7">Saturday</p>
+
+    <script>
+        var w1 = document.getElementById('w1');
+        var w1Color = 'black';
+
+        function colorChange(){
+            if(w1Color == 'black'){
+                w1Color = 'gray';
+            }else{
+                w1Color = 'black';
+            }
+            w1.style.color = w1Color;
+        }
+        w1.addEventListener('click', colorChange);
+
+
+        var w2 = document.getElementById('w2');
+        var w2Color = 'black';
+
+        function colorChange2(){
+            if(w2Color == 'black'){
+                w2Color = 'red';
+            }else{
+                w2Color = 'black';
+            }
+            w2.style.color = w2Color;
+        }
+        w2.addEventListener('click', colorChange2);
+
+        var w3 = document.getElementById('w3');
+        var w3Color = 'black';
+
+        function colorChange3(){
+            if(w3Color == 'black'){
+                w3Color = 'red';
+            }else{
+                w3Color = 'black';
+            }
+            w3.style.webkitTextStrokeColor = w3Color;
+            w3.style.webkitTextStrokeWidth = '2px';
+        }
+        w3.addEventListener('click', colorChange3);
+
+
+        var w4 = document.getElementById('w4');
+        var w4Color = 'white';
+
+        function colorChange4(){
+            if(w4Color == 'white'){
+                w4Color = 'yellow';
+            }else{
+                w4Color = 'white';
+            }
+            w4.style.backgroundColor = w4Color;
+        }
+        w4.addEventListener('click', colorChange4);
+
+        var w5 = document.getElementById('w5');
+        var w5degree = 0;
+
+        function colorChange5(){
+            w5degree += 10;
+            w5.style.transform = "rotate(" + w5degree + "deg)";
+        }
+        w5.addEventListener('click', colorChange5);
+
+        var w6 = document.getElementById('w6');
+        var w6degree = 0;
+
+        function colorChange6(){
+            w6degree += 10;
+            w6degree = w6degree % 90;
+            w6.style.transform = "skewX(" + w6degree + "deg)";
+        }
+        w6.addEventListener('click', colorChange6);
+
+        var w7 = document.getElementById('w7');
+        var w7degree = 0;
+
+        function colorChange7(){
+            w7degree += 10;
+            w7degree = w7degree % 90;
+            w7.style.transform = "translateX(" + w7degree + "px)";
+        }
+        w7.addEventListener('click', colorChange7);
+    </script>
+</body>
+</html>

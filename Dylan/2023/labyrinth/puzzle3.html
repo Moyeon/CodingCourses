@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>some puzzles....</p>
+    <h3>Slide Puzzle</h3>
+    
+    <div id="slidePuzzle">
+        <div class="background1"></div>
+        <div class="background2"></div>
+        <div class="piece p1"></div>
+        <div class="piece p2"></div>
+        <div class="piece p3"></div>
+        <div class="piece p4"></div>
+        <div class="piece p5"></div>
+        <div class="piece p6"></div>
+        <div class="piece p7"></div>
+        <div class="piece p8"></div>
+        <div class="piece p9"></div>
+    </div>
+
+    <button id="nextBtn" onclick="nextPuzzle();">Next</button>
+
+    <script>
+        var pos = [
+            [0,0], [130,0], [260,0],
+            [0,130], [130,130], [260,130],
+            [0,260], [130,260], [260,260],
+            [130, 390]
+        ];
+        var pieceDivArray = document.getElementsByClassName('piece');
+        var piecePos =  [0, 1, 2, 3, 5, 8, 6, 7, 4, 9]; // 9 is blank
+        // var piecePos = [4, 3, 5, 8, 2, 0, 1, 7, 6, 9]; // 9 is blank
+        var isMoving = false;
+
+        for (var i = 0; i<9; i++){
+            var pieceNum = piecePos[i];
+            pieceDivArray[pieceNum].style.top = pos[i][1] + 'px';
+            pieceDivArray[pieceNum].style.left = pos[i][0] + 'px';
+            pieceDivArray[pieceNum].addEventListener("mousedown", (event) => {
+                event.preventDefault();
+                if(!isMoving){
+                    clickPiece(event.target);
+                }
+            });
+            pieceDivArray[pieceNum].addEventListener("transitionend", (event) => {
+                isMoving = false;
+                if(piecePos.every((v,i) => v === i)){
+                    document.getElementById('nextBtn').style.visibility = 'visible';
+                }
+            });
+        }
+
+        var blank = 9;
+
+        function clickPiece(target){
+            var t = target.style.top.slice(0, -2) * 1;
+            var l = target.style.left.slice(0, -2) * 1;
+            var p = pos.findIndex(
+                (element) => element[0] == l && element[1] == t
+            );
+            console.log(p);
+
+            //horizontal movement
+            if(Math.floor(p / 3) == Math.floor(blank / 3)){
+                //case nearby
+                if(p == blank + 1 || p == blank - 1){
+                    piecePos[blank] = piecePos[p];
+                    piecePos[p] = 9;
+                    blank = p;
+                }
+                //left movement & right movement
+                else{
+                    var between = (p + blank) / 2;
+                    piecePos[blank] = piecePos[between];
+                    piecePos[between] = piecePos[p];
+                    piecePos[p] = 9;
+                    blank = p;
+                }
+                changePositions();
+            }
+
+            //vertical movement
+            if(p == 9 && blank % 3 == 1){
+                for(var i = blank; i < 9; i = i + 3){
+                    var toChange = i == 7? 9 : i + 3;
+                    piecePos[i] = piecePos[toChange];
+                }
+                piecePos[p] = 9;
+                blank = p;
+                changePositions();
+            }
+            else if(blank == 9 && p % 3 == 1){
+                for(var i = blank; i > p; i = i - 3){
+                    var toChange = i == 9? 7 : i - 3;
+                    piecePos[i] = piecePos[toChange];
+                    i = i == 9? 10 : i;
+                }
+                piecePos[p] = 9;
+                blank = p;
+                changePositions();
+            }
+            else if(blank != 9 && p != 9 && p % 3 == blank % 3){
+                //case nearby
+                if(p == blank + 3 || p == blank - 3){
+                    piecePos[blank] = piecePos[p];
+                    piecePos[p] = 9;
+                    blank = p;
+                }
+                //far away
+                else{
+                    var between = (p + blank) / 2;
+                    piecePos[blank] = piecePos[between];
+                    piecePos[between] = piecePos[p];
+                    piecePos[p] = 9;
+                    blank = p;
+                }
+                changePositions();
+            }
+        }
+        
+        function changePositions(){
+            console.log(piecePos);
+            isMoving = true;
+            for (var i = 0; i <= 9; i++){
+                var pieceNum = piecePos[i];
+                if (pieceNum == 9) continue;
+                pieceDivArray[pieceNum].style.top = pos[i][1] + 'px';
+                pieceDivArray[pieceNum].style.left = pos[i][0] + 'px';
+            }
+        }
+
+        
+
+        function nextPuzzle(){
+            location.href = './puzzle4.html';
+        }
+    </script>
+</body>
+</html>

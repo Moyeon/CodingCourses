@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(23, 23, 23);
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .block{
+            box-sizing: border-box;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(88, 152, 231);
+            position: relative;
+            border: 2px outset rgb(136, 180, 232);
+        }
+        .block:after{
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border: 4px groove rgb(136, 180, 232);
+        }
+
+        .mint{
+            background-color: #4ad0a7;
+            border: 2px outset #95e3cc;
+        }
+        .mint::after{
+            border: 4px groove #95e3cc;
+        }
+
+        .pink{
+            background-color: #c861b9;
+            border: 2px outset #e395d1;
+        }
+        .pink::after{
+            border: 4px groove #e395d1;
+        }
+
+        .orange{
+            background-color: #d38c4a;
+            border: 2px outset #e3bb95;
+        }
+        .orange::after{
+            border: 4px groove #e3bb95;
+        }
+
+        .yellow{
+            background-color: #d3be4a;
+            border: 2px outset #e8db93;
+        }
+        .yellow::after{
+            border: 4px groove #e8db93;
+        }
+
+        .green{
+            background-color: #86c64a;
+            border: 2px outset #bbe893;
+        }
+        .green::after{
+            border: 4px groove #bbe893;
+        }
+
+        .blue{
+            background-color: #5898e7;
+            border: 2px outset #88b4e8;
+        }
+        .blue::after{
+            border: 4px groove #88b4e8;
+        }
+
+        .red{
+            background-color: #e75866;
+            border: 2px outset #e88898;
+        }
+        .red::after{
+            border: 4px groove #e88898;
+        }
+
+        .shadow{
+            background-color: #3b3b3b;
+            border: 4px solid #7f7f7f;
+        }
+        .shadow::after{
+            border: 2px solid #7f7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="block mint"></div>
+    <div class="block pink"></div>
+    <div class="block orange"></div>
+    <div class="block yellow"></div>
+    <div class="block green"></div>
+    <div class="block blue"></div>
+    <div class="block red"></div>
+    <div class="block shadow"></div>
+</body>
+</html>

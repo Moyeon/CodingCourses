@@ -1,0 +1,31 @@
+div {
+    width: 200px;
+    height: 150px;
+    border: 3px solid black;
+    transition: 0.5s;
+}
+
+.black {
+    background-color: black;
+}
+
+div:hover {
+    border-radius: 50%;
+}
+
+.black:hover{
+    background-color: cornflowerblue;
+}
+
+.out{
+    border: 2px solid orangered;
+    background-color: lightsalmon;
+    margin: 40px;
+    padding: 30px;
+}
+
+.in{
+    border: 2px dashed gray;
+    background-color: lightgray;
+
+}

@@ -1,0 +1,44 @@
+div{
+    width: 200px;
+    height: 200px;
+    background-color: rebeccapurple;
+    color: white;
+    font-size: 28px;
+    transition: 0.5s;
+    margin: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div:hover{
+    background-color: plum;
+}
+
+.tX:hover{
+    transform: translateX(-100px);
+}
+.tY:hover{
+    transform: translateY(-40px);
+}
+.tt:hover{
+    transform: translate(100px, -20px);
+}
+
+.r1:hover{
+    transform: rotate(120deg);
+}
+.r2:hover{
+    transform: rotate(-400deg);
+}
+
+.s1:hover{
+    transform: scaleX(1.2);
+}
+.s2:hover{
+    transform: scaleY(0.4);
+}
+.s3:hover{
+    transform: scale(0.3, 4);
+}

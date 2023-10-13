@@ -1,0 +1,249 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 1124px;
+}
+
+.homeLogo{
+    background: none;
+    background-image: url(./google_logo.svg);
+    height: 30px;
+    width: 92px;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+.searchBar{
+    width: 500px;
+    height: 44px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 22px; /*(=width 250px height 22px) */
+    margin-left: 24px;
+    margin-right: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#searchKey{
+    display: block;
+    font-size: 17px;
+    margin-left: 20px;
+    border: none;
+    width: 400px;
+}
+.searchBtn{
+    display: block;
+    background: none;
+    background-image: url(./search.svg);
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    border: none;
+    margin-right: 20px;
+}
+
+.menuBtn{
+    background: none;
+    background-image: url(./menu.svg);
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 12px;
+}
+.profile{
+    width: 30px;
+    height: 30px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    margin-left: 12px;
+    margin-right: 24px;
+}
+
+.topNavigation{
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+}
+.circle{
+    width: 28px;
+    height: 28px;
+    background-color: lightgray;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.links span{
+    font-size: 14px;
+}
+.links p{
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    color: #4d4d4d;
+    margin-top: 3px;
+}
+.item h3{
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+    margin-bottom: 3px;
+    font-size: 20px;
+}
+.item p{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+.item{
+    width: 600px;
+    margin-bottom: 30px;
+    margin-left: 28px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    margin: auto;
+    
+    padding-top: 24px;
+    padding-right: 448px;
+}
+
+.containerBox{
+    display: flex;
+    border-top: 1px solid gray;
+    margin-top: 24px;
+}
+
+a{
+    text-decoration: none;
+}
+#searchKey:focus{
+    outline: none;
+}
+
+
+
+/* desktop view */
+@media (min-width: 1124px) {
+    body{
+        width: 100vw;
+    }
+    .container{
+        margin-left: 135px;
+    }
+}
+
+/* mobile view */
+@media (max-width: 500px) {
+    body{
+        width: 100%;
+    }
+    .topNavigation{
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 18px;
+    }
+
+    .searchBar{
+        order: 3;
+        margin-left: 18px;
+        margin-right: 18px;
+        margin-top: 18px;
+        width: 100%;
+    }
+    #searchKey{
+        width: 100%;
+    }
+
+    .menuBtn{
+        order: -1;
+        margin: 0;
+        margin-left: 18px;
+        width: 24px;
+        height: 24px;
+    }
+    .profile{
+        margin-right: 18px;
+        margin-left: 0;
+    }
+    .containerBox{
+        width: 100%;
+    }
+    .container{
+        margin-top: 18px;
+        padding-top: 0;
+        background-color: rgb(241, 241, 241);
+        width: 100%;
+        padding-right: 0;
+        position: relative;
+    }
+    .item{
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        margin-bottom: 6px;
+        background-color: white;
+        border: 1px solid lightgray;
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    body{
+        background-color: rgb(38, 38, 42);
+        color: white;
+    }
+    a:active{
+        color: white;
+    }
+    a:link{
+        color: rgb(121, 188, 255);
+    }
+    a:visited{
+        color: rgb(202, 142, 255);
+    }
+    .searchBar{
+        background-color: #4d4d4d;
+    }
+    #searchKey{
+        background-color: transparent;
+        color: white;
+    }
+    .searchBtn{
+        filter: invert(1);
+    }
+    .links span{
+        color: #bbbbbb;
+    }
+    .links p{
+        color: #bbbbbb;
+    }
+    .item{
+        background-color: rgb(38, 38, 42);
+        border: none;
+    }
+}
+
+/* mobile dark mode */
+@media (prefers-color-scheme: dark) and (max-width: 500px){
+    .container{
+        background-color: rgb(31, 31, 35);
+    }
+}

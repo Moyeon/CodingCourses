@@ -1,0 +1,246 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.topBar{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+.menuBar{
+    background-image: url(./menu.svg);
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    margin: 18px;
+}
+.home{
+    background-image: url(./google_logo.svg);
+    height: 36px;
+    width: 92px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 6px;
+}
+.profile{
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: rosybrown;
+    margin: 16px;
+}
+.searchBar{
+    width: calc(100% - 48px);
+    border: 1px solid black;
+    height: 36px;
+    border-radius: 18px;
+    margin: auto;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#searchInput{
+    font-size: 18px;
+    margin-left: 20px;
+    width: 400px;
+    border: none;
+}
+#searchInput:focus{
+    outline: none;
+}
+#searchBtn{
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: none;
+    background-image: url(./search.svg);
+    background-size: contain;
+    padding: 5px;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+#container{
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+}
+.item{
+    padding: 12px 16px;
+    border: 1px solid rgb(223, 223, 223);
+    border-left: none;
+    border-right: none;
+    background-color: white;
+    margin-bottom: 6px;
+}
+.circle{
+    width: 28px;
+    height: 28px;
+    background-color: lightgray;
+    border-radius: 50%;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circle img{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.item-top{
+    display: flex;
+    align-items: center;
+}
+.short-link{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: black;
+}
+.link{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #555555;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 250px;
+    text-overflow: ellipsis;
+}
+a{
+    text-decoration: none;
+}
+.title{
+    margin: 0;
+    padding: 12px 0;
+    
+}
+.description{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: #555555;
+}
+
+@media (min-width: 500px) {
+    .topBar{
+        width: 1124px;
+        justify-content: flex-start;
+        padding-top: 28px;
+        padding-bottom: 34px;
+        border-bottom: 1px solid lightgray;
+    }
+    .home{
+        margin: 0 24px;
+        padding: 0;
+    }
+    .searchBar{
+        order: 1;
+        width: 600px;
+        margin: 0;
+        margin-left: 20px;
+        padding: 3px;
+        border-radius: 40px;
+    }
+    .menuBar{
+        order: 2;
+        margin: 0 30px;
+        padding: 0;
+        margin-left: auto;
+    }
+    .profile{
+        order: 3;
+        margin: 0;
+        padding: 0;
+    }
+    .item{
+        margin: 0;
+        border: none;
+        width: 600px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+    .title{
+        padding: 6px 0;
+    }
+    .item-top{
+        margin-bottom: 3px;
+    }
+    #container{
+        background-color: white;
+        padding-top: 20px;
+    }
+}
+
+@media (min-width: 1124px) {
+    .topBar{
+        width: 100%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #1e1e20;
+    }
+    .searchBar{
+        background-color: #333336;
+        border: none;
+    }
+    #searchInput{
+        background-color: transparent;
+        color: white;
+    }
+    #searchBtn{
+        background-image: url(./searchDark.svg);
+    }
+    .item{
+        background-color: #1e1e20;
+    }
+    #container{
+        background-color: #1e1e20;
+    }
+    .short-link{
+        color: rgb(226, 226, 226);
+    }
+    .link{
+        color: rgb(179, 179, 179);
+    }
+    .description{
+        color: rgb(179, 179, 179);
+    }
+    a:link{
+        color: rgb(110, 165, 233);
+    }
+    a:visited{
+        color: rgb(190, 133, 240);
+    }
+    .topBar{
+        border-bottom: 1px solid #333336;
+    }
+    .home{
+        background-image: url(./google_logoDark.svg);
+    }
+    .menuBar{
+        filter: invert(1);
+    }
+}
+
+/* dark & mobile */
+@media (prefers-color-scheme: dark) and (max-width: 500px){
+    .item{
+        border: none;
+        border-bottom: 1px solid #242424;
+        border-top: 1px solid #242424;
+    }
+    #container{
+        background-color: #131313;
+    }
+}

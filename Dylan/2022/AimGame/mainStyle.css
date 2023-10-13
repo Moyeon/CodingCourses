@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+}
+#previewImg{
+    width: 36vw;
+    height: 70vh;
+    border: 1px solid gray;
+    background: url(dreamSpace/background.jpg);
+    background-size: cover;
+}
+#mapList{
+    width: 36vw;
+    height: 70vh;
+    border: 1px solid lightcoral;
+    position: relative;
+    overflow: scroll;
+}
+
+.map{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+    padding: 12px;
+    margin: 12px;
+}
+h3{
+    position: absolute;
+    margin: 0;
+    right: 12px;
+    top: 21px;
+}
+h5{
+    margin: 0;
+    padding: 0;
+}
+h4{
+    margin: 0;
+    padding: 0;
+}

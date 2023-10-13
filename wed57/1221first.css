@@ -1,0 +1,42 @@
+h1 {
+    color: cornflowerblue;
+}
+
+p {
+    font-size: 30px;
+    background-color: lightseagreen;
+}
+
+b{
+    text-decoration: line-through;
+}
+
+.wow{
+    background-color: blue;
+}
+.wow{
+    background-color: gold;
+}
+
+div{
+    width: 200px;
+    height: 200px;
+    background-color: indianred;
+    border: 10px solid black;
+    border-radius: 50%;
+}
+
+.slatte{
+    background-color: red;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+

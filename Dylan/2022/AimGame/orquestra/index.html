@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rythm Game</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body style="background: url(background.jpg); background-size: cover;">
+    <div class="UI">
+        <p id="acc">87.6%</p>
+        <h2 id="score">329102</h2>
+        <p id="combo">14x</p>
+        <p id="life">320</p>
+    </div>
+
+    <div class="endingScreen" id="endingScreen">
+        <h1 id="endingGrade">S</h1>
+        <h2 id="endingScore">329102</h2>
+        <div class="details">
+            <div class="det">
+                <p>ACCURACY</p>
+                <h5 id="endingAcc">90.0%</h5>
+            </div>
+            <div class="det">
+                <p>MAX COMBO</p>
+                <h5 id="endingCombo">123 / 332</h5>
+            </div>
+            <div class="det">
+                <p>MISS</p>
+                <h5 id="endingMiss">34</h5>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen"></div>
+    <div id="screenCover"></div>
+
+    <div id="blackscreen">
+        <button class="btn" onclick="gameStart();">PLAY</button>
+        <div class="mapDetails">
+            <div class="infoCat">
+                <h4>Details</h4>
+                <p>Title </p>
+                <p>Artist </p>
+                <p>Mapped by </p>
+                <p>Star Rating </p>
+            </div>
+            <div class="infoData">
+                <p>Montagem Orquestra Sinfnica</p>
+                <p>DJ TENEBROSO ORIGINAL</p>
+                <p>Ouses_s</p>
+                <p>2.82</p>
+            </div>
+        </div>
+    </div>
+
+    <audio src="./audio.mp3" id="audio"></audio>
+    <script type="text/javascript" src="./orquestra.js"></script>
+    <script type="text/javascript" src="../main.js"></script>
+</body>
+</html>

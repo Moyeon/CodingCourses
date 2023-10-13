@@ -1,0 +1,41 @@
+canvas{
+    border: 1px solid black;
+}
+
+body{
+    position: relative;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.UI{
+    margin-left: 10px;
+}
+
+#gameOver{
+    background-color: black;
+    color: white;
+    position: absolute;
+    text-align: center;
+    width: 200px;
+    height: 300px;
+    left: 60px;
+    top: 150px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+#gameOver h5{
+    font-size: 15px;
+    margin-bottom: 7px;
+    color: rgb(189, 189, 189);
+}
+#gameOver p{
+    font-size: 30px;
+    margin-top: 5px;
+    font-weight: 900;
+}
+button{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    padding: 6px 10px;
+}

@@ -1,0 +1,15 @@
+div{
+    width: 150px;
+    height: 150px;
+    background-color: mediumseagreen;
+    margin: 100px;
+    transition: 0.5s;
+}
+
+.tr:hover{
+    transform: translateX(300px) rotate(45deg);
+}
+
+.rt:hover{
+    transform: rotate(45deg) translateX(300px);
+}

@@ -1,0 +1,95 @@
+body{
+    text-align: center;
+    background-color: rgb(37, 37, 37);
+    color: rgb(233, 233, 233);
+    padding-top: 200px;
+}
+
+.green{
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    margin: 4px;
+}
+.yellow{
+    width: 30px;
+    height: 30px;
+    background-color: gold;
+    margin: 4px;
+}
+.gray{
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    margin: 4px;
+}
+.blocks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nextBtn{
+    visibility: hidden;
+    margin-top: 10px;
+}
+
+#slidePuzzle{
+    width: 390px;
+    height: 520px;
+    position: relative;
+    margin: auto;
+}
+.background1{
+    width: 390px;
+    height: 390px;
+    position: relative;
+    background-color: white;
+}
+.background2{
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    bottom: 0;
+    left: 130px;
+    background-color: white;
+}
+
+.p1{
+    background: url(./images/slide_01.png);
+}
+.p2{
+    background: url(./images/slide_02.png);
+}
+.p3{
+    background: url(./images/slide_03.png);
+}
+.p4{
+    background: url(./images/slide_04.png);
+}
+.p5{
+    background: url(./images/slide_05.png);
+}
+.p6{
+    background: url(./images/slide_06.png);
+}
+.p7{
+    background: url(./images/slide_07.png);
+}
+.p8{
+    background: url(./images/slide_08.png);
+}
+.p9{
+    background: url(./images/slide_09.png);
+}
+.piece{
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid white;
+    box-sizing: border-box;
+    background-size: cover;
+    transition: all ease 0.3s;
+}

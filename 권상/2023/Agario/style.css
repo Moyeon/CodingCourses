@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+canvas{
+    background-color: lightgray;
+}
+#player1{
+    background-color: rgb(214, 242, 214);
+}
+/* 
+@media screen and (max-width: 900px){
+    canvas{
+        width: 100vw;
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 900px){
+    canvas{
+        width: 50vw;
+        height: 100vh;
+    }
+} */

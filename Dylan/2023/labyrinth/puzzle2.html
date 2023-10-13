@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>some puzzles....</p>
+    <h3>Make 5 green blocks</h3>
+    <div class="answerBox">
+        <input type="text" id="answer">
+        <button onclick="submit();">submit</button>
+    </div>
+    <h5>[answer type = 5 letter english]</h5>
+    <div class="blocks" id="blocks"></div>
+    <button id="nextBtn" onclick="nextPuzzle();">Next</button>
+
+    <script>
+        //ANGER
+        const correct = ['A', 'N', 'G', 'E', 'R'];
+        var answer = document.getElementById('answer');
+        var blocks = document.getElementById('blocks');
+
+        function submit(){
+            var a = answer.value;
+
+            if (a.length == 5){
+                var correctCopy = [...correct];
+                a = a.toUpperCase();
+
+                var result = ['gray','gray','gray','gray','gray'];
+
+                var strikes = 0;
+                for(var i = 0; i < 5; i++){
+                    if(correctCopy[i] == a[i]){
+                        strikes += 1;
+                        correctCopy[i] = '';
+                        result[i] = 'green';
+                    }
+                }
+                if(strikes == 5){
+                    var nextBtn = document.getElementById('nextBtn');
+                    nextBtn.style.visibility = 'visible';
+                }
+
+                for(var i = 0; i < 5; i++){
+                    if(result[i] == 'green') continue;
+                    for(var j = 0; j < 5; j++){
+                        if(a[i] == correctCopy[j]){
+                            //ball
+                            correctCopy[j] = '';
+                            result[i] = 'yellow';
+                        }
+                    }
+                }
+                
+                blocks.innerHTML = '';
+                for(var i = 0; i < 5; i++){
+                    var div = document.createElement('div');
+                    div.classList = result[i];
+                    blocks.appendChild(div);
+                }
+            }else{
+                alert('Wrong Answer Type');
+                answer.value = '';
+            }
+        }
+
+        function nextPuzzle(){
+            location.href = './puzzle3.html';
+        }
+        
+
+        answer.addEventListener('keyup', (event)=>{
+            if(event.keyCode == 13){
+                submit();
+            }
+        });
+    </script>
+</body>
+</html>

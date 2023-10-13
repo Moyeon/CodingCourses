@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .calendar{
+            display: grid;
+            grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
+            grid-template-rows: 30px 150px 150px 150px 150px 150px;
+        }
+        .date{
+            border: 1px solid rgb(178, 178, 178);
+            text-align: right;
+            padding: 10px;
+            transition: all ease 0.5s;
+        }
+        .day{
+            text-align: right;
+            padding-right: 10px;
+        }
+        .dark{
+            background-color: rgb(65, 65, 65);
+            color: white;
+        }
+        .c3d{
+            border-right: 8px solid lightgray;
+            border-bottom: 8px solid gray;
+        }
+        .textMove{
+            display: flex;
+            align-items: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="day">SUN</div>
+        <div class="day">MON</div>
+        <div class="day">TUE</div>
+        <div class="day">WED</div>
+        <div class="day">THU</div>
+        <div class="day">FRI</div>
+        <div class="day">SAT</div>
+        <div></div><div></div>
+        <div class="date" id="d1">1</div>
+        <div class="date" id="d2">2</div>
+        <div class="date" id="d3">3</div>
+        <div class="date">4</div>
+        <div class="date">5</div>
+        <div class="date">6</div>
+        <div class="date">7</div>
+        <div class="date">8</div>
+        <div class="date">9</div>
+        <div class="date">10</div>
+        <div class="date">11</div>
+        <div class="date">12</div>
+        <div class="date">13</div>
+        <div class="date">14</div>
+        <div class="date">15</div>
+        <div class="date">16</div>
+        <div class="date">17</div>
+        <div class="date">18</div>
+        <div class="date">19</div>
+        <div class="date">20</div>
+        <div class="date" id="d21">21</div>
+        <div class="date">22</div>
+        <div class="date">23</div>
+        <div class="date">24</div>
+        <div class="date">25</div>
+        <div class="date">26</div>
+        <div class="date">27</div>
+        <div class="date">28</div>
+        <div class="date">29</div>
+        <div class="date">30</div>
+        <div class="date">31</div>
+    </div>
+
+
+
+    <script>
+        var d21 = document.getElementById('d21');
+        d21.addEventListener("click", ()=>{
+            d21.style.backgroundColor = "gray";
+            confirm("Have a nice day!");
+        });
+
+        var d1 = document.getElementById('d1');
+        d1.addEventListener("click", ()=>{
+            d1.classList.add("dark");
+        });
+
+        var d2 = document.getElementById('d2');
+        d2.addEventListener("click", ()=>{
+            if(d2.classList.contains("c3d")){
+                d2.classList.remove("c3d");
+            }else{
+                d2.classList.add("c3d");
+            }
+        });
+
+        var d3 = document.getElementById('d3');
+        d3.addEventListener("click", ()=>{
+            if(d3.classList.contains("textMove")){
+                d3.classList.remove("textMove");
+            }else{
+                d3.classList.add("textMove");
+            }
+        });
+    </script>
+</body>
+</html>

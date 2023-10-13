@@ -1,0 +1,1224 @@
+@charset "UTF-8";
+/* 디카페인 - 전현진 */
+
+/* 표 테이블 */
+.basic-tbl {
+	position: relative;
+}
+
+.basic-tbl th,
+.basic-tbl td {
+	padding: 5px 10px;
+	border:1px solid #dcdddd;
+	text-align: center;
+	font-size: 12px;
+}
+
+.basic-tbl th {
+	background-color: #f7f8f8;
+	color: #212121;
+	font-family: 'IBMPlexSansKR-Medium';
+}
+
+.basic-tbl .nopadding {
+	padding: 0 !important;
+}
+
+.basic-tbl .lightbluebg th {
+	background-color: #eaf6fd;
+}
+
+@media screen and (min-width:767px) {
+	.basic-tbl th,
+	.basic-tbl td {
+		padding: 10px;
+	}
+
+	.basic-tbl.write-tbl th,
+	.basic-tbl.write-tbl td {
+		padding: 5px 10px;
+	}
+}
+
+@media screen and (min-width:1440px) {
+	.basic-tbl th,
+	.basic-tbl td {
+		font-size: 14px;
+	}
+}
+
+
+/* 안내 > 생활관 현황 */
+#liferoom #liferoomMap .mapimg {
+	position: relative;
+	font-size: 0;
+}
+
+#liferoom #liferoomMap .mapimg img {
+	width: 100%;
+}
+
+#liferoom #liferoomMap .mapimg span {
+	position: absolute;
+	display: inline-block;
+	padding: 0.5vw;
+	background-color: #666;
+	color: #fff;
+	font-size: 2.5vw;
+	border-radius: 0.5vw;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox01 { /* 문지관 */
+	top: 0;
+	left: 2%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox02 { /* 화암관 */
+	top: 1%;
+	left: 30%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox03 { /* W3 */
+	top: 57%;
+	left: 24%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox04 { /* W4-1 */
+	top: 80%;
+	left: 5%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox05 { /* W4-2 */
+	top: 80%;
+	left: 13%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox06 { /* W4-3 */
+	top: 60%;
+	left: 5%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox07 { /* W4-4 */
+	top: 60%;
+	left: 13%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox08 { /* W5 */
+	top: 45%;
+	left: 1%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox09 { /* W6 */
+	top: 34%;
+	left: 6%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox10 { /* W7 */
+	top: 23%;
+	left: 12%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox11 { /* N14 */
+	top: 24%;
+	left: 51%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox12 { /* N16 */
+	top: 24%;
+	left: 44%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox13 { /* N17 */
+	top: 22%;
+	left: 58%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox14 { /* N18 */
+	top: 20%;
+	left: 70%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox15 { /* N19 */
+	top: 20%;
+	left: 36%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox16 { /* N20 */
+	top: 9%;
+	left: 68%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox17 { /* N21 */
+	top: 1%;
+	left: 50%;
+}
+
+#liferoom #liferoomMap .mapimg span.lrbox18 { /* E8 */
+	top: 22%;
+	left: 88%;
+}
+
+#liferoom #liferoomMap .mapchoice {
+	margin-top: 20px;
+}
+
+#liferoom #liferoomMap .mapchoice ul li {
+	margin-right: 15px;
+}
+
+#liferoom #liferoomMap .liferoom-list {
+	padding: 10px;
+	margin-top: 10px;
+	background-color: #f7f8f8;
+}
+
+#liferoom #liferoomMap .liferoom-list ul li {
+	width: 50%;
+	font-size: 0;
+	color: #212121;
+}
+
+#liferoom #liferoomMap .liferoom-list ul li em {
+	display: inline-block;
+	width: 75px;
+	margin-right: 10px;
+	text-align: right;
+	font-size: 12px;
+}
+
+#liferoom #liferoomMap .liferoom-list ul li span {
+	display: inline-block;
+	font-size: 12px;
+	font-family: 'IBMPlexSansKR-Medium';
+}
+
+#liferoom #liferoomMap .liferoom-list ul li.on {
+	color: #ea5504;
+	font-family: 'IBMPlexSansKR-Bold';
+}
+
+#liferoom #liferoomMap .liferoom-list ul li.on span {
+	font-family: 'IBMPlexSansKR-Bold';
+}
+
+#liferoom #liferoomInfo .tabmnu {
+	border: 2px solid #4f86c6;
+}
+
+#liferoom #liferoomInfo .tabmnu ul.unit_tab li {
+	width: 33.3333%;
+	border-right: 1px solid rgba(0,0,0,0.15);
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+#liferoom #liferoomInfo .tabmnu ul.unit_tab li:nth-child(3n) {
+	border-right: none;
+}
+
+#liferoom #liferoomInfo .tabmnu ul.unit_tab li a {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 12px;
+}
+
+#liferoom #liferoomInfo .tabmnu ul.unit_tab li a.current {
+	background-color: #ea5504;
+	color: #fff;
+	font-family: 'IBMPlexSansKR-Bold';
+}
+
+#liferoom #liferoomInfo .tab_unit_wrap {
+	margin-top: 10px;
+}
+
+#liferoom #liferoomInfo .tab_unit_wrap .tab_unit {
+	position: relative;
+}
+
+#liferoom #liferoomInfo .tab_unit_wrap .tab_unit .liferoom-pic img {
+	width: 100%;
+}
+
+#liferoom #liferoomInfo .tab_unit_wrap .tab_unit .liferoom-pic .pic {
+	font-size: 0;
+}
+
+#liferoom #liferoomInfo .tab_unit_wrap .tab_unit .liferoom-pic ul {
+	margin-top: 1%;
+}
+
+#liferoom #liferoomInfo .tab_unit_wrap .tab_unit .liferoom-pic ul li {
+	width: 24.25%;
+	margin-left: 1%;
+}
+
+#liferoom #liferoomInfo .tab_unit_wrap .tab_unit .liferoom-pic ul li:first-child {
+	margin-left: 0;
+}
+
+#liferoom #liferoomInfo .tab_unit_wrap .tab_unit .liferoom-info {
+	margin-top: 10px;
+}
+
+#liferoom .liferoom-info dl {
+	display: table;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+#liferoom .liferoom-info dl:last-child {
+	margin-bottom: 0;
+}
+
+#liferoom .liferoom-info dl dt {
+	display: table-cell;
+	width: 70px;
+	vertical-align: top;
+	font-weight: normal;
+}
+
+#liferoom .liferoom-info dl dd {
+	display: table-cell;
+	vertical-align: top;
+}
+
+#liferoom #liferoomEtc {
+	padding-top: 20px;
+	margin-top: 20px;
+	border-top: 1px solid #4f86c6;
+}
+
+@media screen and (min-width:767px) {
+	#liferoom #liferoomMap .mapimg span {
+		padding: 3px 5px;
+		font-size: 12px;
+		border-radius: 4px;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox01 { /* 문지관 */
+		top: 0;
+		left: 4%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox02 { /* 화암관 */
+		top: 1%;
+		left: 28%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox03 { /* W3 */
+		top: 57%;
+		left: 24%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox04 { /* W4-1 */
+		top: 80%;
+		left: 5%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox05 { /* W4-2 */
+		top: 80%;
+		left: 11%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox06 { /* W4-3 */
+		top: 60%;
+		left: 5%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox07 { /* W4-4 */
+		top: 60%;
+		left: 11%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox08 { /* W5 */
+		top: 43%;
+		left: 1%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox09 { /* W6 */
+		top: 32%;
+		left: 6%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox10 { /* W7 */
+		top: 21%;
+		left: 12%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox11 { /* N14 */
+		top: 24%;
+		left: 51%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox12 { /* N16 */
+		top: 24%;
+		left: 44%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox13 { /* N17 */
+		top: 22%;
+		left: 58%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox14 { /* N18 */
+		top: 16%;
+		left: 70%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox15 { /* N19 */
+		top: 20%;
+		left: 36%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox16 { /* N20 */
+		top: 7%;
+		left: 68%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox17 { /* N21 */
+		top: 1%;
+		left: 54%;
+	}
+
+	#liferoom #liferoomMap .mapimg span.lrbox18 { /* E8 */
+		top: 25%;
+		left: 88%;
+	}
+
+	#liferoom #liferoomMap .liferoom-list {
+		padding: 20px;
+		margin-top: 10px;
+	}
+
+	#liferoom #liferoomMap .liferoom-list ul li {
+		width: 25%;
+	}
+
+	#liferoom #liferoomMap .liferoom-list ul li em,
+	#liferoom #liferoomMap .liferoom-list ul li span {
+		font-size: 14px;
+	}
+
+	#liferoom #liferoomInfo .tabmnu ul.unit_tab li {
+		width: 20%;
+		border-right: 1px solid rgba(0,0,0,0.15);
+		border-bottom: 1px solid rgba(0,0,0,0.15);
+	}
+
+	#liferoom #liferoomInfo .tabmnu ul.unit_tab li:nth-child(3n) {
+		border-right: 1px solid rgba(0,0,0,0.15);
+	}
+
+	#liferoom #liferoomInfo .tabmnu ul.unit_tab li:nth-child(5n) {
+		border-right: none;
+	}
+
+	#liferoom #liferoomInfo .tabmnu ul.unit_tab li a {
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px;
+	}
+
+	#liferoom #liferoomInfo .tab_unit_wrap {
+		margin-top: 30px;
+	}
+
+	#liferoom #liferoomInfo .tab_unit_wrap .tab_unit .liferoom-pic {
+		float: left;
+		width: 49%;
+	}
+
+	#liferoom #liferoomInfo .tab_unit_wrap .tab_unit .liferoom-info {
+		float: right;
+		width: 49%;
+		margin-top: 0;
+	}
+
+	#liferoom #liferoomEtc ul li {
+		padding-bottom: 5px;
+	}
+}
+
+@media screen and (min-width:1440px) {
+	#liferoom #liferoomMap .liferoom-list {
+		margin-top: 20px;
+	}
+
+	#liferoom #liferoomMap .liferoom-list ul li {
+		padding: 5px 0;
+	}
+}
+
+/* 생활관 운영규정 및 벌점제 */
+#liferoom .liferoom-apply .guidebox {
+	padding: 10px;
+	background-color: #f7f8f8;
+	border-radius: 5px;
+	font-size: 12px;
+}
+
+@media screen and (min-width:767px) {
+	#liferoom .liferoom-apply .guidebox {
+		padding: 20px;
+		font-size: 14px;
+	}
+}
+
+@media screen and (min-width:1240px) {
+	#liferoom .liferoom-apply .guidebox {
+		height: 650px;
+	}
+}
+
+
+/* 생활관 배정절차 */
+#liferoom .prioritize .step-dl {
+	margin: 15px 0;
+}
+
+#liferoom .prioritize .step-dl dl {
+	position: relative;
+	margin-top: 10px;
+}
+
+#liferoom .prioritize .step-dl dl:first-child {
+	margin-top: 0px;
+}
+
+#liferoom .prioritize .step-dl dl dt {
+	padding-left: 40px;
+	margin-bottom: 5px;
+}
+
+#liferoom .prioritize .step-dl dl dt em {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #0b3190;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+}
+
+#liferoom .prioritize .step-dl dl dd {
+	padding-left: 40px;
+}
+
+@media screen and (min-width:767px) {
+	#liferoom .prioritize .step-dl {
+		margin: 20px 0;
+	}
+
+	#liferoom .prioritize .step-dl dl {
+		display: table;
+		width: 100%;
+		margin-top:20px;
+	}
+
+	#liferoom .prioritize .step-dl dl:first-child {
+		margin-top: 0px;
+	}
+
+	#liferoom .prioritize .step-dl dl dt {
+		display: table-cell;
+		width: 80px;
+		padding-left: 40px;
+		margin-bottom: 0px;
+		font-family: 'IBMPlexSansKR-Bold';
+		font-weight: normal;
+	}
+
+	#liferoom .prioritize .step-dl dl dt em {
+		top: 50%;
+		margin-top: -15px;
+	}
+
+	#liferoom .prioritize .step-dl dl dd {
+		display: table-cell;
+		padding-left: 10px;
+		font-family: 'IBMPlexSansKR-Medium';
+	}
+}
+
+
+/* 연락처 */
+#liferoom #liferoomPhone ul li {
+	width: 49%;
+	padding: 10px 0;
+	margin-left: 2%;
+	margin-bottom: 2%;
+	border: 1px solid #3c5aa6;
+	border-radius: 5px;
+	text-align: center;
+	height: 120px;
+}
+
+#liferoom #liferoomPhone ul li:nth-child(2n+1) {
+	margin-left: 0;
+}
+
+#liferoom #liferoomPhone ul li em {
+	display: block;
+	color: #004193;
+	font-size: 20px;
+}
+
+#liferoom #liferoomPhone ul li span {
+	display: block;
+	margin-top: 5px;
+	font-family: 'IBMPlexSansKR-Medium';
+}
+
+@media screen and (min-width:767px) {
+	#liferoom #liferoomPhone ul li {
+		width: 19.2%;
+		margin-left: 1%;
+		margin-bottom: 1%;
+	}
+
+	#liferoom #liferoomPhone ul li:nth-child(2n+1) {
+		margin-left: 1%;
+	}
+
+	#liferoom #liferoomPhone ul li:nth-child(5n+1) {
+		margin-left: 0;
+	}
+}
+
+
+/* 기혼자 아파트 안내 */
+#liferoom #aptInfo .apt-info-box {
+	padding: 10px;
+	margin-top: 10px;
+	background-color: #efefef;
+	border-radius: 10px;
+}
+
+@media screen and (min-width:767px) {
+	#liferoom #aptInfo .apt-info-box {
+		padding: 20px;
+		margin-top: 20px;
+	}
+}
+
+
+/* 생활관 입퇴사 */
+#checkoutList .info-ulbox ul li dl dt {
+	width: 110px;
+	text-align: right;
+}
+
+#checkoutList .content-sortation dl {
+	margin-top: 10px;
+}
+
+#checkoutList .content-sortation dl:first-child {
+	margin-top: 0px;
+}
+
+#checkoutList .content-sortation dl dt {
+	margin-bottom: 5px;
+}
+
+#checkoutList .agreecheck {
+	margin-top: 20px;
+}
+
+#checkoutList .check-btn {
+	margin-top: 30px;
+	text-align: center;
+}
+
+@media screen and (min-width:767px) {
+	#checkoutList .content-sortation dl {
+		display: table;
+		width: 100%;
+	}
+
+	#checkoutList .content-sortation dl dt {
+		display: table-cell;
+		width: 50%;
+		font-size: 16px;
+	}
+
+	#checkoutList .content-sortation dl dd {
+		display: table-cell;
+		text-align: right;
+	}
+}
+
+
+/* 생활관 신청 */
+.docu-submission {
+	position: relative;
+}
+
+.docu-submission .custom-file-box {
+	margin-top: 10px;
+}
+
+#dormitoryApplication .btnarea {
+	margin-top: 20px;
+	text-align: center;
+}
+
+#dormitoryApplication .health-guide .guidebox {
+	padding: 10px;
+	background-color: #f7f8f8;
+	border-radius: 5px;
+	font-size: 12px;
+}
+
+#dormitoryApplication .health-guide .guidebox h4 {
+	margin-bottom: 10px;
+	font-size: 14px;
+	color: #212121;
+}
+
+@media screen and (min-width:767px) {
+	.docu-submission .custom-file-box {
+		/** njh 수정  { */
+		/*
+		position: absolute;
+		bottom: -3px;
+		*/
+		float:right;
+		/* } njh 수정 */
+		right: 0;
+		margin-top: 0;
+	}
+
+	#dormitoryApplication .health-guide .guidebox {
+		padding: 20px;
+		font-size: 14px;
+	}
+
+	#dormitoryApplication .health-guide .guidebox h4 {
+		margin-bottom: 20px;
+		font-size: 16px;
+	}
+}
+
+@media screen and (min-width:1240px) {
+	#dormitoryApplication .health-guide .guidebox {
+		height: 835px;
+	}
+}
+
+@media screen and (min-width:1440px) {
+	#dormitoryApplication .content-division:before {
+		display: none;
+	}
+
+	#dormitoryApplication .content-division .cd-left {
+		padding-right: 10px;
+	}
+
+	#dormitoryApplication .content-division .cd-right {
+		padding-left: 10px;
+	}
+
+	#dormitoryApplication .health-guide .guidebox {
+		height: 845px;
+	}
+}
+
+@media screen and (min-width:1680px) {
+	#dormitoryApplication .content-division .cd-left {
+		padding-right: 20px;
+	}
+
+	#dormitoryApplication .content-division .cd-right {
+		padding-left: 20px;
+	}
+}
+
+/* 생활관 신청 안내 및 동의 */
+#dormitoryApply .dormitory-apply-guide .guidebox {
+	height: 200px;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #f7f8f8;
+	border-radius: 5px;
+	font-size: 12px;
+}
+
+#dormitoryApply .essential-apply dl {
+	position: relative;
+	display: table;
+	width: 100%;
+	margin-bottom: 10px;
+	background-color: #f7f8f8;
+	border-radius: 5px;
+}
+
+#dormitoryApply .essential-apply dl dt {
+	display: table-cell;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#dormitoryApply .essential-apply dl dd {
+	display: table-cell;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	border-left: 1px solid rgba(0,0,0,0.1);
+	font-weight: 700;
+	vertical-align: middle;
+}
+
+#dormitoryApply .essential-apply dl dd a {
+	display: block;
+}
+
+#dormitoryApply .essential-apply dl dd .arrow {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	font-size: 18px;
+}
+
+#dormitoryApply .check-btn {
+	margin-top: 20px;
+	font-size: 0;
+	text-align: center;
+}
+
+#dormitoryApply .check-btn .submitBtns {
+	display: block;
+	margin-top: 5px;
+}
+
+#dormitoryApply .check-btn .submitBtns:first-child {
+	margin-top: 0px;
+}
+
+#dormitoryApply .check-btn.onlyone .submitBtns {
+	display: inline-block;
+	margin-top: 0;
+	margin: 4px !important;
+}
+
+#dormitoryApply .check-btn div.over-mnu-open {
+	position: relative;
+}
+
+#dormitoryApply .check-btn div.over-mnu-open ul {
+	display: none;
+	position: absolute;
+	top: 49px;
+	left: 10px;
+	right: 10px;
+	background-color: rgba(255,255,255,1);
+	z-index: 1000;
+	-moz-box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+}
+
+#dormitoryApply .check-btn div.over-mnu-open ul li {
+	border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#dormitoryApply .check-btn div.over-mnu-open ul li a {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-family: 'IBMPlexSansKR-Medium';
+	font-size: 14px;
+	color: #333;
+}
+
+#dormitoryApply .check-btn div.over-mnu-open:hover ul {
+	display: block;
+}
+
+#dormitoryApply .check-btn div.over-mnu-open ul li a:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+#dormitoryApply .check-btn a {
+	display: block;
+	margin-top: 5px;
+}
+
+#dormitoryApply .check-btn a:first-child {
+	margin-top: 0px;
+}
+
+#dormitoryApply .check-btn.onlyone a {
+	display: inline-block;
+	margin-top: 0;
+	margin: 4px !important;
+}
+
+#dormitoryApply #memberInfo .info-ulbox > ul > li {
+	padding: 5px 0;
+}
+
+#dormitoryApply #memberInfo .info-ulbox > ul > li dl dt {
+	width: 90px;
+	text-align: right;
+}
+
+#dormitoryApply #memberInfo.type2 .info-ulbox > ul > li dl dt {
+	width: 100px;
+}
+
+#dormitoryApply #memberInfo.type3 .info-ulbox > ul > li dl dt {
+	width: 110px;
+}
+
+#dormitoryApply #memberInfo .info-ulbox > ul > li .reasonlist li {
+	width: 100%;
+}
+
+@media screen and (min-width:767px) {
+	#dormitoryApply .dormitory-apply-guide .guidebox {
+		padding: 20px;
+		font-size: 14px;
+	}
+
+	#dormitoryApply .check-btn .submitBtns {
+		display: inline-block;
+		margin-top: 0;
+		margin: 4px !important;
+	}
+
+	#dormitoryApply .check-btn a {
+		display: inline-block;
+		margin-top: 0;
+		margin: 4px !important;
+	}
+
+	#dormitoryApply #memberInfo.type2 .info-ulbox > ul > li dl dt {
+		width: 140px;
+	}
+
+	.calcbox .basic-tbl:after {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		bottom: 0;
+		width: 1px;
+		margin-left: -1px;
+		background-color: #f5af89;
+		content: '';
+	}
+}
+
+@media screen and (min-width:1240px) {
+	#dormitoryApply .dormitory-apply-guide .guidebox {
+		height: 245px;
+		padding: 20px;
+	}
+
+	#dormitoryApply .essential-apply dl {
+		/* 21.07.23 수정 */
+		/* margin-bottom: 20px; */
+		margin-bottom: 10px;
+	}
+
+	#dormitoryApply .essential-apply dl:last-child {
+		margin-bottom: 0px;
+	}
+
+	#dormitoryApply .essential-apply dl dt {
+		width: 60px;
+		/* 21.07.23 수정 */
+		/* height: 60px;
+		line-height: 60px; */
+		height: 55px;
+		line-height: 55px;
+	}
+
+	#dormitoryApply .essential-apply dl dd {
+		/* 21.07.23 수정 */
+		/* height: 60px;
+		line-height: 60px; */
+		height: 55px;
+		line-height: 55px;
+	}
+
+	#dormitoryApply .check-btn {
+		margin-top: 30px;
+	}
+
+	#dormitoryApply #memberInfo .info-ulbox > ul > li {
+		padding: 10px 0;
+	}
+
+	#dormitoryApply #memberInfo .info-ulbox > ul > li .reasonlist li {
+		width: 50%;
+	}
+}
+
+/* 기혼자 아파트 신청 안내 및 동의 */
+#dormitoryApply .married-apply .guidebox {
+	padding: 10px;
+	/* background-color: #f7f8f8; */
+	border-radius: 5px;
+	font-size: 12px;
+}
+
+@media screen and (min-width:767px) {
+	#dormitoryApply .married-apply .guidebox {
+		padding: 20px;
+		font-size: 14px;
+	}
+}
+
+@media screen and (min-width:1240px) {
+	#dormitoryApply .married-apply .guidebox {
+		/* height: 300px; */
+		height: 403px;
+	}
+}
+
+#dormitoryApply .married-info dl {
+	display: table;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+#dormitoryApply .married-info dl:last-child {
+	margin-bottom: 0;
+}
+
+#dormitoryApply .married-info dl dt {
+	display: table-cell;
+	width: 70px;
+	vertical-align: top;
+	font-weight: normal;
+}
+#dormitoryApply .married-info dl dt.en {
+	display: table-cell;
+	width: 173px;
+	vertical-align: top;
+	font-weight: normal;
+}
+
+#dormitoryApply .married-info dl dd {
+	display: table-cell;
+	vertical-align: top;
+}
+
+#dormitoryApply .married-pledge .guidebox {
+	padding: 10px;
+	background-color: #f7f8f8;
+	border-radius: 5px;
+	font-size: 12px;
+}
+
+@media screen and (min-width:767px) {
+	#dormitoryApply .married-pledge .guidebox {
+		padding: 20px;
+		font-size: 14px;
+	}
+}
+
+/* 21.07.23 추가 { */
+.custom-file-box-label-md, .custom-file-box-label-lg {
+	font-family:'IBMPlexSansKR-Medium';
+	/* font-size:12px; */
+}
+.custom-file-box-label-lg {
+	margin-left:5px;
+	font-size:12px;
+	height:30px;
+	align-items: center;
+	display: flex;
+}
+@media screen and (min-width:1240px) {
+	.custom-file-box-label-md {
+		display:none;
+	}
+	.married-file-div {
+		display:flex;
+	}
+}
+@media screen and (max-width:1240px) {
+	.custom-file-box-label-lg {
+		display:none;
+	}
+	.married-aply-tbl {
+		width:100% !important;
+	}
+}
+/* } 21.07.23 추가 */
+
+@media screen and (min-width:1240px) {
+	#dormitoryApply .married-pledge .guidebox {
+		/* height: 300px; */
+		height: 467px;
+	}
+}
+#dormitoryApply .married-pledge .agreecheck {
+	margin-top: 20px;
+}
+
+/* MY DORM */
+#myDorm .roundborder.content-sortation {
+	margin-top: 20px;
+}
+
+#myDorm .info-ulbox > ul > li dl dt {
+	width: 120px;
+	text-align: right;
+}
+
+#myDorm .btnarea {
+	margin-top: 30px;
+	text-align: center;
+}
+
+#myDorm .btnarea a:hover {
+	cursor: pointer;
+	opacity: 0.9;
+}
+
+@media screen and (min-width:1240px) {
+	#myDorm .content-division:before {
+		display: none;
+	}
+
+	#myDorm .content-division .cd-left {
+		padding-right: 10px;
+	}
+
+	#myDorm .content-division .cd-right {
+		padding-left: 10px;
+	}
+
+	#myDorm .aply-list tr:not(.selected):hover {
+		background-color: #f7f7f7;
+		cursor: pointer;
+	}
+
+	#myDorm .board-list tr:not(.selected):hover {
+		background-color: #f7f7f7;
+	}
+
+	#myDorm .board-list td a:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+}
+
+
+/* 게시판 */
+#boardBox .board-list .board-list-tbl .no {
+	width: 50px;
+}
+
+#boardBox .board-list .board-list-tbl .subject {
+}
+
+#boardBox .board-list .board-list-tbl .view,
+#boardBox .board-list .board-list-tbl .writer,
+#boardBox .board-list .board-list-tbl .de,
+#boardBox .board-list .board-list-tbl .file,
+#boardBox .board-list .board-list-tbl .date,
+#boardBox .board-list .board-list-tbl .state {
+	display: none;
+}
+
+#boardBox .board-list .board-list-tbl .file-date-state {
+	margin-top: 5px;
+}
+
+#boardBox .board-list .board-list-tbl .file-date-state ul li {
+	margin-left: 10px;
+}
+
+#boardBox .board-list .board-list-tbl .file-date-state ul li:first-child {
+	margin-left: 0;
+}
+
+#boardBox .board-write .board-write-tbl .write-th {
+	width: 80px;
+}
+
+#boardBox .check-btn {
+	margin-top: 30px;
+}
+
+@media screen and (min-width:767px) {
+	#boardBox .board-list .board-list-tbl th,
+	#boardBox .board-list .board-list-tbl td,
+	#boardBox .board-write .board-write-tbl th,
+	#boardBox .board-write .board-write-tbl td {
+		font-size: 14px;
+	}
+
+	#boardBox .board-list .board-list-tbl .no {
+		width: 80px;
+	}
+
+	#boardBox .board-write .board-write-tbl .write-th {
+		width: 120px;
+	}
+}
+
+@media screen and (min-width:1240px) {
+	#boardBox .board-list .board-list-tbl .view,
+	#boardBox .board-list .board-list-tbl .writer,
+	#boardBox .board-list .board-list-tbl .de,
+	#boardBox .board-list .board-list-tbl .file,
+	#boardBox .board-list .board-list-tbl .date,
+	#boardBox .board-list .board-list-tbl .state {
+		display: table-cell;
+		width: 100px;
+	}
+
+	#boardBox .board-list .board-list-tbl .writer {
+		width: 150px;
+	}
+
+	#boardBox .board-list .board-list-tbl .state {
+		width: 140px;
+	}
+
+	#boardBox .board-list .board-list-tbl .state {
+		width: 100px;
+	}
+
+	#boardBox .board-list .board-list-tbl .de {
+		width: 300px;
+	}
+
+	#boardBox .board-list .board-list-tbl .view-writer-de,
+	#boardBox .board-list .board-list-tbl .file-date-state {
+		display: none;
+	}
+
+	#boardBox .board-list .board-list-tbl tbody tr:hover td {
+		background-color: #f7f7f7;
+	}
+
+	#boardBox .board-list .board-list-tbl tbody tr td.subject a:hover {
+		text-decoration: underline;
+	}
+
+	#boardBox .board-write .board-write-tbl .write-th {
+		width: 200px;
+		padding: 15px 20px;
+	}
+
+	#boardBox .board-write .board-write-tbl td {
+		padding: 15px 20px;
+	}
+}

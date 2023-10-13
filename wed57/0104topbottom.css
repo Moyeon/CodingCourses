@@ -1,0 +1,25 @@
+.colorful{
+    width: 100px;
+    height: 100px;
+    margin: 100px;
+    border: 10px solid crimson;
+    border-left: 30px solid gold;
+    border-right: 5px solid black;
+}
+
+.second{
+    width: 0;
+    height: 0;
+    border: 50px solid gray;
+    border-top: 80px solid blueviolet;
+    border-bottom: 50px solid transparent;
+    border-right: 50px solid olive;
+}
+
+.triange{
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid orange;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+}

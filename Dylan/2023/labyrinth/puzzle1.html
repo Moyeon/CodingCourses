@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>some puzzles....</p>
+    <h3>SEND + MORE = MONEY</h3>
+    <h3>MESSY = ?</h3>
+    <div class="answerBox">
+        <input type="text" id="answer">
+        <button onclick="submit();">submit</button>
+    </div>
+
+    <script>
+        //15992
+        var answer = document.getElementById('answer');
+
+        function submit(){
+            var a = answer.value;
+            if (a == 15992){
+                location.href = './puzzle2.html';
+            }else{
+                alert('Wrong Answer');
+                answer.value = '';
+            }
+        }
+
+        answer.addEventListener('keyup', (event)=>{
+            if(event.keyCode == 13){
+                submit();
+            }
+        });
+    </script>
+</body>
+</html>
