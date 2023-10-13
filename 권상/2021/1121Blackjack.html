@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            margin: 20px;
+            align-items: center;
+        }
+        .card{
+            width: 100px;
+            height: 140px;
+            background-color: ghostwhite;
+            border: 1px solid black;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border-radius: 5px;
+            transform: perspective(100px) rotateY(180deg);
+            transition: all ease 2s;
+            backface-visibility: hidden;
+        }
+        .text{
+            width: 100px;
+            font-size: 25px;
+        }
+        button{
+            font-size: 25px;
+            padding: 20px;
+            margin: 20px;
+            background-color: lightskyblue;
+            border: none;
+            border-radius: 5px;
+        }
+        button:active{
+            filter: brightness(90%);
+        }
+        button:nth-of-type(2){
+            background-color: lightpink;
+        }
+
+        .open{
+            transform: perspective(100px) rotateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="AI">
+        <div class="text">AI</div>
+    </div>
+    <div class="box" id="Player">
+        <div class="text">Player</div>
+    </div>
+    <button onclick="stop();">Stop</button>
+    <button onclick="hit();">Hit</button>
+    <button onclick="start();">Start</button>
+
+    <script>
+        var AInums = [];
+        var Playernums = [];
+        var AIcards = [];
+        var Playercards = [];
+        var AIbox = document.getElementById("AI");
+        var Playerbox = document.getElementById("Player");
+        var isPlaying = false;
+
+        var openIdx = -1;
+
+        function randomCardEach(){
+            var num = Math.floor( Math.random() * 10 ) + 1;
+            AInums.push(num);
+            var num2 = Math.floor( Math.random() * 10 ) + 1;
+            Playernums.push(num2);
+            
+            var card = document.createElement("div");
+            card.classList = "card";
+            card.innerHTML = num;
+            AIbox.appendChild(card);
+            AIcards.push(card);
+
+            var card2 = document.createElement("div");
+            card2.classList = "card";
+            card2.innerHTML = num2;
+            Playerbox.appendChild(card2);
+            Playercards.push(card2);
+        }
+
+        function cardOpen(isPlayer, cardIdx){
+            if(isPlayer){ //open the player's card
+                console.log("Player card opened: " + cardIdx);
+                Playercards[cardIdx].classList.add("open");
+                openIdx++;
+            }else{ //open the AI's card
+                console.log("AI card opened: " + cardIdx);
+                AIcards[cardIdx].classList.add("open");
+            }
+        }
+
+        function startSetting(){
+            cardOpen(true, 0);
+            cardOpen(false, 0);
+            cardOpen(true, 1);
+        }
+
+        function start(){
+            if(isPlaying == false){
+                //초기화
+                AInums = [];
+                Playernums = [];
+                openIdx = -1;
+                AIcards = [];
+                Playercards = [];
+                AIbox.innerHTML = '<div class="text">AI</div>';
+                Playerbox.innerHTML = '<div class="text">Player</div>';
+
+                isPlaying = true;
+                randomCardEach();
+                randomCardEach();
+                randomCardEach();
+                setTimeout(startSetting, 100);
+            }
+        }
+
+        function hit(){
+            cardOpen(false, openIdx);
+            cardOpen(true, openIdx + 1);
+            randomCardEach();
+            //if my score is higher than 21, I lose.
+            var myScore = 0;
+            for(var i=0; i<=openIdx; i++){
+                myScore += Playernums[i];
+            }
+            var AIScore = 0;
+            for(var i=0; i<=openIdx-1; i++){
+                AIScore += AInums[i];
+            }
+
+            if(myScore > 21){
+                setTimeout(lose, 1000);
+            }else if(AIScore > 21){
+                setTimeout(win, 1000);
+            }
+        }
+
+        function stop(){
+            var myScore = 0;
+            for(var i=0; i<=openIdx; i++){
+                myScore += Playernums[i];
+            }
+            var AIScore = 0;
+            for(var i=0; i<=openIdx-1; i++){
+                AIScore += AInums[i];
+            }
+
+            //if my score is higher than AI, AI opens one more card
+            function AIOpen(){
+                if (myScore > AIScore){
+                    cardOpen(false, openIdx);
+                    AIScore += AInums[openIdx];
+                    openIdx++;
+                    randomCardEach();
+                    setTimeout(AIOpen, 1000);
+                }
+                else{
+                    //determine if I lose or win.
+                    if(myScore > AIScore || AIScore > 21){
+                        setTimeout(win, 1000);
+                    }else{
+                        setTimeout(lose, 1000);
+                    }
+                }
+            }
+
+            AIOpen();
+
+            
+        }
+
+
+        function lose(){
+            alert("You lose!");
+            isPlaying = false;
+        }
+        function win(){
+            alert("You win!");
+            isPlaying = false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analogue Clock</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .clock{
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(https://i.pinimg.com/564x/28/a0/64/28a064b5ae2f113ce8fc2b889108c99f.jpg);
+            background-size: cover;
+        }
+        .hours, .minutes, .seconds{
+            position: absolute;
+        }
+        .hours, .hourPin{
+            width: 150px;
+            height: 150px;
+        }
+        .minutes, .minPin{
+            width: 180px;
+            height: 180px;
+        }
+        .seconds, .secPin{
+            width: 230px;
+            height: 230px;
+        }
+        .hourPin, .minPin, .secPin{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: absolute;
+        }
+        .hourPin:before {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 75px;
+            background-color: black;
+            z-index: 30;
+        }
+        .minPin:before{
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 90px;
+            background-color: black;
+            z-index: 20;
+        }
+        .secPin:before{
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 130px;
+            background-color: red;
+            z-index: 10;
+        }
+        .clock:before{
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red;
+            z-index: 40;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hours">
+            <div class="hourPin" id="hourPin"></div>
+        </div>
+        <div class="minutes">
+            <div class="minPin" id="minPin"></div>
+        </div>
+        <div class="seconds">
+            <div class="secPin" id="secPin"></div>
+        </div>
+    </div>
+
+    <script>
+        const hP = document.getElementById("hourPin");
+        const mP = document.getElementById("minPin");
+        const sP = document.getElementById("secPin");
+
+        function getTime(){
+            var time = new Date();
+            var sec = time.getSeconds();
+            var min = time.getMinutes();
+            var hour = time.getHours();
+            
+            hP.style.transform = 'rotateZ(' + (hour * 30 + min/2 ) + "deg)";
+            mP.style.transform = 'rotateZ(' + min * 6 + "deg)";
+            sP.style.transform = 'rotateZ(' + sec * 6 + "deg)";
+        }
+
+        setInterval(getTime, 100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move the box</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            border: 10px solid black;
+            position: absolute;
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="canvasBox">
+        <canvas id="ball" width="400" height="600"></canvas>
+        <canvas id="wall"></canvas>
+    </div>
+
+
+    <script>
+        var wall = document.getElementById("wall");
+        var ctx = wall.getContext("2d");
+        wall.width = 700;
+        wall.height = 950;
+
+        ctx.fillRect(200, 0, 10, 300);
+        ctx.fillRect(0, 500, 400, 10);
+        ctx.fillRect(400, 200, 10, 310);
+        ctx.fillRect(150, 700, 600, 10);
+        ctx.fillRect(400, 200, 100, 10);
+        ctx.fillRect(150, 700, 10, 100);
+
+        ctx.fillRect(500,800, 100,100); 
+
+
+        var canvas = document.getElementById("ball");
+        var ctx = canvas.getContext("2d");
+
+        canvas.width = 700;
+        canvas.height = 950;
+
+
+        function dropBall(){
+
+            function drawBall(x, y){
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.arc(x, y, 50, 0, Math.PI *2, true);
+
+                ctx.lineWidth = 5;
+                ctx.strokeStyle = 'black'; // 상관없는 부분 :)
+                ctx.stroke();
+
+            }
+
+            var x = 100;
+            var y = 100;
+            /*
+            setInterval(function (){
+                drawBall(x,y);
+                x += 2;
+            }, 100)
+            */
+            
+            function up(){
+                y -= 2;
+                drawBall(x,y);
+            }
+            function down(){
+                y += 2;
+                drawBall(x,y);
+            }
+            function left(){
+                x -= 2;
+                drawBall(x,y);
+            }
+            function right(){
+                x += 2;
+                drawBall(x,y);
+            }
+            
+            function move(event){
+                if(event.keyCode == 37){
+                    left();
+                }else if(event.keyCode == 38){
+                    up();
+                }else if(event.keyCode == 39){
+                    right();
+                }else if(event.keyCode == 40){
+                    down();
+                }
+                collision();
+            }
+            drawBall(x,y);
+            document.addEventListener("keydown", move);
+
+
+            function reset(){
+                x = 100;
+                y = 100;
+                drawBall(x,y);
+            }
+
+            function collision(){
+                if(x - 50 <= 0){
+                    reset();
+                }
+                if(y - 50 <= 0){
+                    reset();
+                }
+                if(x + 50 >= canvas.width){
+                    reset();
+                }
+                if(y + 50 >= canvas.height){
+                    reset();
+                }
+
+                wall(200, 0, 10, 300);
+                wall(0, 500, 400, 10);
+                wall(400, 200, 10, 310);
+                wall(150, 700, 600, 10);
+                wall(400, 200, 100, 10);
+                wall(150, 700, 10, 100);
+
+                function wall(xpos, ypos, wallwidth, wallheight){
+                    if(x+50 >= xpos && x-50 <= xpos + wallwidth){
+                        if(y+50 > ypos && y-50 < ypos + wallheight){
+                            reset();
+                        }
+                    }
+                }
+                
+                function goal(xpos, ypos, wallwidth, wallheight){
+                    if(x+50 >= xpos && x-50 <= xpos + wallwidth){
+                        if(y+50 > ypos && y-50 < ypos + wallheight){
+                            //congratulations!
+                            alert("Congratulations!");
+                            var body = document.getElementById("body");
+                            var button = document.createElement("button");
+                            button.innerHTML = "Restart?";
+                            button.onclick = reset();
+                            body.appendChild(button);
+                        }
+                    }
+                }
+
+                goal(500,800, 100,100); 
+            }
+        }
+
+        
+        dropBall();
+    </script>
+
+</body>
+</html>

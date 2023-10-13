@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #square{
+                background-color: lightcoral;
+                width: 50px;
+                height: 50px;
+                transform: rotate(10deg);
+            }
+            #circle{
+                background-color: lightcoral;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            #triangle{
+                width: 0;
+                height: 0;
+                border-left: 25px solid transparent;
+                border-right: 25px solid transparent;
+                border-bottom: 50px solid lightcoral;
+            }
+            #parallelogram{
+                width: 50px;
+                height: 50px;
+                background-color: lightcoral;
+                transform: skew(15deg);
+            }
+            #hw{
+                width: 0;
+                height: 0;
+                border-bottom: 50px solid lightblue;
+                border-right:50px solid transparent;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div id="square"></div>
+        <br>
+        <div id="circle"></div>
+        <br>
+        <div id="triangle"></div>
+        <br>
+        <div id="parallelogram"></div>
+        <br>
+        <div id="hw"></div>
+        <script>
+            var d = 0;
+            function init(){
+                d++;
+                document.getElementById("square").style.transform = "rotate(" + d%360 + "deg)";
+            }
+            setInterval(init(),100);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Analogue Clock</title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #dab3ff;
+            }
+            .clock{
+                width: 400px;
+                height: 400px;
+                border: 3px solid #809fff;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .clock .hour,
+            .clock .minutes,
+            .clock, .seconds {
+                position: absolute;
+            }
+            .clock .hour,
+            .hourPin{
+                width: 150px;
+                height: 150px;
+            }
+            .clock .minutes,
+            .minPin{
+                width: 180px;
+                height: 180px;
+            }
+            .clock .seconds,
+            .secPin{
+                width: 210px;
+                height: 210px;
+            }
+            .hourPin, .minPin, .secPin{
+                display: flex;
+                justify-content: center;
+                position: absolute;
+            }
+            .hourPin:before{
+                content: "";
+                position: absolute;
+                width: 7px;
+                height: 75px;
+                background: white;
+                z-index: 10;
+            }
+            .minPin:before{
+                    content: "";
+                    position: absolute;
+                    width: 4px;
+                    height: 90px;
+                    background: white;
+                    z-index: 11;
+             }
+            .secPin:before{
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 105px;
+                background: #ff8080;
+                z-index: 12;
+                }
+        </style>
+    </head>
+    <body>
+        <div id= "clock" class="clock">
+            <div class="hour">
+                <div class="hourPin" id="hourPin"></div>
+            </div>
+            <div class="minutes">
+                <div class="minPin" id="minPin"></div>
+            </div>
+            <div class="seconds">
+                <div class="secPin" id="secPin"></div>
+            </div>
+        </div>
+        
+        <script>
+            const hP = document.getElementById("hourPin");
+            const mP = document.getElementById("minPin");
+            const sP = document.getElementById("secPin");
+            setInterval(() => {
+                console.log("up");
+                var date = new Date();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                
+                hP.style.transform = 'rotateZ(' + (hour * 30 + minute/2) + 'deg)';
+                mP.style.transform = 'rotateZ(' + minute * 6 +'deg)';
+                sP.style.transform = 'rotateZ(' + second * 6 +'deg)';
+            });
+        </script>
+    </body>
+</html>

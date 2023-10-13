@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: white;
+        }
+        div{
+            height: 50px;
+            max-width: 400px;
+            margin: auto;
+        }
+        input{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="check">
+        <input type="color" id="col">
+        <input type="range" min="1" max="100" id="ran">
+        <button onclick="erase();">Erase</button>
+    </div>
+    <canvas id="can" width="800" height="800"></canvas>
+
+    <script>
+        const canvas = document.getElementById("can");
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight - 50;
+
+        ctx.strokeStyle = 'black';
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 100;
+
+        var lastX = 0;
+        var lastY = 0;
+        var isDrawing = false;
+        var hue = 0;
+        var penSize = 100;
+
+        function draw(e){
+            if(isDrawing){
+                var isAuto = document.getElementById("check").checked;
+                if(isAuto){
+                    ctx.strokeStyle = 'hsl(' + hue + ',100%,50%)';
+
+                    if(penSize<=100){
+                        ctx.lineWidth = penSize;
+                    }else if(penSize<200){
+                        ctx.lineWidth = 200 - penSize;
+                    }else{
+                        penSize = 1;
+                        ctx.lineWidth = 1;
+                    }
+                    penSize += 1;
+                }else{
+                    ctx.lineWidth = document.getElementById("ran").value;
+                    ctx.strokeStyle = document.getElementById("col").value;
+                }
+
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+
+                lastX = e.offsetX;
+                lastY = e.offsetY;
+                hue += 1;
+            }
+        }
+
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mousedown', (e)=>{
+            isDrawing = true;
+            lastX = e.offsetX;
+            lastY = e.offsetY;
+        });
+        canvas.addEventListener('mouseup', ()=> isDrawing = false);
+        window.addEventListener('mouseout', ()=> isDrawing = false);
+
+
+        function erase(){
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            ctx.beginPath();
+        }
+
+    </script>
+</body>
+</html>

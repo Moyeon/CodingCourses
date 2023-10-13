@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+
+        <input id="input1" type="text" placeholder="Id를 입력하세요!">
+        <br>
+        <input id="input2" type="text" placeholder="Password를 입력하세요!">
+        <button onclick="button2_click();">입력</button>
+        <br>
+
+        <script>
+            function button2_click(){
+                var a = document.getElementById("input1").value;
+                var b = document.getElementById("input2").value;
+                var c = { id:"이호연", password:"이호연1", message:"이호연님 어서오세요" }; //type = object
+                if(a == c.id && b == c.password ){
+                    alert(c.message);
+                }else{
+                    alert("다시 입력해주세요.");
+                }
+            }
+            // 1부터 100까지 5의 배수와 7의 배수를 모두 출력하기
+            //     -> i가 5로 나누어 떨어지거나 7로 나누어 떨어질 때 출력하기
+            for(var i=1; i<=100; i++){
+                if( i%5 == 0 || i%7 == 0 ){
+                    document.write(i+" ");
+                }
+            }
+            document.write("<br>");
+            // 1부터 100까지 홀수를 모두 출력하기
+            // -> 2로 나누었을 때 나머지가 1인 숫자들을 출력하기
+            for(var j=1; j<=100; j++){
+                if( j%2 == 1){
+                    document.write(j+" ");
+                }
+            }
+            document.write("<br>");
+            // 4의 배수를 10개 출력하기 : 4 8 12 16 20 24 ... 40
+            for(var i=1; i<=10; i++){
+                document.write( 4 * i+ " " );
+            }
+
+        </script>
+    </body>
+</html>

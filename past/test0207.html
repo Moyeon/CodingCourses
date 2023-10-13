@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: midnightblue;
+        }
+        .second{
+            text-decoration: underline;
+            color: coral;
+        }
+        #third{
+            text-decoration: line-through;
+            font-size: large;
+        }
+        .square{
+            width: 100px;
+            height: 100px;
+            background-color: slateblue;
+            transition: all ease 1s;
+            margin: 100px;
+        }
+        .square:hover{
+            background-color: yellow;
+            transform: rotateZ(720deg);
+        }
+        .csquare{
+            height: 100px;
+            width: 10px;
+            background-color: tomato;
+            transition: all ease 1s;
+        }
+        .ch:checked ~ .csquare{
+            width: 1000px;
+        }
+        .dsquare{
+            height: 100px;
+            width: 10px;
+            background-color: tomato;
+            transition: all ease 1s 0.5s;
+        }
+        .ch:checked ~ .dsquare{
+            width: 1000px;
+        }
+        .triangle{
+            border-bottom: 100px teal;
+            border-left: 50px transparent teal;
+        }
+    </style>
+</head>
+<body>
+    <p>첫번째 문장입니다.</p>
+    <p class="second">두번째 문장입니다.</p>
+    <p id="third">세번째 문장입니다.</p>
+    <p class="second" id="third">네번째 문장입니다.</p>
+    
+    <div class="square"></div>
+    <input type="checkbox" class="ch">
+    <div class="csquare"></div>
+    <div class="dsquare"></div>
+    <div class="triangle"></div>
+
+    <script>
+        var a = prompt("이름을 입력하세요");
+        alert(a+"님 안녕하세요!");
+        document.getElementById("third").innerText = a+"님 안녕하세요!";
+    </script>
+</body>
+</html>

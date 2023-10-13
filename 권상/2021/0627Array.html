@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Array</title>
+    <style>
+        table, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+            height: 25px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        thead{
+            height: 35px;
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="first();">First Name Order</button>
+    <button onclick="last();">Last Name Order</button>
+    <button onclick="birth();">Birth Year Order</button>
+    <button onclick="passed();">Passed Year Order</button>
+    <br>
+    <br>
+    First Name: <input id="fn"><br>
+    Last Name: <input id="ln"><br>
+    Birth: <input id="byear" type="number"><br>
+    Passed: <input id="pyear" type="number"><br>
+    <button onclick="addObject();">add</button>
+    <br>
+    <table>
+        <thead>
+            <td>First</td>
+            <td>Last</td>
+            <td>Birth</td>
+            <td>Passed</td>
+            <td>Lived</td>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+        var a = [{name:'H', age: 10},
+                {name: 'A', age: 21},
+                {name: 'B', age: 17},
+                {name: 'K', age: 9},
+                {name: 'D', age: 20}];
+        console.log(a);
+        console.table(a);
+
+        a.sort(function(i,j){
+            if(i.age>j.age){
+                return 1;
+            }else{
+                return -1;
+            }
+        });
+        console.table(a);
+
+        var inventors = [
+            { first: "Albert", last: "Einstein", year: 1879, passed: 1955},
+            { first: "Isaac", last: "Newton", year: 1643, passed: 1727},
+            { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+            { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+            { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+            { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+            { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+            { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+            { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+            { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+            { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+            { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+        ];
+
+        function printTable(){
+            var fill = "";
+            for(var i=0; i<inventors.length; i++){
+                fill += "<tr>";
+                fill += "<td>" + inventors[i].first + "</td>";
+                fill += "<td>" + inventors[i].last + "</td>";
+                fill += "<td>" + inventors[i].year + "</td>";
+                fill += "<td>" + inventors[i].passed + "</td>";
+                fill += "<td>" + inventors[i].lived + "</td>";
+                fill += "</tr>";
+            }
+            document.getElementById("tbody").innerHTML = fill;
+        }
+
+        function first(){
+            inventors.sort(function(i,j){
+                return (i.first>j.first ? 1 : -1);
+            });
+            printTable();
+        }
+
+        function last(){
+            inventors.sort(function(i,j){
+                if(i.last>j.last){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            printTable();
+        }
+
+        function birth(){
+            inventors.sort(function(i,j){
+                return i.year - j.year;
+            });
+            printTable();
+        }
+
+        function passed(){
+            inventors.sort(function(i,j){
+                if(i.passed>j.passed){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            printTable();
+        }
+
+        var beforeSixteen = inventors.filter(i => (i.year<1600));
+        console.table(beforeSixteen);
+
+        var e = inventors.filter(inventor => (inventor.year > 1850));
+        console.table(e);
+
+        for(var i=0; i<inventors.length; i++){
+            inventors[i].lived = inventors[i].passed - inventors[i].year;
+        }
+        console.table(inventors);
+
+        var seven = inventors.filter(i => i.lived>70);
+        console.table(seven);
+
+        function addObject(){
+            var fn = document.getElementById("fn").value;
+            var ln = document.getElementById("ln").value;
+            var byear = document.getElementById("byear").value;
+            var pyear = document.getElementById("pyear").value;
+            var obj = {};
+            obj.first = fn;
+            obj.last = ln;
+            obj.year = byear * 1;
+            obj.passed = pyear * 1;
+            obj.lived = pyear - byear;
+            inventors.push(obj);
+            printTable();
+        }
+    </script>
+</body>
+</html>

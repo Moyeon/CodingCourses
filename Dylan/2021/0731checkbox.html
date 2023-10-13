@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <style>
+        .box{
+            width: 400px;
+            background: white;
+            margin: 50px auto;
+            border-radius: 5px;
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+        }
+        .item{
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(184, 184, 184);
+        }
+        .item:last-child{
+            border-bottom: 0;
+        }
+        body{
+            margin: 0;
+            background-color: rgb(255, 208, 0);
+        }
+        input:checked + p{
+            text-decoration: line-through;
+            background: rgb(228, 228, 228);
+        }
+        p{
+            margin: 0;
+            padding: 20px;
+            font-size: 20px;
+            font-family: 'monospace';
+            font-weight: 200;
+            transition: all ease 1s;
+            flex: 1;
+            border-left: 1px solid rgb(189, 212, 255);
+        }
+        input{
+            margin: 20px;
+        }
+        .add{
+            width: 50px;
+            margin: 20px auto;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: white;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="item">
+            <input type="checkbox" class="red">
+            <p contenteditable="true"></p>
+        </div>
+        <div class="item">
+            <input type="checkbox" class="round">
+            <p contenteditable="true"></p>
+        </div>
+        <div class="item">
+            <input type="checkbox" class="blueBorder">
+            <p contenteditable="true"></p>
+        </div>
+        <div class="item">
+            <input type="checkbox" class="rotate">
+            <p contenteditable="true"></p>
+        </div>
+        <div class="item">
+            <input type="checkbox" class="big">
+            <p contenteditable="true"></p>
+        </div>
+    </div>
+    <div class="add">
+        <button onclick="addList();">+</button>
+    </div>
+    
+    <script>
+        var lastChecked;
+        
+        function handleCheck(e){
+            let inBetween = false;
+            if(e.shiftKey && this.checked){
+                const checkboxes = document.querySelectorAll('.box input[type="checkbox"]');
+                checkboxes.forEach(checkbox =>{
+                    console.log(checkbox);
+                    if(checkbox === this || checkbox === lastChecked){
+                        inBetween = !inBetween;
+                    }
+                    if(inBetween){
+                        checkbox.checked = true;
+                    }
+                });
+            }
+            lastChecked = this;
+        }
+
+        //i1 i2 i3 i4 ...
+        var num = 1;
+        function addList(){
+            const box = document.getElementById('box');
+            box.innerHTML += `<div class="item"><input type="checkbox" id="i`+num+`" class="big"><p contenteditable="true">Write a new to-do</p></div>`;
+            var ch = document.getElementById("i"+num);
+            ch.addEventListener('click', handleCheck);
+            num += 1;
+        }
+
+        const cs = document.querySelectorAll('.box input[type="checkbox"]');
+        cs.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Animating Moon</title>
+    <style>
+        body{
+            background-color: rgb(247, 218, 69);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .moon{
+            width: 400px;
+            height: 400px;
+            background-color: rgb(24, 41, 85);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+        .moonshadow{
+            width: 400px;
+            height: 400px;
+            background-color: rgb(247, 218, 69);
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            transform: translateX(130px) scale(1.1);
+        }
+        .shadow{
+            position: absolute;
+            background-color: rgb(237, 205, 43);
+            height: 30px;
+            width: 280px;
+            border-radius: 50%;
+            z-index: -1;
+            transform: translate(-110px, 200px);
+        }
+        .star{
+            width: 1px;
+            height: 1px;
+            background-color: rgb(247, 218, 69);
+            position: absolute;
+            top: 200px;
+            left: 300px;
+            animation: sliding 30s infinite linear;
+        }
+        .shootingStar{
+            width: 50px;
+            height: 1px;
+            position: absolute;
+            background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+            opacity: 0;
+            animation: shooting 5s linear infinite;
+        }
+
+        @keyframes shooting {
+            from{
+                opacity: 0;
+                transform: rotateZ(-30deg) translateX(0) scaleX(0);
+            }
+            25%{
+                opacity: 1;
+                transform: rotateZ(-30deg) translateX(-200%) scaleX(1);
+            }
+            50%{
+                opacity: 0;
+                transform: rotateZ(-30deg) translateX(-400%) scaleX(2);
+            }
+            to{
+                opacity: 0;
+                transform: rotateZ(-30deg) translateX(-400%) scaleX(2);
+            }
+        }
+
+        @keyframes sliding {
+            from{
+                transform: translateX(100px);
+            }
+            to{
+                transform: translateX(-500px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="moon" id="moon">
+        <div class="shootingStar"></div>
+    </div>
+    <div class="moonshadow"></div>
+    <div class="shadow"></div>
+
+
+    <script>
+        for(var i=0; i<250; i++){
+            var topV = Math.floor( Math.random() * 400 );
+            var leftV = Math.floor( Math.random() * 500 );
+            var DelayV = Math.random()*5;
+
+            var newDiv = document.createElement("div");
+            newDiv.className = "star";
+            newDiv.style.left = leftV + "px";
+            newDiv.style.top = topV + "px";
+            newDiv.style.animationDelay = DelayV + "s";
+            
+
+            document.getElementById("moon").appendChild(newDiv);
+        }
+
+        for(var i=0; i<15; i++){
+            var topV = Math.floor( Math.random() * 300 );
+            var leftV = Math.floor( Math.random() * 200 ) + 100;
+            var DelayV = Math.random() * 5;
+
+            var newDiv = document.createElement("div");
+            newDiv.className = "shootingStar";
+            newDiv.style.left = leftV + "px";
+            newDiv.style.top = topV + "px";
+            newDiv.style.animationDelay = DelayV + "s";
+            
+
+            document.getElementById("moon").appendChild(newDiv);
+        }
+    </script>
+</body>
+</html>

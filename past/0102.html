@@ -1,0 +1,21 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="text" id="i">
+        <button onclick="clicked();">버튼</button>
+
+        <script>
+            function clicked(){
+                var text = document.getElementById("i").value;
+                alert((isNaN(text)?"Not a Number":text));
+                if(isNaN(text)){
+                    alert("Not a number");
+                }else{
+                    alert(text);
+                }
+            }
+        </script>
+    </body>
+</html>

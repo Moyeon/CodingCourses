@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stars and Moon</title>
+    <style>
+        ::-webkit-scrollbar-track{
+            background-color: rgb(255, 230, 69);
+        }
+        ::-webkit-scrollbar{
+            width: 0px;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(255, 230, 69);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .night{
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(to right bottom, rgb(10, 20, 51), rgb(34, 43, 63));
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+        }
+        .moonShadow{
+            width: 330px;
+            height: 330px;
+            position: absolute;
+            background-color: rgb(255, 230, 69);
+            transform:  translateX(105px);
+            border-radius: 50%;
+        }
+        .shadow{
+            width: 210px;
+            height: 18px;
+            background-color: rgb(236, 205, 46);
+            position: absolute;
+            border-radius: 50%;
+            transform:  translate(-75px, 150px);
+            z-index: -1;
+        }
+        .star{
+            width: 1px;
+            height: 1px;
+            background-color: white;
+            position: absolute;
+        }
+        .stars{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            animation: slide 30s linear infinite;
+        }
+        #s2{
+            left: 100%;
+        }
+        .shootingStar{
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(to right, rgba(0, 143, 255, 1), rgba(0, 143, 255, 0));
+            opacity: 0;
+            animation: shoot 5s infinite linear;
+            position: absolute;
+        }
+
+        @keyframes slide {
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(-300px);
+            }
+        }
+        @keyframes shoot {
+            from{
+                opacity: 0;
+                transform: rotateZ(-30deg) translateX(0) scaleX(0);
+            }
+            25%{
+                opacity: 1;
+                transform: rotateZ(-30deg) translateX(-100px) scaleX(1);
+            }
+            50%{
+                opacity: 0;
+                transform: rotateZ(-30deg) translateX(-200px) scaleX(2);
+            }
+            to{
+                opacity: 0;
+                transform: rotateZ(-30deg) translateX(-200px) scaleX(2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="night" id="night">
+        <div class="stars" id="s1">
+            <div class="star"></div>
+        </div>
+        <div class="stars" id="s2">
+            <div class="star"></div>
+        </div>
+        <div class="shootingStar"></div>
+    </div>
+    <div class="moonShadow"></div>
+    <div class="shadow"></div>
+
+    <script>
+        for(var i=0; i<250; i++){
+            var topV = Math.random() * 300;
+            var leftV = Math.random() * 300;
+            var opacityV = Math.random();
+
+            var newDiv = document.createElement("div");
+            newDiv.className = "star";
+            newDiv.style.top = topV + "px";
+            newDiv.style.left = leftV + "px";
+            newDiv.style.opacity = opacityV;
+
+            var newDiv2 = document.createElement("div");
+            newDiv2.className = "star";
+            newDiv2.style.top = topV + "px";
+            newDiv2.style.left = leftV + "px";
+            newDiv2.style.opacity = opacityV;
+
+            document.getElementById("s1").appendChild(newDiv);
+            document.getElementById("s2").appendChild(newDiv2);
+        }
+
+        for(var i=0; i<50; i++){
+            var topV = Math.random() * 300;
+            var leftV = Math.random() * 300;
+            var delayV = Math.random() * 10;
+            var newDiv = document.createElement("div");
+            newDiv.className = "shootingStar";
+            newDiv.style.top = topV + "px";
+            newDiv.style.left = leftV + "px";
+            newDiv.style.animationDelay = delayV + "s";
+
+            document.getElementById("night").appendChild(newDiv);
+        }
+    </script>
+
+</body>
+</html>

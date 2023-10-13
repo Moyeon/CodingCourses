@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Diplomata+SC&family=Libre+Barcode+39+Text&family=Neucha&family=Orbitron&family=Pacifico&family=Patrick+Hand&family=Poiret+One&family=Square+Peg&family=Tapestry&family=Water+Brush&display=swap');
+
+.bangers{
+    font-family: 'Bangers';
+}
+.diploma{
+    font-family: 'Diploma SC';
+}
+.libre{
+    font-family: 'Libre Barcode 39 Text';
+}
+.neucha{
+    font-family: 'Neucha';
+}
+.orbitron{
+    font-family: 'Orbitron';
+}
+.pacifico{
+    font-family: 'Pacifico';
+}
+.patrick{
+    font-family: 'Patrick Hand';
+}
+.poiret{
+    font-family: 'Poiret One';
+}
+.square{
+    font-family: 'Square Peg';
+}
+.tapestry{
+    font-family: 'Tapestry';
+}
+.water{
+    font-family: 'Water Brush';
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('circle.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.input{
+    width: 70%;
+    height: 150px;
+    border: 1px solid rgb(167, 167, 167);
+    position: relative;
+    margin-top: 50px;
+}
+
+input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-sizing: border-box;
+    font-size: 20px;
+    padding: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+button{
+    position: absolute;
+    right: 3px;
+}
+
+.input button{
+    background-color: olivedrab;
+    bottom: 3px;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: white;
+}
+
+.outputs{
+    width: 70%;
+    height: calc(90vh - 200px);
+    overflow: scroll;
+    margin-top: 30px;
+}
+
+.output{
+    width: 100%;
+    background-color: rgb(212, 223, 237);
+    margin-top: 10px;
+    font-size: 20px;
+    box-sizing: border-box;
+    padding: 30px 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.output button{
+    background: none;
+    border: none;
+    top: 5px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.output button:first-child{
+    transform: translateX(-50px);
+}
+
+.output button:hover{
+    text-decoration: underline;
+    color: black;
+}

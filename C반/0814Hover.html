@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            .hov1{
+                width: 100px;
+                height: 100px;
+                background-color: mediumpurple;
+                transition: all 2s;
+            }
+            .hov1:hover{
+                background-color: gold;
+                border-radius: 50%;
+            }
+            .hov2{
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                transition: all ease 2s 2s;
+            }
+            .hov2:hover{
+                width: 400px;
+                transform: translate(100px,40px);
+            }
+            .hov3{
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                transition: all steps(10,end) 2s 1s;
+            }
+            .hov3:hover{
+                width: 400px;
+                background-color: gold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="hov1"></div>
+        <div class="hov2"></div>
+        <div class="hov3"></div>
+    </body>
+</html>

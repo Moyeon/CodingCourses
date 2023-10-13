@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array to Table</title>
+    <style>
+        table,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+            height: 23px;
+        }
+        thead{
+            height: 35px;
+            font-size: 20px;
+            text-align: center;
+            border: 2px solid black;
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <td>First</td>
+            <td>Last</td>
+            <td>Year</td>
+            <td>Passed</td>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+    <br>
+    <button onclick="firstOrder();">First Name</button>
+    <button onclick="lastOrder();">Last Name</button>
+    <button onclick="yearOrder();">Year</button>
+    <button onclick="passedOrder();">Passed</button>
+    <br><br>
+    <strong>First: </strong><input type="text" id="first"><br>
+    <strong>Last: </strong><input type="text" id="last"><br>
+    <strong>Year: </strong><input type="number" id="year"><br>
+    <strong>Passed: </strong><input type="number" id="passed">
+    <button onclick="addObj();">Add</button>
+
+    <script>
+        const tbody = document.getElementById("tbody");
+
+        var inventors = [
+            { first: "Albert", last: "Einstein", year: 1879, passed: 1955},
+            { first: "Isaac", last: "Newton", year: 1643, passed: 1727},
+            { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+            { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+            { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+            { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+            { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+            { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+            { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+            { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+            { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+            { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+        ];
+
+        function fillTable(){
+            var fill="";
+            var i;
+            for(i=0;i<inventors.length;i++){
+                fill += "<tr>";
+                fill += "<td>" + inventors[i].first + "</td>";
+                fill += "<td>" + inventors[i].last + "</td>";
+                fill += "<td>" + inventors[i].year + "</td>";
+                fill += "<td>" + inventors[i].passed + "</td>";
+                fill += "</tr>";
+            }
+            tbody.innerHTML = fill;
+        }
+        
+        fillTable();
+
+        function firstOrder(){
+            inventors.sort( function(a, b){
+                if(a.first > b.first){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            fillTable();
+        }
+
+        function lastOrder(){
+            inventors.sort( function(a, b){
+                if(a.last > b.last){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            fillTable();
+        }
+        function yearOrder(){
+            inventors.sort( function(a, b){
+                if(a.year > b.year){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            fillTable();
+        }
+        function passedOrder(){
+            inventors.sort( function(a, b){
+                if(a.passed > b.passed){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            fillTable();
+        }
+
+        function addObj(){
+            var a = {};
+            a.first = document.getElementById("first").value;
+            a.last = document.getElementById("last").value;
+            a.year = document.getElementById("year").value;
+            a.passed = document.getElementById("passed").value;
+            inventors.push(a);
+            fillTable();
+        }
+    </script>
+</body>
+</html>

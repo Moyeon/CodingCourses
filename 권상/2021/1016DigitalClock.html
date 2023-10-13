@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Gowun Dodum', sans-serif;
+            background-image: url('skyBackground.jpeg');
+            background-size: cover;
+        }
+        .clock{
+            width: auto;
+            height: auto;
+            color: white;
+        }
+        .time{
+            display: flex;
+            align-items: center;
+        }
+        .hours, .mins{
+            font-size: 120px;
+        }
+        .circle{
+            width: 13px;
+            height: 13px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        .circle:nth-child(1){
+            margin-bottom: 15px;
+        }
+        .period{
+            font-size: 40px;
+            font-family: sans-serif;
+            border-bottom: solid white 1px;
+            opacity: 0.5;
+        }
+        .secs{
+            font-size: 40px;
+        }
+        .date{
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="time">
+            <div class="hours" id="hours">12</div>
+            <div class="dots">
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="mins" id="mins">45</div>
+            <div class="ps">
+                <div class="period" id="period">PM</div>
+                <div class="secs" id="secs">32</div>
+            </div>
+        </div>
+        <div class="date" id="date">2021년 10월 16일</div>
+    </div>
+
+    <script>
+        var d = new Date();
+        console.log(d.getHours());
+
+        function getTime(){
+            var time = new Date();
+            console.log(time);
+            var hours = time.getHours();
+
+            if( hours >= 12){
+                document.getElementById("period").innerText = 'PM';
+            }else{
+                document.getElementById("period").innerText = 'AM';
+            }
+
+            if(hours >= 13){
+                hours = hours - 12;
+            }else if(hours == 0){
+                hours = 12;
+            }
+
+            var mins = time.getMinutes();
+            if(mins<10){
+                mins = '0'+mins;
+            }
+
+            var secs = time.getSeconds();
+            if(secs<10){
+                secs = '0'+secs;
+            }
+            var year = time.getFullYear();
+            var month = time.getMonth() + 1; //0 ~ 11
+            var day = time.getDate();
+
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("mins").innerText = mins;
+            document.getElementById("secs").innerText = secs;
+            document.getElementById("date").innerText = year+'년 ' + month+'월 '+ day+'일'; 
+        }
+        setInterval(getTime, 100);
+    </script>
+</body>
+</html>

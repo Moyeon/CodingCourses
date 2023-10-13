@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .square{
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+        }
+        .rectangle{
+            width: 200px;
+            height: 100px;
+            background-color: lightskyblue;
+        }
+        div{
+            margin: 30px;
+        }
+        .triangle{
+            width: 0;
+            height: 0;
+            border-bottom: 100px solid lightcoral;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            transform: rotateZ(90deg);
+        }
+        .triangle2{
+            width: 0;
+            height: 0;
+            border-left: 100px solid lightskyblue;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+        }
+        .triangle3{
+            width: 0;
+            height: 0;
+            border-bottom: 100px solid lightcoral;
+            border-right: 100px solid transparent;
+        }
+        .heart{
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        .heart:before,
+        .heart:after{
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background-color: lightskyblue;
+            border-radius: 50px 50px 0 0;
+            transform: rotateZ(-45deg);
+            transform-origin: 0 100%;
+            left: 50px;
+        }
+        .heart:after{
+            left: 0;
+            transform: rotateZ(45deg);
+            transform-origin: 100% 100%;
+        }
+        .star{
+            position: relative;
+            width: 0;
+            height: 0;
+            border-bottom: 70px solid rgb(255, 225, 0);
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            transform: rotateZ(35deg);
+        }
+        .star:before{
+            content: "";
+            position: absolute;
+            border-bottom: 80px solid rgb(255, 225, 0);
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            top: -45px;
+            left: -65px;
+            transform: rotateZ(-35deg);
+        }
+        .star:after{
+            content: "";
+            position: absolute;
+            border-bottom: 70px solid rgb(255, 225, 0);
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            transform: rotateZ(-70deg);
+            left: -105px;
+            top: 3px;
+        }
+        .practice{
+            width: 200px;
+            height: 100px;
+            background-color: palevioletred;
+            margin: 100px;
+            transition: all ease 1s;
+            transform-origin: 0% 0%;
+        }
+        .practice:hover{
+            transform: rotateZ(270deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="square"></div>
+    <div class="rectangle"></div>
+    <div class="triangle"></div>
+    <div class="triangle2"></div>
+    <div class="triangle3"></div>
+    <div class="heart"></div>
+    <div class="star"></div>
+    <div class="practice"></div>
+</body>
+</html>

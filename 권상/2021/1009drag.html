@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag&Drop</title>
+    <style>
+        .item{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+            position: absolute;
+            cursor: move;
+            z-index: 1;
+        }
+        .resize{
+            width: 100px;
+            height: 100px;
+            background-color: indianred;
+            border: 3px solid brown;
+            position: absolute;
+            top: 200px;
+            overflow: hidden;
+            resize: both;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="item" id="item"></div>
+    <div class="resize" id="resize"></div>
+
+    <script>
+        var item = document.getElementById("item");
+        
+
+        function onMouseClick(event){
+            var shiftX = event.clientX - item.getBoundingClientRect().left;
+            var shiftY = event.clientY - item.getBoundingClientRect().top;
+
+            function moveto(x, y, event){
+                item.style.left = x - shiftX + 'px';
+                item.style.top = y - shiftY + 'px';
+            }
+            function onMouseMove(event){
+                moveto(event.pageX, event.pageY, event);
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+        
+            function onMouseUp(event){
+                document.removeEventListener('mousemove', onMouseMove)
+            }
+
+            item.addEventListener('mouseup', onMouseUp);
+        }
+
+        
+
+        item.addEventListener('mousedown', onMouseClick);
+        
+    </script>
+</body>
+</html>

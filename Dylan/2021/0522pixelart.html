@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(32, 15px);
+            grid-template-rows: repeat(32, 15px);
+        }
+        .item{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container"></div>
+    <button onclick="black();">Black</button>
+    <button onclick="red();">Red</button>
+    <button onclick="blue();">Blue</button>
+    <button onclick="eraser();">Eraser</button>
+    <button onclick="eraseAll();">Erase All</button>
+    <script>
+        var penColor = "black";
+        var pen = false;
+        var a;
+        for(a=1; a<=32*32; a++){
+            document.getElementById("container").innerHTML += '<div class="item" onclick="colorChange(this);"></div>';
+        }
+
+        const items = document.querySelectorAll(".item");
+        items.forEach(pixel => {
+            pixel.addEventListener('mousedown', (event) => {
+                pen = true;
+                pixel.style.backgroundColor = penColor;
+            });
+            pixel.addEventListener('mouseup', (event) => {
+                pen = false;
+            });
+            pixel.addEventListener('mouseover', (event) => {
+                if(pen){
+                    pixel.style.backgroundColor = penColor;
+                }
+            });
+        });
+
+
+
+        function colorChange(obj){
+            obj.style.backgroundColor = penColor;
+        }
+
+        function black(){
+            penColor = "black";
+        }
+        function red(){
+            penColor = "red";
+        }
+        function blue(){
+            penColor = "blue";
+        }
+        function eraser(){
+            penColor = "white";
+        }
+        function eraseAll(){
+            items.forEach(pixel => {
+                pixel.style.backgroundColor = "white";
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(188, 230, 233);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    transition: all ease 5s;
+}
+.circle{
+    width: 130px;
+    height: 130px;
+    background-color: rgb(0, 197, 119);
+    border: 2px solid black;
+    border-radius: 50%;
+    position: relative;
+}
+.square{
+    width: 130px;
+    height: 130px;
+    background-color: #ebc422;
+    border-radius: 5px;
+    border: 2px solid black;
+    position: relative;
+}
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 69px solid transparent;
+    border-right: 69px solid transparent;
+    border-bottom: 138px solid black;
+    position: relative;
+}
+.triangle:after{
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 6px;
+    left: -65px;
+    border-left: 65px solid transparent;
+    border-right: 65px solid transparent;
+    border-bottom: 130px solid #fe273f;
+}
+.pattern{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+.pattern div:nth-child(3n){
+    left: 10%;
+}
+.pattern div:nth-child(3n+1){
+    left: 25%;
+}
+.pattern div:nth-child(3n+2){
+    left: 80%;
+}
+.pattern div:nth-child(4n){
+    transform: translate(-30vw, -7vh);
+}
+.pattern div:nth-child(4n+1){
+    transform: translate(-10vw, -6vh) rotate(-35deg);
+}
+.pattern div:nth-child(4n+2){
+    transform: translate(10vw, 20vh) rotate(40deg);
+}
+.pattern div:nth-child(4n+3){
+    transform: translate(30vw, -10vh) rotate(-10deg);
+}
+
+.searchIcon{
+    background-image: url(search.svg);
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    position: absolute;
+    left: 10px;
+}
+input{
+    font-size: 18px;
+    padding: 10px;
+    padding-left: 40px;
+    border-radius: 30px;
+    width: 400px;
+}
+.inputBox{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+.barrelRoll{
+    transform: rotate(720deg);
+}
+
+.askew{
+    transform: rotate(-10deg);
+}
+
+.mirror{
+    transform: rotateY(180deg);
+}
+
+.darkMode{
+    filter: invert(100%);
+    background-color: rgb(0, 0, 62);
+}
+
+.helpBtn{
+    width: 40px;
+    height: 40px;
+    background-image: url(help.svg);
+    background-size: contain;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+.helpText{
+    opacity: 0;
+    position: absolute;
+    right: 40px;
+    top: 90px;
+    background-color: white;
+    padding-right: 20px;
+    transition: all ease 1s;
+}
+.helpBtn:hover ~ .helpText{
+    opacity: 1;
+}

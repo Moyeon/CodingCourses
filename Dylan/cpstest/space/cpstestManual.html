@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space bar cps test</title>
+    <link rel="stylesheet" href="cpsStyle.css">
+</head>
+<body>
+    <div class="main">
+        <div class="title">SPACE BAR CPS TEST</div>
+        <div class="subtitle">MANUAL CLICK TEST</div>
+        <div class="results">
+            <div class="result">
+                <h4 id="timer">0</h4>
+                <p>Timer</p>
+            </div>
+            <div class="result">
+                <h4 id="cps">0</h4>
+                <p>Click/s</p>
+            </div>
+            <div class="result">
+                <h4 id="score">0</h4>
+                <p>Score</p>
+            </div>
+        </div>
+        <div class="stop" onclick="stop();">Stop</div>
+        <div class="click" id="click"></div>
+    </div>
+    <div class="btn_container">
+        <button onclick="anotherTest(1);">1 SECOND TEST</button>
+        <button onclick="anotherTest(2);">2 SECOND TEST</button>
+        <button onclick="anotherTest(3);">5 SECOND TEST</button>
+        <button onclick="anotherTest(4);">MANUAL TEST</button>
+    </div>
+
+    <script>
+        var timeLimit = -1;
+        function enter(e){
+            if(e.keyCode == 13){
+                stop();
+            }
+        }
+        window.addEventListener("keydown", enter)
+    </script>
+    <script type="text/javascript" src="cpsMain.js"></script>
+</body>
+</html>

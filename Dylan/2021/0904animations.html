@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's learn how to animate</title>
+    <style>
+        .pink{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            animation-name: slide_in;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        .skyblue{
+            width: 150px;
+            height: 120px;
+            background-color: skyblue;
+            animation-name: slide_in;
+            animation-duration: 2s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+        }
+        .gold{
+            width: 300px;
+            height: 100px;
+            background-color: gold;
+            margin: 150px;
+            animation-name: rotate1;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        .left{
+            transform-origin: 30px -50px;
+            animation-timing-function: ease-in-out;
+            animation-direction: alternate-reverse;
+        }
+        .right{
+            animation-timing-function: ease;
+        }
+        .practice{
+            width: 200px;
+            height: 100px;
+            background-color: mediumpurple;
+            animation: slide_in 2s infinite alternate,
+                        colorChange 5s infinite alternate;
+        }
+
+        @keyframes slide_in{
+            from{
+                transform: translateX(100vw);
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes rotate1{
+            from{
+                transform: rotate(0);
+            }
+            50%{
+                transform: rotate(360deg);
+            }
+            to{
+                transform: rotate(1080deg);
+            }
+        }
+
+        @keyframes colorChange {
+            from{
+                background-color: lightseagreen;
+            }
+            25%{
+                background-color: lightskyblue;
+            }
+            90%{
+                background-color: mediumpurple;
+            }
+            to{
+                background-color: lightcoral;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pink"></div>
+    <div class="skyblue"></div>
+    <div class="gold"></div>
+    <div class="gold left"></div>
+    <div class="gold right"></div>
+    <div class="practice"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="backFilter">
+        <button class="music" onclick="musicPlay();">Click for music</button>
+        <div class="main">
+            <div id="question">1. 3 + 2 = ?</div>
+            <div class="optionBox">
+                <button class="option" id="option0" onclick="selectOption(0)">2</button>
+                <button class="option" id="option1" onclick="selectOption(1)">3</button>
+                <button class="option" id="option2" onclick="selectOption(2)">5</button>
+                <button class="option" id="option3" onclick="selectOption(3)">7</button>
+            </div>
+        </div>
+        <div id="popup">
+            <div id="background">
+                <h2>YOUR SCORE IS</h2>
+                <div id="score">90%</div>
+                <div class="buttons">
+                    <div onclick="retry()" class="pbutton">
+                        RETRY?
+                    </div>
+                    <div onclick="backtomain()" class="pbutton">
+                        MAIN
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <script type="text/javascript" src="mathQuiz.js"></script>
+    <script type="text/javascript" src="../quiz.js"></script>
+    <audio src="../Read All Over - Nathan Moore.mp3" id="audio"></audio>
+</body>
+</html>

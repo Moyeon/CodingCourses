@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        input{
+            background-color: rgb(241, 241, 241);
+            border: none;
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+        #display{
+            width: 200px;
+            height: 60px;
+            background-color: rgb(78, 38, 158);
+            margin: 20px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 26px;
+        }
+        #sort{
+            width: 200px;
+            height: 60px;
+            background-color: darkolivegreen;
+            color: white;
+            margin: 20px;
+            border-radius: 5px;
+            font-size: 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #error{
+            color: red;
+            visibility: hidden;
+        }
+        .inputs{
+            display: flex;
+        }
+        .in{
+            border: 1px solid lightgray;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .color{
+            width: 200px;
+            height: 30px;
+            background-color: steelblue;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        #colors{
+            height: 300px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="inputs">
+        <div class="in">
+            <h3>Red</h3>
+            <input type="number" id="red" min="0" max="255" value="100">
+        </div>
+        <div class="in">
+            <h3>Green</h3>
+            <input type="number" id="green" min="0" max="255" value="100">
+        </div>
+        <div class="in">
+            <h3>Blue</h3>
+            <input type="number" id="blue" min="0" max="255" value="100">
+        </div>
+    </div>
+    <div id="sort">Sort!</div>
+    <div id="display">Click!</div>
+    <div id="error">Wrong input</div>
+    <div id="colors"></div>
+    <script type="text/javascript" src="0319colorArray.js"></script>
+</body>
+</html>

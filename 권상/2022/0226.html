@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="input">
+    <button onclick="calculate();">calculate</button>
+    <div id="display"></div>
+    <p></p>
+    <input type="number" id="in1" placeholder="A"><br>
+    <input type="number" id="in2" placeholder="B"><br>
+    <input type="number" id="in3" placeholder="C">
+    <button onclick="calc2();">calculate</button>
+    <div id="display2"></div>
+    <p></p>
+    <input type="text" id="in4" placeholder="A">
+    <button onclick="calc3();">calculate</button>
+    <div id="display3"></div>
+
+    <script>
+        var input = document.getElementById("input");
+        var display = document.getElementById("display");
+
+        function calculate(){
+            var ansArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            var num = input.value;
+
+            while(num != 0){
+                ansArr[num%10]++;
+                num = Math.floor(num / 10);
+            }
+            
+            var ansStr = "";
+
+            for(var i=0; i<=9; i++){
+                if(ansArr[i] != 0){
+                    ansStr += i + "X" + ansArr[i] + " ";
+                }
+            }
+
+            display.innerHTML = ansStr;
+        }
+
+
+        var A = document.getElementById("in1");
+        var B = document.getElementById("in2");
+        var C = document.getElementById("in3");
+        var display2 = document.getElementById("display2");
+
+
+        var in4 = document.getElementById("in4");
+        var display3 = document.getElementById("display4");
+        function calc3(){
+            var nums = in4.value.split(" ");
+            console.log(nums);
+            var ansArr = [0, 0, 0, 0, 0, 0, 0, 0];
+
+            for(var i=0; i<nums.length ; i++){
+                ansArr[nums[i] % 8]++;
+            }
+            console.log(ansArr);
+
+            var count = 0;
+            for(var i=0; i<8; i++){
+                if(ansArr[i] != 0){
+                    count++;
+                }
+            }
+            console.log(count);
+        }
+    </script>
+</body>
+</html>

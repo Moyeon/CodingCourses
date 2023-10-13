@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자게임</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Black Han Sans';
+        }
+        .heart{
+            width: 6vw;
+            height: 6vw;
+        }
+        .heart::before, .heart::after{
+            content: "";
+            width: 3vw;
+            height: 5vw;
+            background-color: red;
+            position: absolute;
+            border-top-left-radius: 1.5vw 2vw;
+            border-top-right-radius: 1.5vw 2vw;
+            transform: rotate(-45deg);
+            transform-origin: 1.5vw 3.5vw;
+        }
+        .heart::after{
+            transform: rotate(45deg);
+        }
+        .lives{
+            display: flex;
+            justify-content: center;
+            width: 30vw;
+            background-color: rgb(255, 219, 219);
+            padding: 10px;
+            border-radius: 0 0 5vw 5vw;
+        }
+        .score{
+            font-size: 25px;
+            text-align: center;
+        }
+        .display{
+            width: 90vw;
+            height: 55vw;
+            display: flex;
+            justify-content: center;
+            border: 1px solid slategray;
+            position: relative;
+        }
+        .game{
+            width: 100%;
+            height: 100%;
+            background-color: snow;
+            position: absolute;
+            z-index: -1;
+        }
+        .quiz{
+            position: absolute;
+            font-size: 20px;
+            padding: 7px;
+            background-color: khaki;
+            border-radius: 7px;
+        }
+        .inputs{
+            width: 90vw;
+            height: 6vw;
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input{
+            width: 30vw;
+            height: 4vw;
+            font-size: 3vw;
+            font-family: 'Black Han Sans';
+            text-align: center;
+            border: none;
+            border-radius: 1vw;
+        }
+        .lose{
+            filter: grayscale(100%);
+        }
+        .restart{
+            position: absolute;
+            display: block;
+            font-family: 'Black Han Sans';
+            font-size: 4vw;
+            background-color: indianred;
+            color: white;
+            padding: 1.5vw;
+            border: none;
+            border-radius: 1vw;
+            left: 34vw;
+            top: 25vw;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="display">
+            <div class="UI">
+                <div class="lives">
+                    <div class="heart"></div>
+                    <div class="heart"></div>
+                    <div class="heart"></div>
+                </div>
+                <div class="score">SCORE : <span id="score">0</span></div>
+                <button class="restart" id="restart" onclick="restart();">Restart</button>
+            </div>
+            <div class="game" id="game">
+            </div>
+        </div>
+        <div class="inputs">
+            <input id="input" onkeyup="enter(event);">
+        </div>
+    </div>
+
+    <script>
+        var input = document.getElementById("input");
+        var gameDisplay = document.getElementById("game");
+        var quizList = [];
+        var score = 0;
+        var scoreDisplay = document.getElementById("score");
+        var hearts = document.getElementsByClassName("heart");
+        var life = 3;
+        var words = ["hello", "hi", "welcome", "apple", "banana", "coffee", "delete", "diameter", "enter", "fix", "geometry", "high", "interview", "junkfood", "kind", "liver", "monster", "noble", "operation", "plastic", "quiz", "risk", "sound", "type", "umbrella", "vehicle", "work", "xylophone", "yellow", "zebra"];
+        var reButton = document.getElementById("restart");
+
+        function enter(event){
+            if(event.keyCode == 13){
+                console.log(input.value);
+
+                var correct = quizList.filter( function(quiz){ return quiz.quizWord == input.value && quiz.isDeleted == false} );
+                if( correct.length > 0){
+                    gameDisplay.removeChild( correct[0].quizDiv );
+                    correct[0].isDeleted = true;
+                    score += correct[0].quizWord.length * 10;
+                    UIUpdate();
+                }
+                
+                input.value = "";
+            }
+        }
+
+        function createQuiz(word){
+            var newQuiz = document.createElement("div");
+            newQuiz.classList = "quiz";
+            newQuiz.innerHTML = word;
+
+            var left = randomBetween(0, 80);
+            if(left > 40){
+                newQuiz.style.right = 80 - left + 'vw';
+            }
+            else{
+                newQuiz.style.left = left + 'vw';
+            }
+
+
+            gameDisplay.appendChild(newQuiz);
+            var newobj = {};
+            newobj.quizWord = word;
+            newobj.quizDiv = newQuiz;
+            newobj.isDeleted = false;
+            quizList.push(newobj);
+            goDown(newQuiz);
+        }
+
+        function randomBetween(min, max){
+            var ans = Math.floor( Math.random() * (max - min) ) + min;
+            return ans;
+        }
+
+        function game(){
+            if(life > 0){
+                var randomnum = randomBetween(0, words.length-1);
+                createQuiz( words[randomnum] );
+                setTimeout( game, 3000 );
+            }else{
+                reButton.style.visibility = "visible";
+            }
+        }
+
+        function goDown(quiz){
+            var q = quizList.find(function(i){return i.quizDiv == quiz});
+            if(q.isDeleted == true){
+                return;
+            }
+
+            if(life <= 0){
+                gameDisplay.removeChild(quiz);
+                q.isDeleted = true;
+                return;
+            }
+
+            var topVal = quiz.style.top;
+            topVal = topVal.split('vw')[0] * 1 + 1;
+
+            if (topVal > 52){
+                gameDisplay.removeChild(quiz);
+                q.isDeleted = true;
+                life -= 1;
+                UIUpdate();
+                return;
+            }
+
+            quiz.style.top = topVal + "vw";
+
+            setTimeout(goDown, 300, quiz);
+        }
+
+        function UIUpdate(){
+            scoreDisplay.innerHTML = score;
+
+            if(life <= 2){
+                hearts[2].classList.add("lose");
+            }
+            if(life <= 1){
+                hearts[1].classList.add("lose");
+            }
+            if(life <= 0){
+                hearts[0].classList.add("lose");
+            }
+        }
+
+        function restart(){
+            if(life <= 0){
+                score = 0;
+                hearts[0].classList.remove("lose");
+                hearts[1].classList.remove("lose");
+                hearts[2].classList.remove("lose");
+                life = 3;
+                reButton.style.visibility = "hidden";
+                UIUpdate();
+
+                game();
+            }
+        }
+
+        game();
+    </script>
+</body>
+</html>

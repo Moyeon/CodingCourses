@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Analogue Clock</title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: black;
+            }
+            .clock{
+                width: 300px;
+                height: 300px;
+                border: 3px solid lightblue;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: url("https://c17an.github.io/assets/images/2020-03-27-%EC%95%84%EB%82%A0%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EA%B3%84/clock.png");
+                background-size: cover;
+            }
+            .clock .hour,
+            .clock .minutes,
+            .clock .seconds {
+                position: absolute;
+            }
+            .clock .hour,
+            .hourPin{
+                width: 150px;
+                height: 150px;
+            }
+            .clock .minutes,
+            .minPin{
+                width: 180px;
+                height: 180px;
+            }
+            .clock .seconds,
+            .secPin{
+                width: 210px;
+                height: 210px;
+            }
+            .hourPin, .minPin, .secPin{
+                display: flex;
+                justify-content: center;
+                position: absolute;
+            }
+            .hourPin:before{
+                content: "";
+                position: absolute;
+                width: 8px;
+                height: 75px;
+                background: white;
+                z-index: 10;
+            }
+            .minPin:before{
+                content: "";
+                position: absolute;
+                width: 4px;
+                height: 90px;
+                background: white;
+                z-index: 11;
+            }
+            .secPin:before{
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 105px;
+                background: orange;
+                z-index: 12;
+            }
+            .clock:before{
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: lightblue;
+                z-index: 20;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="clock" class="clock">
+            <div class="hour">
+                <div class="hourPin" id="hourPin"></div>
+            </div>
+            <div class="minutes">
+                <div class="minPin" id="minPin"></div>
+            </div>
+            <div class="seconds">
+                <div class="secPin" id="secPin"></div>
+            </div>
+        </div>
+
+        <script>
+            const hP = document.getElementById("hourPin");
+            const mP = document.getElementById("minPin");
+            const sP = document.getElementById("secPin");
+            setInterval(() => {
+                var date = new Date();
+                var hour = date.getHours();
+                var min = date.getMinutes();
+                var sec = date.getSeconds();
+
+                hP.style.transform = 'rotateZ(' + (hour*30 + min/2) + 'deg)';
+                mP.style.transform = 'rotateZ(' + min * 6 + 'deg)';
+                sP.style.transform = 'rotateZ(' + sec * 6 + 'deg)';
+            });
+        </script>
+    </body>
+</html>

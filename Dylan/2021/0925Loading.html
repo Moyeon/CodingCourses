@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: rgb(165, 215, 255);
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px;
+        }
+        .loadingBar{
+            width: 8px;
+            height: 30px;
+            background-color: rgb(46, 116, 173);
+            border-radius: 4px;
+            position: absolute;
+            opacity: 0;
+        }
+        .b1{
+            transform: translateY(-60px);
+            animation: loading 2.4s infinite;
+        }
+        .b2{
+            transform: rotateZ(30deg) translateY(-60px);
+            animation: loading 2.4s infinite 0.2s;
+        }
+        .b3{
+            transform: rotateZ(60deg) translateY(-60px);
+            animation: loading 2.4s infinite 0.4s;
+        }
+        .b4{
+            transform: rotateZ(90deg) translateY(-60px);
+            animation: loading 2.4s infinite 0.6s;
+        }
+        .b5{
+            transform: rotateZ(120deg) translateY(-60px);
+            animation: loading 2.4s infinite 0.8s;
+        }
+        .b6{
+            transform: rotateZ(150deg) translateY(-60px);
+            animation: loading 2.4s infinite 1s;
+        }
+        .b7{
+            transform: rotateZ(180deg) translateY(-60px);
+            animation: loading 2.4s infinite 1.2s;
+        }
+        .b8{
+            transform: rotateZ(210deg) translateY(-60px);
+            animation: loading 2.4s infinite 1.4s;
+        }
+        .b9{
+            transform: rotateZ(240deg) translateY(-60px);
+            animation: loading 2.4s infinite 1.6s;
+        }
+        .b10{
+            transform: rotateZ(270deg) translateY(-60px);
+            animation: loading 2.4s infinite 1.8s;
+        }
+        .b11{
+            transform: rotateZ(300deg) translateY(-60px);
+            animation: loading 2.4s infinite 2s;
+        }
+        .b12{
+            transform: rotateZ(330deg) translateY(-60px);
+            animation: loading 2.4s infinite 2.2s;
+        }
+        .word{
+            animation: change-text 0.8s infinite alternate;
+            color: white;
+            font-size: 20px;
+            font-family: courier;
+        }
+        @keyframes loading {
+            from{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0.6;
+            }
+            90%{
+                opacity: 0.1;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        @keyframes change-text {
+            from{
+                opacity: 0;
+            }
+            80%{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="word">Loading...</div>
+    <div class="box">
+        <div class="loadingBar b1"></div>
+        <div class="loadingBar b2"></div>
+        <div class="loadingBar b3"></div>
+        <div class="loadingBar b4"></div>
+        <div class="loadingBar b5"></div>
+        <div class="loadingBar b6"></div>
+        <div class="loadingBar b7"></div>
+        <div class="loadingBar b8"></div>
+        <div class="loadingBar b9"></div>
+        <div class="loadingBar b10"></div>
+        <div class="loadingBar b11"></div>
+        <div class="loadingBar b12"></div>
+    </div>
+</body>
+</html>

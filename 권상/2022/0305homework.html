@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subtraction</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        input{
+            background-color: rgb(241, 241, 241);
+            border: none;
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+        #display{
+            width: 200px;
+            height: 60px;
+            background-color: mediumpurple;
+            margin: 20px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 26px;
+        }
+        #error{
+            color: red;
+            visibility: hidden;
+        }
+        .inputs{
+            display: flex;
+        }
+        .in{
+            border: 1px solid lightgray;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="inputs">
+        <div class="in">
+            <h3>Small</h3>
+            <input type="text" id="small">
+        </div>
+        <div class="in">
+            <h3>Big</h3>
+            <input type="text" id="big">
+        </div>
+    </div>
+    <div id="display">312</div>
+    <div id="error">Wrong input</div>
+    
+    <script type="text/javascript" src="0305homework.js"></script>
+</body>
+</html>

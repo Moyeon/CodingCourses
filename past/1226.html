@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            ul{
+                list-style: none;
+                width: 300px;
+            }
+            input,button{
+                height:75px;
+                outline: none;
+            }
+            input {
+                width: 288px;
+                text-align: right;
+                background-color: rgb(63, 63, 63);
+                border: none;
+                padding-right: 10px;
+                font-size: 30px;
+                color: white;
+            }
+            button {
+                background-color: rgb(233, 233, 233);
+                width: 25%;
+                border: 1px solid rgb(168, 168, 168);
+                font-size: 20px;
+            }
+            #C {
+                width: 75%;
+            }
+            #zero {
+                width: 50%;
+            }
+            #equal {
+                background-color: rgb(112, 179, 255);
+                border-color:rgb(39, 106, 182);
+            }
+            button:hover {
+                opacity: 0.5;
+            }
+            .operator {
+                background-color: rgb(255, 210, 87);
+                border-color:rgb(194, 142, 0);
+            }
+            #display {
+                font-size: 14px;
+                height: 30px;
+                padding-top: 8px;
+                color:darkgray;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li><input id="display" value="Blank" disabled></li>
+                <li><input id="inputvalue" type="text" placeholder="입력하세요!" onkeyup="enter();"></li>
+                <li><button onclick="calcul('C');" id="C" class="operator">C</button><button onclick="calcul('/');" class="operator">/</button></li>
+                <li><button onclick="calcul(7);">7</button><button onclick="calcul(8);">8</button><button onclick="calcul(9);">9</button><button onclick="calcul('*');" class="operator">*</button></li>
+                <li><button onclick="calcul(4);">4</button><button onclick="calcul(5);">5</button><button onclick="calcul(6);">6</button><button onclick="calcul('-');" class="operator">-</button></li>
+                <li><button onclick="calcul(1);">1</button><button onclick="calcul(2);">2</button><button onclick="calcul(3);">3</button><button onclick="calcul('+');" class="operator">+</button></li>
+                <li><button onclick="calcul(0);" id="zero">0</button><button onclick="calcul('.');">.</button><button onclick="calcul('=');" id='equal'>=</button></li>
+            </ul>
+        </div>
+
+        <script>
+            var isOperator = true;
+            var lastF = "";
+            var clickedEnter = false;
+
+            function enter(){
+                if(window.event.keyCode == 13){
+                    calcul("=");
+                }else if(window.event.keyCode == 67){
+                    calcul("C");
+                }
+            }
+
+            function calcul(a){                
+                if(a == "C"){
+                    clickedEnter = false;
+                    document.getElementById("inputvalue").value = "";
+                }else if(a == "="){
+                    if(document.getElementById("inputvalue").value == "" || isOperator){
+                        return;
+                    }else{
+                        if(clickedEnter){
+                            document.getElementById("inputvalue").value = document.getElementById("inputvalue").value + lastF;
+                        }
+                        document.getElementById("display").value = document.getElementById("inputvalue").value + "=";
+                        document.getElementById("inputvalue").value = eval(document.getElementById("inputvalue").value);
+                        clickedEnter = true;
+                    }
+                }else{
+                    clickedEnter = false;
+                    if(isOperator && !isNaN(a)){
+                        //방금 입력한 값이 연산자이고 && 현재 입력한 값이 숫자
+                        document.getElementById("inputvalue").value = document.getElementById("inputvalue").value + a;
+                        isOperator = false;
+                    }else if(!isOperator){
+                        //방금 입력한 값이 숫자라면
+                        document.getElementById("inputvalue").value = document.getElementById("inputvalue").value + a;
+                        isOperator = isNaN(a);
+                    }else{
+                        var inStr = document.getElementById("inputvalue").value;
+                        if(inStr.length > 1){
+                            document.getElementById("inputvalue").value = inStr.substring(0,inStr.length-1) + a;
+                        }
+                    }
+                    //마지막 연산 과정 저장하기
+                    if(isNaN(a)){
+                        lastF = a;
+                    }else{
+                        lastF = lastF + a;
+                    }
+
+                }
+            }
+
+        </script>
+    </body>
+</html>

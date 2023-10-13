@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="in" onkeyup="enter();">
+    <button onclick="clicked();">클릭!</button>
+    <br>
+    <input id="inputID">
+    <input id="inputPW" type="password">
+    <button onclick="login();">login</button>
+    <div id="display"></div>
+
+    <script>
+        function clicked(){
+            var input = document.getElementById("in");
+            var a = input.value;
+            var display = document.getElementById("display");
+            display.innerHTML = '<input type="' + a + '">';
+        }
+        function enter(){
+            if(event.input.keyCode == 13){
+                clicked();
+            }
+        }
+        function login(){
+            var id = document.getElementById("inputID");
+            var pw = document.getElementById("inputPW");
+            var a = id.value;
+            var b = pw.value;
+            if( a == "hoyeon"){
+                if( b == "lee"){
+                    alert("Welcome!");
+                    document.getElementById("display").innerHTML = "Welcome, Hoyeon";
+                }else{
+                    alert("wrong Password");
+                }
+            }else{
+                alert("wrong ID");
+            }
+        }
+    </script>
+</body>
+</html>

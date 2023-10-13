@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: rgb(142, 186, 243);
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loadingBar{
+            width: 6px;
+            height: 30px;
+            background-color: rgb(57, 109, 221);
+            border-radius: 3px;
+            position: absolute;
+        }
+        .b1{
+            transform: translateY(-60px);
+            animation: loading 2.4s infinite;
+        }
+        .b2{
+            transform: rotate(30deg) translateY(-60px);
+            animation: loading 2.4s infinite 0.2s;
+        }
+        .b3{
+            transform: rotate(60deg) translateY(-60px);
+            animation: loading 2.4s infinite 0.4s;
+        }
+        .b4{
+            transform: rotate(90deg) translateY(-60px);
+            animation: loading 2.4s infinite 0.6s;
+        }
+        .b5{
+            transform: rotate(120deg) translateY(-60px);
+            animation: loading 2.4s infinite 0.8s;
+        }
+        .b6{
+            transform: rotate(150deg) translateY(-60px);
+            animation: loading 2.4s infinite 1s;
+        }
+        .b7{
+            transform: rotate(180deg) translateY(-60px);
+            animation: loading 2.4s infinite 1.2s;
+        }
+        .b8{
+            transform: rotate(210deg) translateY(-60px);
+            animation: loading 2.4s infinite 1.4s;
+        }
+        .b9{
+            transform: rotate(240deg) translateY(-60px);
+            animation: loading 2.4s infinite 1.6s;
+        }
+        .b10{
+            transform: rotate(270deg) translateY(-60px);
+            animation: loading 2.4s infinite 1.8s;
+        }
+        .b11{
+            transform: rotate(300deg) translateY(-60px);
+            animation: loading 2.4s infinite 2s;
+        }
+        .b12{
+            transform: rotate(330deg) translateY(-60px);
+            animation: loading 2.4s infinite 2.2s;
+        }
+
+        p{
+            color: white;
+            font-family: courier;
+            font-size: 30px;
+            animation: change-text 1s infinite linear alternate;
+        }
+
+        @keyframes loading {
+            from{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0.6;
+            }
+            to{
+                opacity: 0.1;
+            }
+        }
+
+        @keyframes change-text {
+            from{
+                opacity: 0;
+            }
+            80%{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>Loading...</p>
+    <div class="box">
+        <div class="loadingBar b1"></div>
+        <div class="loadingBar b2"></div>
+        <div class="loadingBar b3"></div>
+        <div class="loadingBar b4"></div>
+        <div class="loadingBar b5"></div>
+        <div class="loadingBar b6"></div>
+        <div class="loadingBar b7"></div>
+        <div class="loadingBar b8"></div>
+        <div class="loadingBar b9"></div>
+        <div class="loadingBar b10"></div>
+        <div class="loadingBar b11"></div>
+        <div class="loadingBar b12"></div>
+    </div>
+</body>
+</html>

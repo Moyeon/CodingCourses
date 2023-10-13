@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Main Page</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('2colorClock.jpg');
+            background-position: center center;
+        }
+        h1{
+            color: white;
+            font-size: 90px;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        input{
+            width: 400px;
+            font-size: 18px;
+            padding-left: 60px;
+            padding-right: 60px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        input:focus{
+            outline: none;
+        }
+        .circle{
+            width: 40px;
+            height: 40px;
+            background: blue;
+            border-radius: 50%;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        button{
+            width: 100px;
+            height: 110px;
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+        }
+        button:hover{
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .naver{
+            background: url(https://www.apkmirror.com/wp-content/uploads/2019/01/5c3c3e71ecbf8.png);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        .daum{
+            background: url(https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/399b9686017800001.png);
+            background-size: cover;
+        }
+        .buttons{
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Google</h1>
+        <input>
+        <div class="buttons">
+            <button onclick="location.href='https://www.naver.com/'">
+                <div class="circle naver"></div>NAVER
+            </button>
+            <button onclick="location.href='https://www.daum.net/'"><div class="circle daum"></div>Daum</button>
+        </div>
+    </div>
+</body>
+</html>

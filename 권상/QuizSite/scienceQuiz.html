@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div id="question">What is 4 + 7?</div>
+        <div class="optionBox">
+            <button id="option1" onclick="selectOption(0);">4</button>
+            <button id="option2" onclick="selectOption(1);">11</button>
+            <button id="option3" onclick="selectOption(2);">13</button>
+            <button id="option4" onclick="selectOption(3);">10</button>
+        </div>
+    </div>
+    
+    <div class="resultPopup" id="popup">
+        <div>Your score is</div>
+        <div id="resultPopup">100</div>
+        <div class="space"></div>
+        <button id="restart" onclick="restartQuiz();"></button>
+        <button id="main" onclick="mainMenu();"></button>
+    </div>
+    
+    <script type="text/javascript" src="script/scienceQuiz.js"></script>
+</body>
+</html>

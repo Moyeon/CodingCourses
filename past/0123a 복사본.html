@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>악기 연주하기</title>
+        <meta charset="UTF-8">
+        <style>
+            .key{
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+                text-align: center;
+                color: white;
+                background: whitesmoke;
+                transition: all ease 0.5s;
+                text-shadow: 0 0 .5rem black
+            }
+            .keys{
+                display: flex;
+                max-height: 100vh;
+                align-items: center;
+                justify-content: center;
+            }
+            .playing{
+                background-color: skyblue;
+                transform: scale(1.1);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="keys">
+            <div id="d65" class="key">
+                <kbd>A</kbd>
+            </div>
+            <div id="d83" class="key">
+                <kbd>S</kbd>
+            </div>
+            <div id="d68" class="key">
+                <kbd>D</kbd>
+            </div>
+            <div id="d70" class="key">
+                <kbd>F</kbd>
+            </div>
+            <div id="d71" class="key">
+                <kbd>G</kbd>
+            </div>
+            <div id="d72" class="key">
+                <kbd>H</kbd>
+            </div>
+            <div id="d74" class="key">
+                <kbd>J</kbd>
+            </div>
+            <div id="d75" class="key">
+                <kbd>K</kbd>
+            </div>
+        </div>
+
+        <audio id="a65" src="도.mp3"></audio>
+        <audio id="a83" src="레.mp3"></audio>
+        <audio id="a68" src="미.mp3"></audio>
+        <audio id="a70" src="파.mp3"></audio>
+        <audio id="a71" src="솔.mp3"></audio>
+        <audio id="a72" src="라.mp3"></audio>
+        <audio id="a74" src="시.mp3"></audio>
+        <audio id="a75" src="도(높은).mp3"></audio>
+
+        <script>
+            function playSound(e){
+                const audio = document.getElementById('a'+e.keyCode);
+                const key = document.getElementById('d'+e.keyCode);
+                console.log(e);
+                if(!audio) return;
+                key.classList.add('playing');
+                audio.currentTime = 0;
+                audio.play();
+            }
+            function removeC(e){
+                if(e.propertyName !== "transform") return;
+                e.target.classList.remove('playing');
+            }
+            
+            const keys = Array.from(document.querySelectorAll('.key'));
+            keys.forEach(key => key.addEventListener("transitionend",removeC))
+            window.addEventListener("keydown",playSound);
+        </script>
+    </body>
+</html>

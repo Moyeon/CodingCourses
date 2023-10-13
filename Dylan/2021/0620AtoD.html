@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array to Div</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 350px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        img{
+            width: 180px;
+            height: 150px;
+        }
+        .price{
+            align-self: center;
+            color: gray;
+        }
+        .liked{
+            align-self: center;
+            color: gray;
+        }
+        .display{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="Name();">Name</button>
+        <button onclick="Price();">Price</button>
+        <button onclick="Liked();">Liked</button>
+    </div>
+    <div class="display" id="display"></div>
+
+
+    <script>
+        var items = [
+            {img: "white.jpg", title: "White Shoe", price: 36000, liked: 216},
+            {img: "black.jpeg", title: "Black Shoes", price: 61000, liked: 882},
+            {img: "mint.jpeg", title: "Mint Shoes", price: 74000, liked: 1090},
+            {img: "pink.jpg", title: "Pink Shoes", price: 57000, liked: 2100},
+            {img: "gray.jpeg", title: "Gray Shoes", price: 62000, liked: 377}
+        ];
+
+        function fill(){
+            var fill = "";
+            for(var i=0;i<5;i++){
+                var a = '<div class="box"> <img src="' + items[i].img + '">';
+                var b = '<h1 class="title">'+ items[i].title + '</h1>';
+                var c = '<p class="price">'+ items[i].price +'</p>';
+                var d = '<p class="liked">'+ items[i].liked +'</p></div>';
+                fill+=a+b+c+d;
+            }
+            document.getElementById("display").innerHTML = fill;
+        }
+        
+        fill();
+        var c = 1;
+        var d = -1;
+
+        function Name(){
+            items.sort(function(a,b){
+                if(a.title > b.title){
+                    return c;
+                }else{
+                    return d;
+                }
+            });
+            fill();
+            if(c==1){
+                c=-1;
+                d=1;
+            }else{
+                c=1;
+                d=-1;
+            }
+        }
+        function Price(){
+            items.sort(function(a,b){
+                if(a.price > b.price){
+                    return c;
+                }else{
+                    return d;
+                }
+            });
+            fill();
+            if(c==1){
+                c=-1;
+                d=1;
+            }else{
+                c=1;
+                d=-1;
+            }
+        }
+        function Liked(){
+            items.sort(function(a,b){
+                if(a.liked > b.liked){
+                    return c;
+                }else{
+                    return d;
+                }
+            });
+            fill();
+            if(c==1){
+                c=-1;
+                d=1;
+            }else{
+                c=1;
+                d=-1;
+            }
+        }
+    </script>
+</body>
+</html>

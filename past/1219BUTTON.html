@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input onkeyup="enter();" type="number" id="input1" placeholder="입력하세요.">
+        <button onclick="clicked();">버튼1</button>
+        <p id="answer">답이 출력될 공간입니다.</p>
+
+        <script>
+            function clicked(){
+                var inputvalue = document.getElementById("input1").value;
+                var answerprint = document.getElementById("answer");
+                //1부터 100까지 3의 배수를 출력하는 코드
+                var ans = "";
+                for (var i=1;i<=100;i++){
+                    if(i%inputvalue==0){
+                        ans+= i + " ";
+                    }
+                }
+                answerprint.innerHTML = ans;
+            }
+            function enter(){
+                if(window.event.keyCode == 13){
+                    clicked();
+                }
+            }
+        </script>
+
+    </body>
+</html>

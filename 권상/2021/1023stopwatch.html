@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .time{
+            font-size: 130px;
+        }
+        button{
+            width: 250px;
+            height: 80px;
+            font-size: 40px;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        .start{
+            background-color: dodgerblue;
+        }
+        .start:active{
+            filter: brightness(70%);
+        }
+        .reset{
+            background-color: gray;
+        }
+        .reset:active{
+            filter: brightness(70%);
+        }
+
+        .lapbox{
+            width: 500px;
+            height: 400px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+        .lap{
+            width: 100%;
+            height: 50px;
+            background-color: gold;
+            font-size: 30px;
+        }
+        .laptime{
+            display: flex;
+            justify-content: space-around;
+            font-size: 20px;
+            margin: 5px;
+        }
+        .laptimes{
+            width: 100%;
+            height: 350px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="time" id="time">00:00:0</div>
+    <div class="buttons">
+        <button class="start" onclick="start();" id="start">Start</button>
+        <button class="reset" onclick="reset();">Reset</button>
+    </div>
+    <div class="lapbox">
+        <button class="lap" onclick="addLap();">Lap</button>
+        <div class="laptimes" id="laptimes">
+            
+        </div>
+    </div>
+
+    <script>
+        var time=0;
+        var isRunning = false;
+        var lapnum = 1;
+
+        function timeIncrease(){
+            if(isRunning){
+                setTimeout(function(){
+                    time++;
+                    var sec = Math.floor(time / 10) % 60;
+                    var ms = time % 10;
+                    var min = Math.floor(time / 10 / 60);
+
+                    if(sec<10){
+                        sec = '0'+sec;
+                    }
+                    if(min<10){
+                        min = '0'+min;
+                    }
+
+                    document.getElementById("time").innerText = min + ":" + sec + ":" + ms;
+                    
+                    timeIncrease();
+                },100);
+                
+            }
+        }
+        function start(){
+            if(isRunning == false){
+                isRunning = true;
+                document.getElementById("start").innerHTML = 'Pause';
+                timeIncrease();
+                document.getElementById("start").style.backgroundColor = 'red';
+            }else{
+                isRunning = false;
+                document.getElementById("start").innerHTML = 'Resume';
+                document.getElementById("start").style.backgroundColor = 'green';
+            }
+        }
+        function reset(){
+            time = 0;
+            isRunning = false;
+            document.getElementById("time").innerText = "00:00:0";
+            document.getElementById("start").innerHTML = 'Start';
+            document.getElementById("start").style.backgroundColor = 'dodgerblue';
+
+            lapnum = 1;
+            document.getElementById("laptimes").innerHTML = '';
+        }
+
+        function addLap(){
+            var newlap = document.createElement("div");
+            var newnum = document.createElement("div");
+            var newti = document.createElement("div");
+
+            newlap.className = 'laptime';
+            newnum.className = 'num';
+            newti.className = 'ti';
+
+            newnum.innerText = "lap "+lapnum;
+            lapnum++;
+            newti.innerText = document.getElementById("time").innerText;
+
+            newlap.appendChild(newnum);
+            newlap.appendChild(newti);
+
+            document.getElementById("laptimes").appendChild(newlap);
+        }
+    </script>
+</body>
+</html>

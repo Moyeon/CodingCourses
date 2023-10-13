@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)file:///Users/hoyeonlee/Library/Mobile%20Documents/com~apple~CloudDocs/beyondcoding/htmlcss/Dylan/1030Stopwatch.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Roboto:wght@900&display=swap');
+        body{
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fira sans', sans-serif;
+            flex-direction: column;
+        }
+        .display{
+            font-size: 100px;
+        }
+        button{
+            width: 200px;
+            height: 60px;
+            font-size: 30px;
+            font-family: 'Fira sans', sans-serif;
+            border: none;
+            border-radius: 10px;
+            color: white;
+        }
+        button:active{
+            filter: brightness(70%);
+        }
+        #start{
+            background-color: dodgerblue;
+        }
+        #reset{
+            background-color: slategrey;
+        }
+        table{
+            font-size: 25px;
+            width: 400px;
+        }
+        .h{
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="stopwatch">
+        <div class="display" id="display">00:00:00</div>
+        <div class="buttons">
+            <button id="start" onclick="left();">Start</button>
+            <button id="reset" onclick="right();">Reset</button>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <td class="h">Lap #</td>
+                <td class="h">Total</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lap #1</td>
+                <td>00:10:17</td>
+            </tr>
+            <tr>
+                <td>Lap #2</td>
+                <td>00:15:26</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        var display = document.getElementById("display");
+        var leftBtn = document.getElementById("start");
+        var rightBtn = document.getElementById("reset");
+        var isRunning = false;
+
+        var time = 0;
+        function timeIncrease(){
+            if (isRunning == true){
+                setTimeout(function(){
+                    time++;
+                    var ms = time % 100;
+                    var sec = Math.floor(time / 100) % 60;
+                    var min = Math.floor(time / 100 / 60 );
+
+                    if(sec<10){
+                        sec = "0"+sec;
+                    }
+                    if(min<10){
+                        min = "0"+min;
+                    }
+                    if(ms < 10){
+                        ms = "0"+ms;
+                    }
+
+                    display.innerText = min + ":" + sec + ":" + ms;
+                    timeIncrease();
+                }, 10);
+            }
+            
+        }
+
+
+
+        function left(){
+            if(isRunning == false){
+                isRunning = true; //now running
+                leftBtn.innerHTML = "Pause";
+                leftBtn.style.background = 'red';
+                rightBtn.innerHTML = "Lap";
+                rightBtn.style.background = "gold";
+                timeIncrease();
+            }else{
+                isRunning = false; //now paused
+                leftBtn.innerHTML = "Resume";
+                leftBtn.style.background = 'green';
+                rightBtn.innerHTML = "Reset";
+                rightBtn.style.background = "slategrey";
+            }
+        }
+
+        function right(){
+            if(isRunning == false){ //reset
+                time = 0; 
+                isRunning = false;
+                display.innerHTML = "00:00:00";
+            }else{ //lap
+                
+            }
+        }
+    </script>
+
+</body></html>

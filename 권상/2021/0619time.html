@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+    <style>
+        .display{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 400px;
+            flex-direction: column;
+        }
+        .clock{
+            font-size: 80px;
+        }
+        p{
+            font-size: 20px;
+        }
+        .buttons{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body{
+            align-items: center;
+        }
+        .sl{
+            position: relative;
+            left: 230px;
+            top: -200px;
+        }
+        .jk{
+            
+        }
+        .ny{
+            
+        }
+        .sp{
+            
+        }
+        .bl{
+            
+        }
+        button{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="display" id="display">
+        <div class="clock" id="clock">11:05</div>
+        <p id="cn">SEOUL</p>
+    </div>
+    <img src="https://mblogthumb-phinf.pstatic.net/MjAyMDAyMjZfMTY3/MDAxNTgyNjk3NzQ3ODQz.hsQnNMafoTkhc-4EJ5i1R_Uk3l3hXTFLyD94a2wWLTMg.O1-giS0qb2Ft5kWWRSDORDyReHq0iuCtDox4HAc4T38g.JPEG.naverschool/GettyImages-1158860187.jpg?type=w800">
+    <div class="buttons">
+        <button onclick="seoul();" class="sl">Seoul</button>
+        <button onclick="jakarta();" class="jk">Jakarta</button>
+        <button onclick="newyork();" class="ny">New York</button>
+        <button onclick="singapore();" class="sp">Singapore</button>
+        <button onclick="berlin()" class="bl">Berlin</button>
+    </div>
+
+    
+
+    <script>
+        function displayTime(t){
+            var hours = t.getHours();
+            var min = t.getMinutes();
+            var sec = t.getSeconds();
+
+            sec = (sec < 10? "0"+sec : sec);
+
+            min = (min < 10? "0" + min : min);
+
+            var time = hours + ":" + min + ":" + sec;
+
+            document.getElementById("clock").innerHTML = time;
+        }
+
+        var timeLoading = setInterval( function(){
+                displayTime(new Date());
+        }, 100);
+
+        function berlin(){
+            clearInterval(timeLoading);
+            timeLoading = setInterval( function() {
+                var nowTime = new Date();
+                var utc = nowTime.getTime() + (nowTime.getTimezoneOffset() * 60 * 1000);
+                var berTimeDiff = 2 * 60 * 60 * 1000;
+                var berTime = new Date(utc + berTimeDiff);
+                displayTime(berTime);
+            }, 100);
+            document.getElementById("cn").innerHTML = "BERLIN";
+        }
+
+        function seoul(){
+            clearInterval(timeLoading);
+            timeLoading = setInterval( function() {
+                var nowTime = new Date();
+                var utc = nowTime.getTime() + (nowTime.getTimezoneOffset() * 60 * 1000);
+                var seoTimeDiff = 9 * 60 * 60 * 1000;
+                var seoTime = new Date(utc + seoTimeDiff);
+                displayTime(seoTime);
+            }, 100);
+            document.getElementById("cn").innerHTML = "SEOUL";
+        }
+
+        function jakarta(){
+            clearInterval(timeLoading);
+            timeLoading = setInterval( function() {
+                var nowTime = new Date();
+                var utc = nowTime.getTime() + (nowTime.getTimezoneOffset() * 60 * 1000);
+                var jakTimeDiff = 7 * 60 * 60 * 1000;
+                var jakTime = new Date(utc + jakTimeDiff);
+                displayTime(jakTime);
+            }, 100);
+            document.getElementById("cn").innerHTML = "JAKARTA";
+        }
+        function newyork(){
+            clearInterval(timeLoading);
+            timeLoading = setInterval( function() {
+                var nowTime = new Date();
+                var utc = nowTime.getTime() + (nowTime.getTimezoneOffset() * 60 * 1000);
+                var nyTimeDiff = -4 * 60 * 60 * 1000;
+                var nyTime = new Date(utc + nyTimeDiff);
+                displayTime(nyTime);
+            }, 100);
+            document.getElementById("cn").innerHTML = "NEW YORK";
+        }
+        function singapore(){
+            clearInterval(timeLoading);
+            timeLoading = setInterval( function() {
+                var nowTime = new Date();
+                var utc = nowTime.getTime() + (nowTime.getTimezoneOffset() * 60 * 1000);
+                var sinTimeDiff = 8 * 60 * 60 * 1000;
+                var sinTime = new Date(utc + sinTimeDiff);
+                displayTime(sinTime);
+            }, 100);
+            document.getElementById("cn").innerHTML = "SINGAPORE";
+        }
+
+    </script>
+</body>
+</html>

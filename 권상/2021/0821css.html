@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Teko:wght@300&display=swap');
+
+        p{
+            font-size: 30px;
+        }
+        .sat{
+            color: blueviolet;
+            text-decoration: line-through;
+            font-style: italic;
+            font-family: 'Lobster';
+        }
+        .css{
+            font-family: 'Teko', sans-serif;
+            font-weight: 100;
+        }
+        .square{
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(225deg, red, blue, yellow);
+            transition: all ease 1s;
+        }
+        .square:hover{
+            background: rosybrown;
+        }
+        .gra{
+            width: 500px;
+            height: 100px;
+            background: linear-gradient(to right, blue, white 30%, yellow 30%, green);
+        }
+        .radial{
+            width: 400px;
+            height: 200px;
+            background: radial-gradient(circle at 20% 70%, white, yellow, red);
+        }
+        .ball{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(at 30% 30%, white, pink);
+        }
+        .stripe{
+            width: 600px;
+            height: 200px;
+            background: repeating-linear-gradient(to right, blue, blue 5%, white 5%, white 10%);
+        }
+        .r-stripe{
+            width: 400px;
+            height: 600px;
+            background: repeating-radial-gradient(circle, white,white 5%, coral 5%, coral 10%);
+        }
+    </style>
+</head>
+<body>
+    <p class="sat">Today is Saturday</p>
+    <p class="css">We will learn about CSS</p>
+    <div class="square"></div>
+    <div class="gra"></div>
+    <div class="radial"></div>
+    <div class="ball"></div>
+    <div class="stripe"></div>
+    <div class="r-stripe"></div>
+</body>
+</html>

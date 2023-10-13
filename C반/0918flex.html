@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Practice Display:Flex!</title>
+        <style>
+            .container{
+                width: 90vw;
+                height: 90vw;
+                background-color: antiquewhite;
+                display: flex;
+                flex-wrap: wrap;
+                border-radius: 2vw;
+                padding: 3vw;
+            }
+            .item{
+                width: 14vw;
+                height: 14vw;
+                background: radial-gradient(circle at 30% 30%, rgb(212, 212, 212), black);
+                border-radius: 50%;
+                margin: 0.5vw;
+            }
+            .al:checked ~ .container{
+                align-items: flex-end;
+            }
+            .ju:checked ~ .container{
+                justify-content: flex-end;
+            }
+            .col:checked ~ .container{
+                flex-direction: column;
+            }
+            .wrap:checked ~ .container{
+                flex-wrap: nowrap;
+            }
+            .red{
+                background: radial-gradient(circle at 30% 30%, rgb(255, 209, 209), rgb(189, 0, 0));
+                order: 1;
+            }
+            .blue{
+                background: radial-gradient(circle at 30% 30%, rgb(204, 228, 255), rgb(0, 59, 170));
+                order: 2;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <input type="checkbox" class="al"><label>align-items to the end</label>
+        <br>
+        <input type="checkbox" class="ju"><label>justify-content to the end</label>
+        <br>
+        <input type="checkbox" class="col"><label>change the direction</label>
+        <br>
+        <input type="checkbox" class="wrap"><label>unwrap the content</label>
+        
+        <div class="container">
+            <div class="item red"></div>
+            <div class="item blue"></div>
+            <div class="item blue"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item red"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item red"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </body>
+</html>

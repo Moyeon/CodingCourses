@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 2px solid black;
+        }
+        .a{
+            background-color: cornflowerblue;
+            width: 20px;
+            position: absolute;
+            left: 130px;
+            top: 30px;
+        }
+        .b{
+            width: 700px;
+            height: 600px;
+            background-color: powderblue;
+            position: relative;
+        }
+        .c{
+            position: absolute;
+            background-color: royalblue;
+            width: 50px;
+            height: 50px;
+            right: 200px;
+            bottom: 200px;
+        }
+        .d{
+            position: static;
+            background-color: slategray;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box a">2</div>
+    <div class="box">3</div>
+    <div class="box b">6
+        <div class="box c">7</div>
+        <div class="box d">8</div>
+    </div>
+
+</body>
+</html>

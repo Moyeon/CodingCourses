@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move The Box</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="600"></canvas>
+    <canvas id="wall" width="400" height="600"></canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var posX = 100;
+        var posY = 100;
+
+        function drawBox(x, y){
+            ctx.clearRect(0,0,400,600);
+            ctx.fillRect(x, y, 50, 50);
+        }
+
+        drawBox(100,100);
+
+
+        function moveBox(event){
+            if(event.keyCode == 87){ //w
+                posY -= 3;
+            }
+            if(event.keyCode == 65){ //a
+                posX -= 3;
+            }
+            if(event.keyCode == 83){ //s
+                posY += 3;
+            }
+            if(event.keyCode == 68){ //d
+                posX += 3;
+            }
+            collision();
+            drawBox(posX, posY);
+        }
+        document.addEventListener("keydown", moveBox);
+
+        function reset(){
+            posX = 100;
+            posY = 100;
+            drawBox(posX, posY);
+        }
+
+        function collision(){
+            if(posX <= 0){
+                reset();
+            }else if(posY <= 0){
+                reset();
+            }else if(posX + 50 >= 400){
+                reset();
+            }else if(posY + 50 >= 600){
+                reset();
+            }
+
+        }
+
+        var wallCanvas = document.getElementById("wall");
+        var wallctx = wallCanvas.getContext("2d");
+
+        function wall(x, y, width, height){
+            wallctx.fillRect(x,y,width,height);
+
+            function col(){
+                if(posX <= x+width && posX+50 >= x){
+                    if(posY <= y+height && posY+50 >= y){
+                        reset();
+                    }
+                }
+            }
+            window.addEventListener("keydown", col);
+        }
+
+        function ending(x, y, width, height){
+            wallctx.fillStyle = "gold";
+            wallctx.fillRect(x,y,width,height);
+
+            function col(){
+                if(posX <= x+width && posX+50 >= x){
+                    if(posY <= y+height && posY+50 >= y){
+                        window.location.href = "1120Endingpage.html";
+                    }
+                }
+            }
+            window.addEventListener("keydown", col);
+        }
+
+        function movingwall(x,y,width,height, xrange){
+            var nowX = x;
+            var nowY = y;
+
+            function drawMoving(xx, yy){
+                wallctx.clearRect(x, y, width + xrange + 5, height);
+                wallctx.fillStyle = "green";
+                wallctx.fillRect(xx, yy, width, height);
+            }
+
+            function collisionM(){
+                if(posX <= nowX+width && posX+50 >= nowX){
+                    if(posY <= nowY+height && posY+50 >= nowY){
+                        reset();
+                    }
+                }
+            }
+
+            var direction = 1;
+            function moveWall(){
+                nowX += direction * 3;
+                if(nowX >= x + xrange){
+                    direction = -1;
+                }else if(nowX <= x){
+                    direction = 1;
+                }
+                drawMoving(nowX, nowY);
+                collisionM();
+            }
+
+            setInterval(moveWall, 100);
+        }
+
+        wall(170,0,10,500);
+        wall(70, 170, 100, 10);
+        wall(0, 240, 100, 10);
+        wall(70, 320, 100, 10);
+        wall(0, 400, 100, 10);
+        wall(70, 490, 100, 10);
+        wall(270,200,10,700);
+
+        wall(270, 200, 50, 10);
+        wall(360, 320, 50, 10);
+        wall(270, 440, 50, 10);
+
+        ending(340,540,30,30);
+
+        movingwall(200,130,30,30,130);
+    </script>
+</body>
+</html>

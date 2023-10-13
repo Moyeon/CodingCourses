@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gothic A1';
+    background-color: rgb(238, 223, 204);
+}
+
+button{
+    font-family: 'Gothic A1';
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+#question{
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+}
+.optionBox{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 80px;
+}
+.option{
+    background: none;
+    border: none;
+    border-top: 2px solid black;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 12px;
+}
+.option:last-child{
+    border-bottom: 2px solid black;
+}
+.option:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#popup{
+    transition: all ease 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+}
+#background{
+    position: absolute;
+    background-color: rgb(248, 182, 26);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+#score{
+    font-size: 60px;
+    margin: 30px;
+}
+.buttons{
+    display: flex;
+}
+.pbutton{
+    width: 100px;
+    text-align: center;
+    padding: 16px;
+}
+.pbutton:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.backfilter{
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.music{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+    padding: 30px;
+}

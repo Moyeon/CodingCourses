@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display">0:00:00:00</p>
+    <button id="startPause" onclick="startPause();"><b id="startText">Start</b></button>
+    <button id="reset" onclick="reset();"><b>Reset</b></button>
+
+    <script>
+        var time = 0;
+        var isRunning = 0;
+            function startPause(){
+                if(isRunning ==0){
+                    isRunning = 1;
+                    increment ();
+                    document.getElementById("startText").innerHTML = "Pause";
+                }else{
+                    isRunning = 0;
+                document.getElementById("startText").innerHTML = "Resume";
+                }
+            }
+            function reset(){
+                time = 0;
+                isRunning = 0;
+                document.getElementById("display").innerHTML = "0:00:00:00";
+                document.getElementById("startText").innerHTML = "Start";
+            }
+            function increment(){
+                if(isRunning == 1) {
+                    setTimeout( function() {
+                        time++;
+                        var millisec = time%100;
+                        var sec = Math.floor(time/100%60);
+                        var min = Math.floor(time/100/60%60);
+                        var hours = Math.floor(time/100/60/60);
+                        document.getElementById("display").innerHTML = hours +":"+ min +":"+ sec +":"+ millisec;
+                        increment();
+                        },10);
+                }
+            }
+    </script>
+</body>
+</html>

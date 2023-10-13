@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        thead{
+            background-color: goldenrod;
+        }
+        img{
+            height: 200px;
+        }
+        table{
+            font-size: 20px;
+            text-align: center;
+        }
+        table, td{
+            border: 1px solid goldenrod;
+            border-collapse: collapse;
+        }
+        td{
+            padding: 10px;
+        }
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 100px;
+            justify-content: space-around;
+            width: 500px;
+        }
+        .inputs{
+            height: 30px;
+        }
+        button{
+            width: 100px;
+            height: 80px;
+            border: none;
+            background-color: goldenrod;
+            font-size: 25px;
+        }
+        input{
+            border: 1px solid goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div class="inputs">Image address : <input id="ia"></div>
+        <div class="inputs">Name: <input id="name"></div>
+        <div class="inputs">HP : <input id="hp"></div>
+        <button onclick="apply();">apply</button>
+        <button onclick="deleteCell();">delete</button>
+    </div>
+        
+
+
+    <table>
+        <thead>
+            <td>Image</td>
+            <td>Name</td>
+            <td>HP</td>
+        </thead>
+        <tbody id="tableBody">
+            <tr>
+                <td>
+                    <img src="https://w.namu.la/s/46cde4b92e80804f4488f6c144aed78384dbbae624d379cd34a9af1f1d98f16dc193056d6104a26eaff04de6041df16beb228702ffb8ecb89e6985747d34ecb5ca46003f076b3e97ceb573c0fef9620a00f98e87ee827103fe749334c6e027b6">
+                </td>
+                <td>Timekeeper Cookie</td>
+                <td>306</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        function apply(){
+            var ia = document.getElementById("ia").value;
+            var name = document.getElementById("name").value;
+            var hp = document.getElementById("hp").value;
+
+            var tableBody = document.getElementById("tableBody");
+            var row = tableBody.insertRow(0);
+            var imgCell = row.insertCell(0);
+            var nameCell = row.insertCell(1);
+            var hpCell = row.insertCell(2);
+
+            nameCell.innerText = name;
+            hpCell.innerText = hp;
+
+            var img = document.createElement("img");
+            img.src = ia;
+            imgCell.appendChild(img);
+        }
+
+        function deleteCell(){
+            var tableBody = document.getElementById("tableBody");
+            tableBody.deleteRow( tableBody.rows.length - 1 );
+        }
+    </script>
+</body>
+</html>

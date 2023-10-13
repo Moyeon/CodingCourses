@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container{
+            width: 700px;
+            height: 700px;
+            background-color: darkseagreen;
+            position: relative;
+        }
+        .item1{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+            position: absolute;
+            animation-name: move;
+            animation-duration: 3s;
+            animation-iteration-count: 5;
+            animation-direction: alternate;
+        }
+        .item2{
+            width: 80px;
+            height: 80px;
+            background-color: crimson;
+            border-radius: 50%;
+            position: absolute;
+            animation-name: clockwise;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        .item3{
+            width: 100px;
+            height: 100px;
+            background-color: cornflowerblue;
+            position: absolute;
+            animation: counterclockwise;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes move {
+            0%{
+                top: 0;
+                left: 0;
+            }
+
+            100%{
+                top: 500px;
+                left: 500px;
+            }
+        }
+
+        @keyframes clockwise{
+            0%{
+                top: 0;
+                left: 0;
+            }
+            25%{
+                top: 0;
+                left: 620px;
+            }
+            50%{
+                top: 620px;
+                left: 620px;
+            }
+            75%{
+                top: 620px;
+                left: 0;
+            }
+            100%{
+                top: 0;
+                left: 0;
+            }
+        }
+        @keyframes counterclockwise{
+            0%{
+                top: 0;
+                left: 0;
+                background-color: cornflowerblue;
+            }
+            25%{
+                top: 600px;
+                left: 0;
+                background-color: aqua;
+            }
+            50%{
+                top: 600px;
+                left: 600px;
+                background-color: lightpink;
+            }
+            75%{
+                top: 0;
+                left: 600px;
+                background-color: yellow;
+            }
+            100%{
+                top: 0;
+                left: 0;
+                background-color: cornflowerblue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"></div>
+    </div>
+</body>
+</html>

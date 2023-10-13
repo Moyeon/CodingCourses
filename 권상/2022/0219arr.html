@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Practice</title>
+</head>
+<body>
+    <input type="number" id="input" onkeyup="enter(event);">
+    <button onclick="addArray();">Add</button>
+    <button onclick="maxPrint();">Max</button>
+    <button onclick="minPrint();">Min</button>
+    <p id="display">[]</p>
+    <input type="number" id="fiboInput">
+    <button onclick="fiboPrint();">fibonacci</button>
+    <button onclick="upfibo();">upgrade fibonacci</button>
+    <button onclick="doublePrint()">double</button>
+    <p id="fibodisplay"></p>
+
+    <script>
+        var display = document.getElementById("display");
+        var input = document.getElementById("input");
+        var arr = [];
+
+        function addArray(){
+            if(input.value !=''){
+                arr.push(input.value);
+                display.innerHTML = arr;
+                input.value = '';
+            }
+        }
+        function enter(e){
+            if(e.keyCode == 13){
+                addArray();
+            }
+        }
+
+        function maxPrint(){
+            var maxnum = 0;
+            for(var i=0; i < arr.length; i++){
+                if(maxnum < arr[i]*1){
+                    maxnum = arr[i]*1;
+                }
+            }
+            alert(maxnum);
+        }
+
+        function minPrint(){
+            var minnum = arr[0]*1;
+            for(var i=0; i < arr.length; i++){
+                if(minnum > arr[i]*1){
+                    minnum = arr[i]*1;
+                }
+            }
+            alert(minnum);
+        }
+
+        function fiboPrint(){
+            var fiboInput = document.getElementById("fiboInput").value;
+            var fiboarr = [1, 1];
+            for(var i=2; i < fiboInput; i++){
+                fiboarr.push(fiboarr[i-2] + fiboarr[i-1]);
+            }
+            document.getElementById("fibodisplay").innerHTML = fiboarr;
+        }
+
+        function upfibo(){
+            var fiboInput = document.getElementById("fiboInput").value;
+            var uparr = [1, 1, 2];
+            for(var i=3; i < fiboInput; i++){
+                fiboarr.push(uparr[i-3] + uparr[i-2] + uparr[i-1]);
+            }
+            document.getElementById("fibodisplay").innerHTML = uparr;
+        }
+
+        function doublePrint(){
+            var input = document.getElementById("fiboInput").value;
+            var darr = [1];
+            for(var i=1; i < input; i++){
+                darr.push(darr[i-1]*2);
+            }
+            document.getElementById("fibodisplay").innerHTML = darr;
+        }
+    </script>
+</body>
+</html>

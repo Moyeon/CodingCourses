@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 만들기</title>
+    <style>
+        table,th,td{
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        table{
+            width: 50%;
+        }
+        th{
+            font-size: 20px;
+            height: 40px;
+            background-color: lightpink;
+        }
+        td{
+            font-size: 20px;
+            height: 40px;
+            text-align: center;
+        }
+        body{
+            background-color: rgb(255, 243, 202);
+        }
+        .square{
+            width: 100px;
+            height: 100px;
+            background-color: slateblue;
+            transition: all ease 1s;
+        }
+        .box:checked ~ .square{
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dylan</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Ann</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>Stellar</td>
+                <td>12</td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="checkbox" class="box">
+    <button>Go!</button>
+    <div class="square"></div>
+    <p id="welcome">Hello!</p>
+
+    <script>
+        var name = prompt("Input your name.");
+        name = "Dylan";
+        document.getElementById("welcome").innerHTML = "Welcome, "+name;
+
+        var number = prompt("input a number.");
+        if(number%2==0){
+            alert("Even");
+        }else{
+            alert("Odd");
+        }
+    </script>
+</body>
+</html>

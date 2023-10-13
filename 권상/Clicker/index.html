@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gameboard">
+        <div class="main">
+            <div class="UI">
+                <div id="coinIcon"></div>
+                <div id="coin">100000</div>
+                <button id="save" onclick="saveData();">SAVE</button>
+            </div>
+            <div id="display">
+
+            </div>
+        </div>
+
+        <div class="shop">
+            <div class="item">
+                <button class="icon" id="star" onclick="cpcItem(100, 1);"></button>
+                <div class="info">100<br>coin per click +1</div>
+            </div>
+            <div class="item">
+                <button class="icon" id="moon" onclick="cpcItem(500,5);"></button>
+                <div class="info">500<br>coin per click +5</div>
+            </div>
+            <div class="item">
+                <button class="icon" id="sun" onclick="cpcItem(2000, 10);"></button>
+                <div class="info">2000<br>coin per click +10</div>
+            </div>
+            <div class="item">
+                <button class="icon" id="wrist" onclick="cpsItem(200, 1);"></button>
+                <div class="info">200<br>coin per sec +1</div>
+            </div>
+            <div class="item">
+                <button class="icon" id="desk" onclick="cpsItem(1000, 5);"></button>
+                <div class="info">1000<br>coin per sec +5</div>
+            </div>
+            <div class="item">
+                <button class="icon" id="digit" onclick="cpsItem(5000, 10);"></button>
+                <div class="info">5000<br>coin per sec +10</div>
+            </div>
+        </div>
+
+        <div class="jellyShop">
+            <div class="jellyItem">
+                <button class="jellyIcon squ" onclick="square();"></button>
+                <div class="jellyInfo">BASIC</div>
+                <div class="jellyInfo">10000C</div>
+            </div>
+            <div class="jellyItem">
+                <button class="jellyIcon cir" onclick="circle();"></button>
+                <div class="jellyInfo">CIRCLE</div>
+                <div class="jellyInfo">30000C</div>
+            </div>
+            <div class="jellyItem">
+                <button class="jellyIcon tri" onclick="triangle();"></button>
+                <div class="jellyInfo">TRIANGLE</div>
+                <div class="jellyInfo">50000C</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

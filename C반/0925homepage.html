@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>Homepage: Using Grid</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                background-color: rgb(200, 200, 200);
+                width: 100vw;
+                height: 200vh;
+                display: grid;
+                grid-gap: 2px;
+
+                grid-template-rows: 55px 40px 36px 45px 260px 50px 1fr;
+                grid-template-columns: 1fr 300px;
+            }
+            .item{
+                background-color: white;
+                display: flex;
+                align-items: center;
+                padding-left: 20px;
+            }
+            .item:nth-child(1){
+                grid-column: 1/3;
+            }
+            .item:nth-child(2){
+                grid-column: 1/3;
+            }
+            .main{
+                padding: 14px;
+            }
+            .main:nth-child(2){
+                background-color: rgb(49, 206, 49);
+                color: white;
+            }
+            .item:nth-child(3){
+                background-color: rgb(240, 240, 240);
+                grid-column: 1/3;
+            }
+            .sort{
+                color: gray;
+                margin: 10px;
+                font-size: 13px;
+            }
+            .sort:nth-child(1){
+                color: black;
+            }
+            .day{
+                padding: 15px;
+            }
+            .day:nth-child(1){
+                color: rgb(49, 206, 49);
+                border-bottom: 4px solid rgb(49, 206, 49);
+            }
+            .item:nth-child(5){
+                grid-row: 5/6;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .cover{
+                width: 20vw;
+                height: 120px;
+                background-color: sandybrown;
+            }
+            .webtoon{
+                width: auto;
+                height: 230px;
+            }
+            .new{
+                width: 100%;
+            }
+            .item:nth-child(6){
+                grid-row: 4/-1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item">NAVER 만화</div>
+            <div class="item">
+                <div class="main">홈</div>
+                <div class="main">웹툰</div>
+                <div class="main">베스트 도전</div>
+                <div class="main">도전만화</div>
+                <div class="main">마이페이지</div>
+            </div>
+            <div class="item">
+                <div class="sort">요일별</div>
+                <div class="sort">장르별</div>
+                <div class="sort">작품별</div>
+            </div>
+            <div class="item">
+                <div class="day">요일전체</div>
+                <div class="day">월요웹툰</div>
+                <div class="day">화요웹툰</div>
+            </div>
+            <div class="item">
+                <div class="new">이달의 신규 웹툰</div>
+                <div class="webtoon">
+                    <div class="cover"></div>
+                    <div class="title">최강부캐</div>
+                </div>
+                <div class="webtoon">
+                    <div class="cover"></div>
+                    <div class="title">최강부캐</div>
+                </div>
+                <div class="webtoon">
+                    <div class="cover"></div>
+                    <div class="title">최강부캐</div>
+                </div>
+            </div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </body>
+</html>

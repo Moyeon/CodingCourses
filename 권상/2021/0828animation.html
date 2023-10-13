@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .slidingBox{
+            animation-name: slide;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease;
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+        .rotating{
+            width: 200px;
+            height: 200px;
+            background-color: khaki;
+            animation-name: hello;
+            animation-duration: 3s;
+            animation-iteration-count: 10;
+            animation-timing-function: linear;
+        }
+        .pink{
+            width: 100px;
+            height: 130px;
+            background-color: pink;
+            animation-name: move;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        .second{
+            animation-timing-function: ease;
+        }
+        .third{
+            animation-timing-function: linear;
+        }
+        .bounce{
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+            border-radius: 50%;
+            animation: moveX 2s linear infinite alternate, 
+                        moveY 2s infinite cubic-bezier(0,500,1,500);
+        }
+        .bounce2{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            border-radius: 50%;
+            animation: moveX 2s linear infinite alternate,
+                        moveY 2s infinite cubic-bezier(0.5, 300, 0.5, -300);
+        }
+
+        .violet{
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+            animation: beRound 1s;
+        }
+
+        @keyframes slide{
+            from{
+                transform: translateX(100vw);
+            }
+            50%{
+                transform: translateX(50vw) translateY(500px);
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes hello{
+            from{
+                transform: perspective(200px) rotateX(0deg);
+            }
+            to{
+                transform: perspective(200px) rotateX(360deg);
+            }
+        }
+
+        @keyframes move{
+            to{
+                transform: translateX(100vw);
+            }
+        }
+
+        @keyframes moveX {
+            to{
+                margin-left: 300px;
+            }
+        }
+        @keyframes moveY {
+            from{
+                margin-top: 501px;
+            }
+            to{
+                margin-top: 500px;
+            }
+        }
+
+        @keyframes beRound {
+            to{
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slidingBox"></div>
+    <div class="rotating"></div>
+    <div class="pink"></div>
+    <div class="pink second"></div>
+    <div class="pink third"></div>
+    <div style="height: 700px; width: 1000px;">
+        bounce1
+        <div class="bounce"></div>
+    </div>
+    <div style="width: 1000px; height: 800px;">
+        bounce2
+        <div class="bounce2"></div>
+    </div>
+    <div class="violet"></div>
+</body>
+</html>

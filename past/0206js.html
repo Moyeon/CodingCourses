@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input onkeyup="enter();" id="inputName" type="text" placeholder="이름을 입력하세요.">
+        <button onclick="clicked();">검색</button>
+        <br>
+        <button onclick="maxSort();">최대 체력순</button>
+        <button onclick="minSort();">최소 체력순</button>
+
+        <div>
+            <img id="imgSrc" src="blackberry.png">
+            <p id="name">blackberry</p>
+            <p id="HP">HP: 169 ~ 290</p>
+        </div>
+        <script>
+            const cookies = [
+                {name: 'blackberry', maxHP: 297, minHP: 169, img:"blackberry.png"},
+                {name: 'hero', maxHP: 286, minHP: 160, img:"hero.png"},
+                {name: 'whiteChoco', maxHP: 295, minHP: 169, img:"whiteChoco.png"},
+                {name: 'timekeeper', maxHP: 306, minHP: 234, img:"timekeeper.png"},
+                {name: 'seaFairy', maxHP: 304, minHP: 232, img:"seaFairy.png"}
+            ];
+
+            console.table(cookies);
+
+            const weakCookies = cookies.filter(cookie => (cookie.maxHP <300));
+
+            console.table(weakCookies);
+
+            const ordered = cookies.sort((a, b) => {
+                if(a.maxHP > b.maxHP){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+
+            console.table(ordered);
+
+            function clicked(){
+                var inName = document.getElementById("inputName").value;
+                var a = cookies.find(cookie => cookie.name == inName);
+                if(!a){
+                    alert("다시 입력해 주세요!");
+                    return;
+                }
+                document.getElementById("imgSrc").src = a.img;
+                document.getElementById("name").innerHTML = a.name;
+                document.getElementById("HP").innerHTML =  "HP: " + a.minHP + " ~ " +a.maxHP;
+
+                console.table(cookies);
+            }
+
+            function maxSort(){
+                var ordered = cookies.sort((a, b) => {
+                    if(a.maxHP > b.maxHP){
+                        return 1;
+                    }else{
+                        return -1;
+                    }
+                });
+                console.table(ordered);
+            }
+            function enter(){
+                if(window.event.keyCode == 13){
+                    clicked();
+                }
+            }
+        </script>
+    </body>
+</html>

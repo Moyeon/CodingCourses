@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@500&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.box{
+    width: 320px;
+    height: 100px;
+    background: linear-gradient(to bottom right, rgb(131, 234, 241) 30%, rgb(99, 164, 255));
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+span{
+    font-family: 'Birthstone Bounce';
+    font-size: 35px;
+    color: white;
+}
+.bg{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom right, rgb(248, 222, 127) 30%, rgb(217, 144, 88));
+    z-index: -1;
+    transition: 850ms;
+}
+.string{
+    position: absolute;
+    width: 10px;
+    height: 160px;
+    background: rgb(240, 240, 240);
+    top: 0;
+    right: -10px;
+    border-radius: 0 10px 0 0;
+    transition: 850ms;
+}
+.string-end{
+    width: 16px;
+    height: 24px;
+    background: rgb(200, 200, 200);
+    position: absolute;
+    right: -13px;
+    bottom: -84px;
+    border-radius: 0 0 8px 8px;
+    transition: 850ms;
+}
+.blind{
+    width: 20px;
+    height: 0px;
+    position: absolute;
+    background: linear-gradient(to right bottom, white, rgb(230,230,230) 80%);
+    top: 0;
+}
+.box:hover .blind{
+    height: 100px;
+}
+.box:hover .bg{
+    filter: invert(100%) brightness(30%);
+}
+.box:hover .string{
+    height: 120px;
+}
+.box:hover .string-end{
+    bottom: -44px;
+}
+#b1{
+    left: 0;
+    transition: 100ms;
+}
+#b2{
+    left: 20px;
+    transition: 150ms;
+}
+#b3{
+    left: 40px;
+    transition: 200ms;
+}
+#b4{
+    left: 60px;
+    transition: 250ms;
+}
+#b5{
+    left: 80px;
+    transition: 300ms;
+}
+#b6{
+    left: 100px;
+    transition: 350ms;
+}
+#b7{
+    left: 120px;
+    transition: 400ms;
+}
+#b8{
+    left: 140px;
+    transition: 450ms;
+}
+#b9{
+    left: 160px;
+    transition: 500ms;
+}
+#b10{
+    left: 180px;
+    transition: 550ms;
+}
+#b11{
+    left: 200px;
+    transition: 600ms;
+}
+#b12{
+    left: 220px;
+    transition: 650ms;
+}
+#b13{
+    left: 240px;
+    transition: 700ms;
+}
+#b14{
+    left: 260px;
+    transition: 750ms;
+}
+#b15{
+    left: 280px;
+    transition: 800ms;
+}
+#b16{
+    left: 300px;
+    transition: 850ms;
+}

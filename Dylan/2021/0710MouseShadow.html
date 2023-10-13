@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Shadow</title>
+    <style>
+        p{
+            font-size: 50px;
+            text-shadow: 2px 2px 3px pink;
+        }
+        .display{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="display" class="display">
+        <p contenteditable id="text">Hello😍</p>
+    </div>
+    
+    <script>
+        const dis = document.getElementById("display");
+        const text = document.getElementById("text");
+        const space = 1200;
+
+        function shadow(e){
+            const { offsetWidth: width, offsetHeight: height} = dis;
+            let { offsetX: x, offsetY: y} = e;
+
+            if (this !== e.target){
+                x = x + e.target.offsetLeft;
+                y = y + e.target.offsetTop;
+            }
+
+            const xShadow = x/width*space-space/2;
+            const yShadow = y/height*space-space/2;
+            
+            text.style.textShadow = `
+                ${xShadow}px ${yShadow}px 0 rgba(255,0,255,0.6),
+                ${xShadow*-1}px ${yShadow}px 0 rgba(0,255,255,0.6),
+                ${yShadow*-1}px ${xShadow}px 0 rgba(255,255,0,0.6),
+                ${yShadow}px ${xShadow*-1}px 0 rgba(0,255,0,0.6)
+            `;
+        }
+
+        dis.addEventListener('mousemove', shadow);
+    </script>
+</body>
+</html>

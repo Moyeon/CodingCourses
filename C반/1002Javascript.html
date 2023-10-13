@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>What is Javascript?</title>
+        <style>
+            .calculator{
+                display: grid;
+                width: 360px;
+                height: 500px;
+                grid-template-rows: 100px 1fr 1fr 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            input{
+                grid-column: 1/-1;
+                background-color: rgb(70, 70, 70);
+                border: none;
+                color: white;
+                font-size: 30px;
+                text-align: right;
+                padding: 10px;
+            }
+            button:nth-child(2){
+                grid-column: 1/4;
+                background-color: rgb(114, 114, 114);
+            }
+            button:nth-child(16){
+                grid-column: 1/span 2;
+            }
+            button{
+                background-color: rgb(175, 175, 175);
+                border: rgb(70, 70, 70) 1px solid;
+                color: white;
+                font-size: 25px;
+            }
+            button:nth-child(4n+3){
+                background-color: orange;
+            }
+            button:last-child{
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator">
+            <input id="inputNums">
+            <button onclick="clearNums();">AC</button>
+            <button onclick="writeN('/');">&divide;</button>
+            <button onclick="writeN('7');">7</button>
+            <button onclick="writeN('8');">8</button>
+            <button onclick="writeN('9');">9</button>
+            <button onclick="writeN('*');">&times;</button>
+            <button onclick="writeN('4');">4</button>
+            <button onclick="writeN('5');">5</button>
+            <button onclick="writeN('6');">6</button>
+            <button onclick="writeN('-');">&dash;</button>
+            <button onclick="writeN('1');">1</button>
+            <button onclick="writeN('2');">2</button>
+            <button onclick="writeN('3');">3</button>
+            <button onclick="writeN('+');">&plus;</button>
+            <button onclick="writeN('0');">0</button>
+            <button onclick="writeN('.');">.</button>
+            <button onclick="calcul();">&equals;</button>
+        </div>
+        
+
+        <p class="ans" id="ans">Answer Box</p>
+
+        <script>
+            //alert("Hello!");
+            //confirm("Are you a male?");
+            //prompt("What's your name");
+            console.log("New message.");
+            var a = 25;
+            console.log(a);
+            var b = 3;
+            console.log(a+b);
+            b = 10;
+            console.log(a+b);
+
+            var c = "Hi";
+            console.log(c + 3 + "!!!!");
+
+            var d = 1;
+            console.log(d);
+
+
+            a = eval("10*10/2");
+            console.log(a);
+
+            function calcul(){
+                a = document.getElementById("inputNums").value;
+                console.log( eval(a) );
+                document.getElementById("inputNums").value = eval(a);
+            }
+            
+            function writeN(num){
+                document.getElementById("inputNums").value = document.getElementById("inputNums").value + num;
+            }
+
+            function clearNums(){
+                document.getElementById("inputNums").value = "";
+            }
+        </script>
+    </body>
+</html>

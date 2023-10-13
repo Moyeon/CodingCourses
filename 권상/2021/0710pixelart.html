@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(32,15px);
+            grid-template-rows: repeat(32,15px);
+        }
+        .pixel{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container"></div>
+    <input type="color" id="colorPicker">
+
+    <script>
+        for(a=0;a<32*32;a++){
+            document.getElementById("container").innerHTML += '<div class="pixel" onclick="colorChange(this);"></div>';
+        }
+        
+        var pen = false;
+        var penColor = "black";
+        const picker = document.getElementById("colorPicker");
+        picker.addEventListener("input", penColorChange);
+        
+        function penColorChange(e){
+            penColor = e.target.value;
+        }
+
+        function colorChange(obj){
+            obj.style.backgroundColor = penColor;
+        }
+
+        const pixels = document.querySelectorAll(".pixel");
+        pixels.forEach(pixel => {
+            pixel.addEventListener("mousedown", (event) =>{
+                pen = true;
+                pixel.style.backgroundColor = penColor;
+            });
+            pixel.addEventListener("mouseover", (event)=>{
+                if(pen){
+                    pixel.style.backgroundColor = penColor;
+                }
+            });
+            
+        });
+        window.addEventListener("mouseup", (event) =>{
+            pen = false;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Practice Display: Grid!</title>
+        <style>
+            .container{
+                display: grid;
+                background-color: rgb(54, 59, 87);
+                width: 80vw;
+                height: 80vh;
+                margin: auto;
+                grid-gap: 3px;
+                padding: 10px;
+
+                grid-template-columns: 200px 4fr 100px 1fr;
+                grid-template-rows: 100px 1fr 1fr;
+            }
+            .item{
+                background-color: cornflowerblue;
+                border-radius: 5px;
+            }
+            #red{
+                background-color: crimson;
+                grid-column: 2/3;
+                grid-row: 2/4;
+            }
+            #yellow{
+                background-color: yellow;
+                grid-column: 3/ span 2;
+                grid-row: 2/3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item" id="yellow"></div>
+            <div class="item"></div>
+            <div class="item" id="red"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </body>
+</html>

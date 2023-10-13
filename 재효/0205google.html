@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+        .header{
+            font-family: 'Satisfy', serif;
+            font-size: 100px;
+            color: whitesmoke;
+            margin-top: 180px;
+        }
+        .circle{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(243, 243, 243);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body{
+            background-color:rgb(142, 194, 230);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .search{
+            background-color: white;
+            width: 420px;
+            padding: 10px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 30px;
+        }
+        input{
+            font-size: 17px;
+            width: 340px;
+            border: none;
+        }
+        input:focus{
+            outline: none;
+        }
+        .icons{
+            width: 380px;
+            height: 200px;
+            display: grid;
+            grid-template-columns: repeat(8, 47.5px);
+        }
+        .icon:nth-child(1){
+            grid-column: 1/3;
+        }
+        .icon:nth-child(2){
+            grid-column: 3/5;
+        }
+        .icon:nth-child(3){
+            grid-column: 5/7;
+        }
+        .icon:nth-child(4){
+            grid-column: 7/9;
+        }
+        .icon:nth-child(5){
+            grid-column: 2/4;
+        }
+        .icon:nth-child(6){
+            grid-column: 4/6;
+        }
+        .icon:nth-child(7){
+            grid-column: 6/8;
+        }
+        img{
+            height: 30px;
+        }
+        .top{
+            text-align: right;
+            align-self: flex-end;
+            margin: 15px;
+            color: white;
+        }
+        span:nth-child(3){
+            width: 28px;
+            height: 28px;
+            background-color: gray;
+            display: inline-block;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <span>Gmail</span>
+        <span>Image</span>
+        <span>호연</span>
+    </div>
+    <div class="header">Google</div>
+
+    <div class="search">
+        <input placeholder="Google 검색 또는 URL 입력">
+    </div>
+
+    <div class="icons">
+        <div class="icon">
+            <div class="circle"><img src="https://ssl.pstatic.net/sstatic/search/common/og_v3.png"></div>
+            <p>NAVER</p>
+        </div>
+        <div class="icon">
+            <div class="circle"><img src="https://ww.namu.la/s/35d8af32f6b0f828094400311ee50cb151a56c7aef19a701420ab7de217d2bd3ec58a666aee8cf89f3a489fcab31fd7aa301f356dea62e752a603282667edc7c51c182f4c20f900f0163e4f52060f162"></div>
+            <p>Daum</p>
+        </div>
+        <div class="icon">
+            <div class="circle"><img src="https://avatars.githubusercontent.com/u/3420800?s=200&v=4"></div>
+            <p>Scratch</p>
+        </div>
+        <div class="icon">
+            <div class="circle"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/640px-App_Store_%28iOS%29.svg.png"></div>
+            <p>App Store</p>
+        </div>
+        <div class="icon">
+            <div class="circle"><img src="https://i.pinimg.com/474x/24/24/12/242412a32af5cca3cb114cfee0cd3d8b.jpg"></div>
+            <p>Youtube</p>
+        </div>
+        <div class="icon">
+            <div class="circle"><img src="https://1000logos.net/wp-content/uploads/2021/05/Gmail-logo.png"></div>
+            <p>Gmail</p>
+        </div>
+        <div class="icon">
+            <div class="circle"><img src="https://www.zjonline.com.au/wp-content/uploads/2020/11/Zoom-Logo-PNG-Photo.png"></div>
+            <p>Zoom</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack a Mole!</title>
+    <style>
+        .display{
+            width: 80vw;
+            height: 40vw;
+            background-color: tan;
+            margin: auto;
+            position: relative;
+        }
+        .mole{
+            width: 8vw;
+            height: 13vw;
+            background-color: saddlebrown;
+            border-radius: 4vw 4vw 0 0;
+            position: absolute;
+            cursor: grab;
+            transform-origin: bottom;
+            animation: up 0.1s;
+        }
+        .face{
+            position: absolute;
+            width: 3vw;
+            height: 1vw;
+            left: 2.5vw;
+            background-color: red;
+            top: 4vw;
+            border-radius: 50%;
+        }
+        .face:before, .face:after{
+            content: "";
+            width: 0.8vw;
+            height: 0.8vw;
+            background-color: black;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .face:before{
+            top: -1.3vw;
+            left: -0.2vw;
+        }
+        .face:after{
+            top: -1.3vw;
+            right: -0.2vw;
+        }
+        button{
+            display: block;
+            margin: auto;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .down{
+            animation: down 0.1s;
+        }
+
+        @keyframes up {
+            from{
+                transform: scaleY(0);
+            }
+            to{
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes down {
+            from{
+                transform: scaleY(1);
+            }
+            to{
+                transform: scaleY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="UI">
+        <div>Score : <span id="score">0</span></div>
+        <div>Time Left : <span id="time">0</span></div>
+        <div>Highscore : <span id="highscore">0</span></div>
+    </div>
+    <div class="display" id="display"></div>
+    <button onclick="start();">Start!</button>
+    <script>
+
+        var display = document.getElementById("display");
+
+        var score = 0;
+        var scoreDisplay = document.getElementById("score");
+
+        var time = 0;
+        var timeDisplay = document.getElementById("time");
+
+        var highscore = 0;
+        var highscoreDisplay = document.getElementById("highscore");
+
+        function clickMole(){
+            if(time > 0){
+                score++;
+                displayUpdate();
+                display.removeChild(this);
+            }
+        }
+
+        function displayUpdate(){
+            scoreDisplay.innerHTML = score;
+            timeDisplay.innerHTML = time;
+            highscoreUpdate();
+        }
+
+        function timeReduce(){
+            time--;
+            displayUpdate();
+            if(time == 0){
+                alert("Game Over");
+            }else{
+                setTimeout(timeReduce, 1000);
+            }
+        }
+
+        function start(){
+            if(time == 0){
+                time = 60;
+                score = 0;
+                timeReduce();
+                game();
+            }
+            
+        }
+
+        function highscoreUpdate(){
+            if(score > highscore){
+                highscore = score;
+                highscoreDisplay.innerHTML = highscore;
+            }
+        }
+
+        function randomAppear(){
+            var xpos = randomBetween(0, 72);
+            var ypos = randomBetween(0, 27);
+
+            var newmole = document.createElement("div");
+            newmole.classList.add("mole");
+            var newface = document.createElement("div");
+            newface.classList.add("face");
+            newmole.appendChild(newface);
+            display.appendChild(newmole);
+
+            newmole.style.left = xpos + "vw";
+            newmole.style.top = ypos + "vw";
+
+            newmole.addEventListener("mousedown", clickMole);
+
+            function moleDown(){
+                newmole.classList.add("down");
+                newmole.addEventListener("animationend", ()=>{
+                    display.removeChild(newmole);
+                } );
+            }
+            
+            var randomTime = randomBetween(600, 1300);
+            setTimeout( moleDown, randomTime );
+        }
+
+        function game(){
+            if(time>0){
+                randomAppear();
+                setTimeout(game, randomBetween(1000, 2000));
+            }
+        }
+
+        function randomBetween(min, max){
+            var num = Math.floor( Math.random() * (max - min)) + min;
+            return num;
+        }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Table</title>
+    <style>
+        table, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            width: 70px;
+            height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="name" placeholder="이름을 입력하세요.">
+    <input type="number" id="age" placeholder="나이를 입력하세요." onkeyup="enter();">
+    <button onclick="makeRow();">입력</button>
+    <button onclick="deleteRow();">삭제</button>
+    <br><br>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td><td>Age</td>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+
+
+    <script>
+        function makeRow(){
+            var tb = document.getElementById("tableBody");
+            var row = tb.insertRow(tb.rows.length);
+            var nameCell = row.insertCell(0);
+            var ageCell = row.insertCell(1);
+
+            nameCell.innerHTML = document.getElementById("name").value;
+            ageCell.innerHTML = document.getElementById("age").value;
+
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+        }
+
+        function enter(){
+            if(window.event.keyCode == 13){
+                makeRow();
+            }
+        }
+
+        function deleteRow(){
+            var tb = document.getElementById("tableBody");
+            tb.deleteRow(tb.rows.length-1);
+        }
+    </script>
+</body>
+</html>

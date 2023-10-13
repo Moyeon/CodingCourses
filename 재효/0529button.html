@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="date" id="left">
+    <input type="date" id="right">
+    <button onclick="calculate();">Calculate!</button>
+
+    <script>
+        function calculate(){
+            var left = new Date(document.getElementById("left").value);
+            var right = new Date(document.getElementById("right").value);
+
+            var answer = left.getTime() - right.getTime();
+            alert(answer/60/1000/60/24);
+        }
+    </script>
+</body>
+</html>

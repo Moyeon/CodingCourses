@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>악기 연주하기</title>
+        <style>
+            .key{
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+                text-align: center;
+                transition: all ease 0.5s;
+            }
+            .keys{
+                display: flex;
+                max-height: 100vh;
+                align-items: center;
+                justify-content: center;
+            }
+            .playing{
+                background-color: darkblue;
+                transform: scale(1.1);
+                color: white;
+            }
+            kbd{
+                color:white;
+                text-shadow: 0 0 .5rem black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="keys">
+            <div id="k65" class="key">
+                <kbd>A</kbd>
+                <p>도</p>
+            </div>
+            <div id="k83" class="key">
+                <kbd>S</kbd>
+                <p>레</p>
+            </div>
+            <div id="k68" class="key">
+                <kbd>D</kbd>
+                <p>미</p>
+            </div>
+            <div id="k70" class="key">
+                <kbd>F</kbd>
+                <p>파</p>
+            </div>
+            <div id="k71" class="key">
+                <kbd>G</kbd>
+                <p>솔</p>
+            </div>
+            <div id="k72" class="key">
+                <kbd>H</kbd>
+                <p>라</p>
+            </div>
+            <div id="k74" class="key">
+                <kbd>J</kbd>
+                <p>시</p>
+            </div>
+            <div id="k75" class="key">
+                <kbd>K</kbd>
+                <p>도</p>
+            </div>
+        </div>
+
+        <audio id="a65" src="도.mp3"></audio>
+        <audio id="a83" src="레.mp3"></audio>
+        <audio id="a68" src="미.mp3"></audio>
+        <audio id="a70" src="파.mp3"></audio>
+        <audio id="a71" src="솔.mp3"></audio>
+        <audio id="a72" src="라.mp3"></audio>
+        <audio id="a74" src="시.mp3"></audio>
+        <audio id="a75" src="도(높은).mp3"></audio>
+
+        <script>
+            function playSound(e){
+                const audio = document.getElementById("a"+e.keyCode);
+                const key = document.getElementById("k"+e.keyCode);
+                if(!audio) return;
+                key.classList.add('playing');
+                audio.currentTime = 0;
+                audio.play();
+            }
+            function removeC(e){
+                if(e.propertyName !== "transform") return;
+                e.target.classList.remove('playing');
+            }
+            
+            const keys = Array.from(document.querySelectorAll('.key'));
+            keys.forEach(key => key.addEventListener("transitionend",removeC))
+            window.addEventListener("keydown",playSound);
+        </script>
+    </body>
+</html>

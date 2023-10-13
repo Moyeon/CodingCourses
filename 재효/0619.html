@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <input id="cider">
+    <button onclick="cola();">=</button>
+    <br>
+    <button onclick="ac();">AC</button>
+    <button onclick="num('/');">&divide;</button>
+    <br>
+    <button onclick="num(7);">7</button>
+    <button onclick="num(8);">8</button>
+    <button onclick="num(9);">9</button>
+    <button onclick="num('*');">&times;</button>
+    <br>
+    <button onclick="num(4);">4</button>
+    <button onclick="num(5);">5</button>
+    <button onclick="num(6);">6</button>
+    <button onclick="num('-');">-</button>
+    <br>
+    <button onclick="num(1);">1</button>
+    <button onclick="num(2);">2</button>
+    <button onclick="num(3);">3</button>
+    <button onclick="num('+');">+</button>
+    <br>
+    <button onclick="num(0);">0</button>
+    <button onclick="num('.');">.</button>
+
+    <script>
+        function cola(){
+            var ciderinput = document.getElementById("cider").value;
+            var answer = eval(ciderinput);
+            alert(answer);
+        }
+        function num(n){
+            document.getElementById("cider").value += n;
+        }
+    </script>
+</body>
+</html>

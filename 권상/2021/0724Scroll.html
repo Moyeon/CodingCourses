@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title{
+            position: sticky;
+            top: 0;
+            background-color: lightyellow;
+            width: 100vw-100px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 70px;
+            padding-right: 30px;
+        }
+        .contents{
+            border: 1px solid black;
+            padding-left: 30px;
+            width: 500px;
+            margin-left: 20px;
+            margin-top: 30px;
+        }
+        a:link{
+            color: black;
+            text-decoration: none;
+        }
+        a:visited{
+            color: pink;
+        }
+        a:hover{
+            color:cornflowerblue;
+        }
+        a:active{
+            color: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+    <a name="home"></a>
+    <div class="title" id="title">
+        <h1>Siamese Cat</h1>
+        <a href="#home"><h3>HOME</h3></a>
+    </div>
+
+    <div class="contents">
+        <h3>Contents</h3>
+        <a href="#intro"><h4>1. Introduction</h4></a>
+        <h4 onclick="his();">2. History</h4>
+        <p onclick="ori();">2.1. Origins</p>
+        <p onclick="thai();">2.1.1. Thailand</p>
+        <p onclick="siam();">2.1.2. Siamese</p>
+        <p onclick="tra();">2.2. Traditional Siamese versus modern development</p>
+        <p onclick="app();">2.3. Appearance</p>
+    </div>
+
+    <a name="intro"><h2>1. Introduction</h2></a>
+    <p>
+        The Siamese cat (Thai: แมวไทย, Maew Thai; แมวสยาม, Maew Sayam) is one of the first distinctly recognized breeds of Asian cat. Derived from the Wichianmat landrace, one of several varieties of cat native to Thailand (formerly known as Siam), the original Siamese became one of the most popular breeds in Europe and North America in the 19th century. The carefully refined, more extreme-featured, modern-style Siamese is characterized by blue almond-shaped eyes; a triangular head shape; large ears; an elongated, slender, and muscular body; and various forms of point colouration. Other than colouration, the modern-style Siamese bears little resemblance to the original stock, and the more moderate, traditional, or "old-style" Siamese, with a much rounder head and body, has been re-established by multiple registries as the Thai cat. The International Cat Association describes the modern Siamese as affectionate, social, intelligent, and playful into adulthood, often enjoying a game of fetch.[1] Siamese tend to seek human interaction and also like companionship from other cats.
+        <br><br>
+        The Siamese (sometimes in the traditional form) is among the foundation stock of several other breeds developed by crossbreeding with other cats; some examples are the Oriental Shorthair and Colourpoint Shorthair, developed to expand the range of coat patterns; the long-haired variant most often dubbed the Himalayan; and hair-mutation breeds, including the Cornish Rex, Sphynx, Peterbald, and blue-point Siamese cat. The Siamese cat comes in two distinct variations: traditional, with an apple-shaped head and a slightly chubby body; or the modern Siamese, which are very skinny and have a wedge-shaped head. The long-haired Siamese is recognized internationally as a Balinese cat. Siamese cats are one of the more common breeds to have different colored irises.
+    </p>
+    <h2 id="history">2. History</h2>
+    <h3 id="origin">2.1. Origins</h3>
+    <h4>2.1.1. Thailand</h4>
+    <p>
+        A description and depiction of the Wichienmaat (Siamese cat) first appears in a collection of ancient manuscripts called the Tamra Maew (The Cat-Book Poems), thought to originate from the Ayutthaya Kingdom (1351 to 1767 AD). Over a dozen are now kept in the National Library of Thailand, while others have resurfaced outside of Thailand and are now in the British Library and National Library of Australia. In addition to the old Siamese cat, the Tamra Maew also describes other heritage cats of Thailand including the Korat cat (Malet), which are still bred for preservation in Thailand today and have become popular in other countries, and Konja cat (Black cat), Suphalak (a controversy in Burmese cat).
+        <br><br>
+        When the capital city Ayutthaya was sacked on 7 April 1767 at the end of the Burmese-Siamese war, the Burmese army burned everything in sight and returned to Burma, taking Siamese noblemen and royal family members with them as captives. Buddha images were hacked apart for their gold, and all the royal treasures were stolen. Thai legend has it that the King of Burma Hsinbyushin found and read the poem for the Thai cats in the Tamra Maew. The poem describes Thai cats as being as rare as gold, and anyone that owns this cat will become wealthy. He told his army to round up all the Suphalak cats and bring them back to Burma along with the other treasures. Today in Thailand, this legend is told as a humorous explanation as to the rarity of Thai cats.
+    </p>
+    <h4 id="siam">2.1.2. Siamese</h4>
+    <p>
+        The pointed cat known in the West as "Siamese", recognized for its distinctive markings, is one of several breeds of cats from Siam described and illustrated in manuscripts called "Tamra Maew" (Cat Poems), estimated to have been written from the 14th to the 18th century.[2] In 1878, U.S. President Rutherford B. Hayes received the first documented Siamese to reach the United States, a cat named "Siam" sent by the American Consul in Bangkok.[3] In 1884, the British Consul-General in Bangkok, Edward Blencowe Gould (1847–1916),[4] brought a breeding pair of the cats, Pho and Mia, back to Britain as a gift for his sister, Lilian Jane Gould (who, married in 1895 as Lilian Jane Veley,[5] went on to co-found the Siamese Cat Club in 1901). In 1885, Gould's UK cats Pho and Mia produced three Siamese kittens—Duen Ngai, Kalohom, and Khromata—who were shown with their parents that same year at London's Crystal Palace Show. Their unique appearance and distinct behaviour attracted attention but all three of the kittens died soon after the show, their cause of death not documented.[6]
+        <br><br>
+        By 1886, another pair (with kittens) was imported to the UK by Eva Forestier Walker (surnamed Vyvyan after 1887 marriage)[7] and her sister, Ada. Compared to the British Shorthair and Persian cats that were familiar to most Britons, these Siamese imports were longer and less "cobby" in body types, had heads that were less rounded with wedge-shaped muzzles and had larger ears. These differences and the pointed coat pattern, which had not been seen before in cats by Westerners, produced a strong impression—one early viewer described them as "an unnatural nightmare of a cat." Over the next several years, fanciers imported a small number of cats, which together formed the base breeding pool for the entire breed in Britain. It is believed that most Siamese in Britain today are descended from about eleven of these original imports. In their early days in Britain, they were called the "Royal Cat of Siam", reflecting reports that they had previously been kept only by Siamese royalty.[8] Later research has not shown evidence of any organised royal breeding programme in Siam.[2] The original Siamese imports were medium-sized, rather long-bodied, muscular, graceful cats with moderately wedge-shaped heads and ears that were comparatively large but in proportion to the size of the head. The cats ranged from substantial to slender but were not extreme in either way.
+    </p>
+    <h3 id="tra">2.2. Traditional Siamese versus modern development</h3>
+    <p>
+        In the 1950s–1960s, as the Siamese was increasing in popularity, many breeders and cat show judges began to favor the more slender look. As a result of generations of selective breeding, they created increasingly long, fine-boned, narrow-headed cats. Eventually, the modern show Siamese was bred to be extremely elongated, with a lean, tubular body, long, slender legs, a very long, very thin tail that tapers gradually into a point and a long, wedge-shaped head topped by extremely large, wide-set ears.
+        <br><br>
+        By the mid-1980s, cats of the original style had largely disappeared from cat shows but a few breeders, particularly in the UK, continued to breed and register them, resulting in today's two types of Siamese: the modern, "show-style", standardized Siamese, and the "Traditional Siamese", both descended from the same distant ancestors, but with few or no recent ancestors in common, and effectively forming distinct sub-breeds, with some pressure to separate them entirely.
+        <br><br>
+        In addition to the modern Siamese breed category, The International Cat Association (TICA) and the World Cat Federation (WCF) now accept Siamese cats of the less extreme type, and any wichianmat cat imported directly from Thailand, under the new breed name Thai.[9][10] Other, mostly unofficial, names for the traditional variety are "Old-style Siamese", "Classic Siamese", and "Applehead" (originally a derogatory nickname coined by breeders of modern-type Siamese).[11]
+    </p>
+    <h3 id="app">2.3. Appearance</h3>
+    <p>
+        The breed standard of the modern Siamese calls for an elongated, tubular, and muscular body and a triangular head, forming a perfect triangle from the tip of the nose to each tip of the ear. The eyes are almond-shaped and light blue, while the ears are large, wide-based, and positioned more towards the side of the head. The breed has a long neck, a slender tail, and fur that is short, glossy, fine, and adheres to the body with no undercoat. Its pointed color scheme and blue eyes distinguish it from the closely related Oriental Shorthair. The modern Siamese shares the pointed color pattern with the Thai, or traditional Siamese, but they differ in head and body type.[citation needed]
+        <br><br>
+        The pointed pattern is a form of partial albinism, resulting from a mutation in tyrosinase, an enzyme involved in melanin production. The mutated tyrosinase enzyme is heat-sensitive; it fails to work at normal body temperatures, but becomes active in cooler (< 33 °C) areas of the skin.[12] This results in dark colouration in the coolest parts of the cat's body, including the extremities and the face, which is cooled by the passage of air through the sinuses. All Siamese kittens, although pure cream or white at birth, develop visible points in the first few months of life in colder parts of their body.[13] By the time a kitten is four weeks old, the points should be sufficiently clearly distinguishable to recognise which colour they are. Siamese cats tend to darken with age, and generally, adult Siamese living in warm climates have lighter coats than those in cool climates. Originally the vast majority of Siamese had seal (extremely dark brown, almost black) points, but occasionally Siamese were born with "blue" (a cool grey) points, genetically a dilution of seal point; chocolate (lighter brown) points, a genetic variation of seal point; or lilac (pale warm gray) points, genetically a diluted chocolate. These colours were at first considered "inferior" seal points, and were not qualified for showing or breeding. All of these shades were eventually accepted by the breed associations, and became more common through breeding programmes specifically aimed at producing these colours. Later, outcrosses with other breeds developed Siamese-mix cats with points in other cat colours and patterns, including Red and Cream point, lynx (tabby) point, and tortoise-shell ("tortie") point. (For more information on cat coat terminology, see Cat coat genetics.)
+        <br><br>
+        In the United Kingdom, all pointed Siamese-style cats are considered part of the Siamese breed. In the United States, a major cat registry, the Cat Fanciers' Association, considers only the four original fur colors as Siamese: seal point, blue point, chocolate point, and lilac point. Oriental Shorthair cats with color points in colors or patterns aside from these four are considered color point Shorthairs in that registry. The World Cat Federation has also adopted this classification, treating the color point Short hair as a distinct breed.[10]
+        <br><br>
+        Many Siamese cats from Thailand had a kink in their tails, but over the years this trait has been considered a flaw. Breeders have largely eradicated it, but the kinked tail persists among street cats in Thailand.
+    </p>
+
+    <script>
+        var titleHeight = document.getElementById("title").offsetHeight;
+        function his(){
+            var target = document.getElementById("history");
+            target.scrollIntoView({behavior:'smooth'});
+        }
+        function ori(){
+            var targetHeight = document.getElementById("origin").offsetTop;
+            window.scrollTo({top: targetHeight - titleHeight, behavior:'smooth'});
+        }
+        function thai(){
+            var targetHeight = document.getElementById("thai").offsetTop;
+            window.scrollTo({top: targetHeight - titleHeight, behavior:'smooth'});
+        }
+        function siam(){
+            var targetHeight = document.getElementById("siam").offsetTop;
+            window.scrollTo({top: targetHeight - titleHeight, behavior:'smooth'});
+        }
+        function tra(){
+            var targetHeight = document.getElementById("tra").offsetTop;
+            window.scrollTo({top: targetHeight - titleHeight, behavior:'smooth'});
+        }
+        function app(){
+            var targetHeight = document.getElementById("app").offsetTop;
+            window.scrollTo({top: targetHeight - titleHeight, behavior:'smooth'});
+        }
+    </script>
+</body>
+</html>

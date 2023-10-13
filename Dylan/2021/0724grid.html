@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        body{
+            height: 100vh;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: 120px 1fr;
+        }
+        .title{
+            grid-column: 1/3;
+            background: linear-gradient(to bottom, lightskyblue 0%, lightpink 60%, white 100%);
+            padding: 20px;
+            padding-left: 40px;
+            font-size: 30px;
+        }
+        .links{
+            background: linear-gradient(to bottom, white 0%, rgb(255, 251, 0) 40%, rgb(255, 187, 0) 100%);
+            padding: 20px;
+        }
+        .main{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <p>Hoyeon's Homepage</p>
+    </div>
+    <div class="links">
+        <p>Link1</p>
+        <p>Link2</p>
+    </div>
+    <div class="main">
+        <p>main post ~~~~~~~~~~~~~~</p>
+        <p>main post2~~~~~~~~~~</p>
+    </div>   
+</body>
+</html>

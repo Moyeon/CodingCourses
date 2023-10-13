@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자야구</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+        .output{
+            border: 1px solid black;
+            width: 80vw;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 50px;
+            grid-auto-rows: 40px;
+        }
+        div{
+            text-align: center;
+            font-family: 'Bowlby One SC', sans-serif;
+            font-size: 25px;
+            color: rgb(102, 102, 102);
+        }
+        .title{
+            font-size: 30px;
+            color: black;
+        }
+        input{
+            width: 80px;
+            height: 100px;
+            font-size: 50px;
+            text-align: center;
+            font-family: 'Bowlby One SC', sans-serif;
+            margin: 10px 0;
+        }
+        input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+        }
+        button{
+            font-size: 30px;
+            font-family: 'Bowlby One SC', sans-serif;
+            padding: 10px;
+            display: block;
+            margin: 10px;
+            color: black;
+        }
+        .buttons{
+            display: flex;
+            margin: auto;
+            width: 500px;
+            justify-content: center;
+        }
+        .unavailable{
+            color: rgb(204, 204, 204);
+        }
+    </style>
+</head>
+<body>
+    <div class="output" id="output">
+        <div class="title">Round</div>
+        <div class="title">Guess</div>
+        <div class="title">Result</div>
+    </div>
+
+    <div class="input">
+        <input type="number" id="num1" oninput="numLength(this);">
+        <input type="number" id="num2" oninput="numLength(this);">
+        <input type="number" id="num3" oninput="numLength(this);">
+        <input type="number" id="num4" oninput="numLength(this);">
+        <div class="buttons">
+            <button onclick="guessButton();">Guess</button>
+            <button onclick="restart();" class="unavailable" id="re">Restart</button>
+        </div>
+    </div>
+    
+
+
+    <script>
+        var answer = [];
+        var output = document.getElementById("output");
+        var round = 1;
+        var isGaming = true;
+        var reButton = document.getElementById("re");
+
+
+        function generate(){
+            function random(){
+                var num = Math.floor( Math.random() * 10 );
+                return num;
+            }
+
+            answer = [];
+
+            answer.push(random());
+
+            for(var i=0; i<3; i++){
+                var newnum = random();
+                while(answer.includes(newnum)){
+                    newnum = (newnum + random()) % 10;
+                }
+                answer.push(newnum);
+            }
+            
+            console.log(answer);
+        }
+
+        function guess(myguess){
+            var ball = 0;
+            var strike = 0;
+
+            for(var i=0; i<4; i++){
+                if(myguess[i] == answer[i]){
+                    strike++;
+                }else if(answer.includes(myguess[i])){
+                    ball++;
+                }
+            }
+
+            var result = "";
+            if(strike > 0){
+                result += strike + "S ";
+            }
+            if(ball > 0){
+                result += ball + "B";
+            }
+
+            console.log(result);
+
+            if(strike == 4){
+                result = "Congrats!";
+                isGaming = false;
+                re.classList = "";
+            }
+
+            var rd = document.createElement("div");
+            var gs = document.createElement("div");
+            var rs = document.createElement("div");
+
+            rd.innerHTML = round;
+            gs.innerHTML = myguess[0] + ' ' + myguess[1] + ' ' + myguess[2] + ' ' + myguess[3];
+            rs.innerHTML = result;
+
+            output.appendChild(rd);
+            output.appendChild(gs);
+            output.appendChild(rs);
+
+            round++;
+        }
+
+        function guessButton(){
+            var num1 = document.getElementById("num1").value * 1;
+            var num2 = document.getElementById("num2").value * 1;
+            var num3 = document.getElementById("num3").value * 1;
+            var num4 = document.getElementById("num4").value * 1;
+
+            var guessArray = [num1, num2, num3, num4];
+
+            for(var i=0; i<3; i++){
+                for(var j = i+1; j<=3; j++){
+                    console.log(i,j);
+                    if(guessArray[i] == guessArray[j]){
+                        alert("중복된 숫자가 있습니다!");
+                        return;
+                    }
+                }
+            }
+
+            guess([num1, num2, num3, num4]);
+        }
+
+        function numLength(e){
+            e.value = e.value % 10;
+        }
+
+        function restart(){
+            if(!isGaming){
+                output.innerHTML = `<div class="title">Round</div>
+                                    <div class="title">Guess</div>
+                                    <div class="title">Result</div>`;
+                generate();
+                document.getElementById("num1").value = "";
+                document.getElementById("num2").value = "";
+                document.getElementById("num3").value = "";
+                document.getElementById("num4").value = "";
+                isGaming = true;
+                reButton.classList.add("unavailable");
+            }
+        }
+
+
+
+        generate();
+    </script>
+</body>
+</html>

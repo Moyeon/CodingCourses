@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>NAVER: Login</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+            select{
+                width: 100px;
+                height: 30px;
+                border: 1px solid rgb(190, 190, 190);
+            }
+            body{
+                text-align: center;
+            }
+            h1{
+                font-family: 'Lato';
+                font-size: 70px;
+                color: rgb(0, 190, 0);
+            }
+            .forSelect{
+                width: 770px;
+                text-align: right;
+                margin-top: 20px;
+            }
+            .menu{
+                width: 160px;
+                padding: 20px;
+                display: inline-block;
+                font-size: 20px;
+                border-right: 1px solid #c6c6c6;
+                border-bottom: 1px solid #c6c6c6;
+                background-color: #f6f6f6;
+                color: gray;
+            }
+            .loginBox{
+                border: 1px solid #c6c6c6;
+                border-radius: 6px;
+                width: 603px;
+                margin: auto;
+            }
+            .on{
+                background-color: white;
+                color: black;
+                border-bottom: none;
+            }
+            input{
+                width: 500px;
+                padding: 15px;
+                font-size: 18px;
+                border: 1px solid #d6d6d6;
+            }
+            input::placeholder{
+                color: #d6d6d6;
+            }
+            input:nth-child(1){
+                border-radius: 6px 6px 0 0;
+            }
+            input:nth-child(3){
+                border-radius: 0 0 6px 6px;
+                border-top: none;
+            }
+            input:nth-child(5){
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                border: 1px solid #c6c6c6;
+            }
+            .logB{
+                width: 500px;
+                padding: 15px;
+                background-color: rgb(0, 190, 0);
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+                border: 1px solid rgb(18, 122, 18);
+                border-radius: 6px;
+            }
+            .inputs{
+                padding: 20px;
+            }
+            .bottom{
+                border: none;
+                background-color: transparent;
+                color: gray;
+                border-right: 1px solid gray;
+            }
+            .last{
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="forSelect">
+            <select>
+                <option>한국어</option>
+                <option>English</option>
+                <option>Chinese</option>
+                <option>Japanese</option>
+            </select>
+        </div>
+            
+        <h1>NAVER</h1>
+        <div class="loginBox">
+            <div class="menu on">ID 로그인</div><div class="menu">일회용 번호</div><div class="menu">QR코드</div>
+            <div class="inputs">
+                <input placeholder="아이디">
+                <br>
+                <input placeholder="비밀번호" type="password">
+                <br>
+                <input type="checkbox">로그인 상태 유지
+                <br>
+                <button class="logB">로그인</button>
+            </div>
+        </div>
+
+        <button class="bottom">비밀번호 찾기</button>
+        <button class="bottom">아이디 찾기</button>
+        <button class="bottom last">회원가입</button>
+    </body>
+</html>

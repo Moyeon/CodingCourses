@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naver Whale</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://i.pinimg.com/originals/94/7e/86/947e86836fb9ed61381a0719d2059424.jpg);
+            background-size: conver;
+        }
+        .clock{
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .time{
+            display: flex;
+            align-items: center;
+        }
+        .hours, .mins{
+            font-size: 130px;
+        }
+        .circle{
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        .colon{
+            display: flex;
+            flex-direction: column;
+            margin: 15px;
+        }
+        .period{
+            font-size: 50px;
+        }
+        .secs{
+            font-size: 50px;
+        }
+        .clock{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .date{
+            font-size: 25px;
+        }
+        video{
+            height: 100%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <video muted autoplay loop>
+        <source src="" type="video/mp4">
+    </video>
+    <div class="clock">
+        <div class="time">
+            <div class="hours" id="hours">10</div>
+            <div class="colon">
+                <div class="circle"></div>
+                <br>
+                <div class="circle"></div>
+            </div>
+            <div class="mins" id="mins">23</div>
+            <div class="else">
+                <div class="period" id="period">PM</div>
+                <div class="secs" id="secs">46</div>
+            </div>
+        </div>
+        <div class="date" id="date">
+            2021년 10월 23일 토요일
+        </div>
+    </div>
+
+    <script>
+        var d = new Date();
+        console.log(d.getSeconds());
+
+        function getTime(){
+            var now = new Date();
+            console.log(now);
+
+            var secs = now.getSeconds();
+            if(secs<10){
+                secs = "0"+secs;
+            }
+            document.getElementById("secs").innerText = secs;
+            
+            var mins = now.getMinutes();
+            if(mins<10){
+                mins = "0"+mins;
+            }
+            document.getElementById("mins").innerText = mins;
+
+            var hours = now.getHours();
+            if(hours>=12){
+                document.getElementById("period").innerText = "PM";
+            }else{
+                document.getElementById("period").innerText = "AM";
+            }
+            if(hours>=13){
+                hours = hours - 12;
+            }else if(hours==0){
+                hours = 12;
+            }
+            document.getElementById("hours").innerText = hours;
+
+            var year = now.getFullYear();
+            var month = now.getMonth();
+            var date = now.getDate();
+            var day = now.getDay();
+
+            if(month == 0){
+                month = "January";
+            }else if(month == 1){
+                month = "February";
+            }else if(month == 2){
+                month = "March";
+            }else if(month == 3){
+                month = "April";
+            }else if(month == 4){
+                month = "May";
+            }else if(month == 5){
+                month = "June";
+            }else if(month == 6){
+                month = "July";
+            }else if(month == 7){
+                month = "August";
+            }else if(month == 8){
+                month = "September";
+            }else if(month == 9){
+                month = "October";
+            }else if(month == 10){
+                month = "November";
+            }else if(month == 11){
+                month = "December";
+            }
+
+            if(day==0){
+                day = "Sunday";
+            }else if(day==1){
+                day = "Monday";
+            }else if(day==2){
+                day = "Tuesday";
+            }else if(day==3){
+                day = "Wednesday";
+            }else if(day==4){
+                day = "Thursday";
+            }else if(day==5){
+                day = "Friday";
+            }else if(day==6){
+                day = "Saturday";
+            }
+
+            document.getElementById("date").innerText = month+" "+date+", "+year+" "+day;
+        }
+
+        getTime();
+        setInterval(getTime, 1000);
+    </script>
+</body>
+</html>

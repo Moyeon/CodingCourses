@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: mediumslateblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: all ease 1s;
+            margin: 50px;
+            transform-origin: left;
+        }
+        .translateX:hover{
+            transform: translateX(30px);
+        }
+        .translateY:hover{
+            transform: translateY(-40px);
+        }
+        .translateZ:hover{
+            transform: perspective(60px) translateZ(50px);
+        }
+        .translate:hover{
+            transform: translate(-20px, 40px);
+        }
+        .translate3d:hover{
+            transform: perspective(100px) translate3d(20px, 30px, -30px);
+        }
+        .rotateX:hover{
+            transform: perspective(100px) rotateX(135deg);
+        }
+        .rotateY:hover{
+            transform: perspective(100px) rotateY(60deg);
+        }
+        .rotateZ:hover{
+            transform: rotateZ(335deg);
+        }
+        .rotate:hover{
+            transform: rotate(30deg);
+        }
+        .rotate3d:hover{
+            transform: perspective(100px) rotate3d(0, 1, 1, 60deg);
+        }
+        .scaleX:hover{
+            transform: scaleX(-1.5);
+        }
+        .scaleY:hover{
+            transform: scaleY(0.6);
+        }
+        .scale:hover{
+            transform: scale(0.7, 2);
+        }
+        .skewX:hover{
+            transform: skewX(60deg);
+        }
+        .skewY:hover{
+            transform: skewY(30deg);
+        }
+        .skew:hover{
+            transform: skew(-30deg, 20deg);
+        }
+
+
+        .practice:hover{
+            transform: perspective(100px) rotateZ(45deg) translateX(100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box translateX"><p>translateX</p></div>
+    <div class="box translateY"><p>translateY</p></div>
+    <div class="box translateZ"><p>translateZ</p></div>
+    <div class="box translate"><p>translate</p></div>
+    <div class="box translate3d"><p>translate3d</p></div>
+    <div class="box rotateX"><p>rotateX</p></div>
+    <div class="box rotateY"><p>rotateY</p></div>
+    <div class="box rotateZ"><p>rotateZ</p></div>
+    <div class="box rotate"><p>rotate</p></div>
+    <div class="box rotate3d"><p>rotate3d</p></div>
+    <div class="box scaleX"><p>scaleX</p></div>
+    <div class="box scaleY"><p>scaleY</p></div>
+    <div class="box scale"><p>scale</p></div>
+    <div class="box skewX"><p>skewX</p></div>
+    <div class="box skewY"><p>skewY</p></div>
+    <div class="box skew"><p>skew</p></div>
+
+    <div class="box practice"><p>practice</p></div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Color Types</title>
+        <style>
+            div{
+                width: 200px;
+                height: 200px;
+                background-color: cornsilk;
+                margin: 20px;
+            }
+            .first{
+                background-color: rgba(108, 110, 211, 0.383);
+                transform: translateY(70px);
+            }
+            .second{
+                background-color: hsla(27, 100%, 50%, 0.486);
+            }
+            .third{
+                background-color: #639df3;
+            }
+            .fourth{
+                width: 500px;
+                background: linear-gradient(to right, red, blue 30%, yellow, white, black, green, lime, olive);
+            }
+            .fifth{
+                width: 600px;
+                background: linear-gradient(to right,pink 0%, pink 20%, blue 20%, blue 40%, pink 40%, pink 60%, blue 60%, blue 80%, pink 80%);
+            }
+            .aa{
+                background: radial-gradient(white , red, yellow);
+            }
+            .bb{
+                width: 400px;
+                background: radial-gradient(circle closest-side at 20% 70%, cornflowerblue 10%,white 30%, pink);
+            }
+            .cc{
+                width: 500px;
+                background: radial-gradient(circle farthest-side at 70% 30%, yellow, red, white, skyblue);
+            }
+            .im1{
+                background: url(https://www.urbanbrush.net/web/wp-content/uploads/edd/2020/04/urbanbrush-20200420020545906881.jpg);
+                width: 800px;
+                height: 400px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 300px 50px;
+            }
+            .im2{
+                background: url(https://i.pinimg.com/originals/9a/be/5f/9abe5f0ad84b083a1a52dac183c7bc89.jpg);
+                width: 1000px;
+                height: 400px;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            .im3{
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                background: url(https://images.eq3.com/product-definitions/cjuebb36m05130162m3qfhapy/instance/cjv5atl7l04w40190u7m4qtpa/THUMBNAIL/52fce5de-2104-4742-9804-57bbcca10352.jpg);
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="third"></div>
+        <div class="fourth"></div>
+        <div class="fifth"></div>
+        <div class="aa"></div>
+        <div class="bb"></div>
+        <div class="cc"></div>
+        <div class="im1"></div>
+        <div class="im2"></div>
+        <div class="im3"></div>
+    </body>
+</html>

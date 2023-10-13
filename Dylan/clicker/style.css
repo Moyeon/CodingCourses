@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Patrick Hand SC', cursive;
+    margin: 0;
+    padding: 0;
+}
+.gameDisplay{
+    position: relative;
+    width: 800px;
+    height: 480px;
+    background-color: rgb(246, 246, 246);
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+}
+#character{
+    width: 180px;
+    height: 180px;
+}
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#coinIcon{
+    width: 60px;
+    height: 60px;
+    background-image: url(coin.svg);
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+.coinUI{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+#coinText{
+    position: absolute;
+    top: 10px;
+    left: 24px;
+    border: 2px solid gold;
+    width: 130px;
+    border-radius: 0 20px 20px 0;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 26px;
+}
+
+.icon{
+    width: 48px;
+    height: 48px;
+    grid-row: 1 / 3;
+}
+.item{
+    display: grid;
+    grid-template-rows: 24px 24px;
+    grid-template-columns: 48px 1fr;
+    margin-bottom: 10px;
+}
+.info, .price{
+    margin-left: 10px;
+    font-size: 20px;
+}
+h3{
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#arrow1 .icon{
+    background-image: url(arrow1.svg);
+}
+#arrow2 .icon{
+    background-image: url(arrow2.svg);
+}
+#arrow3 .icon{
+    background-image: url(arrow3.svg);
+}
+#arrow4 .icon{
+    background-image: url(arrow4.svg);
+}
+#arrow5 .icon{
+    background-image: url(arrow5.svg);
+}
+#arrow6 .icon{
+    background-image: url(arrow6.svg);
+}
+#win .icon{
+    background-image: url(win.svg);
+}
+.level0{
+    background-image: url(jelly.svg);
+}
+.level1{
+    background-image: url(redJelly.svg);
+}
+.level2{
+    background-image: url(orangeJelly.svg);
+}  
+.level3{
+    background-image: url(yellowJelly.svg);
+}  
+.level4{
+    background-image: url(greenJelly.svg);
+}  
+.level5{
+    background-image: url(blueJelly.svg);
+}  
+.level6{
+    background-image: url(navyJelly.svg);
+}  
+.level7{
+    background-image: url(purpleJelly.svg);
+}  
+.volume{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    transform-origin: right;
+    transform: rotateZ(-90deg);
+}
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: black;
+}
+input[type=range]::-webkit-slider-runnable-track{
+    -webkit-appearance: none;
+    background: black;
+}
+
+.winPopup{
+    position: absolute;
+    z-index: 10;
+    background-color: rgb(40, 40, 40);
+    color: white;
+    width: 400px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+}
+.visible{
+    opacity: 1;
+    visibility: visible;
+}

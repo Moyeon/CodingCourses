@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-A-Mole</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+        div{
+            font-family: 'Bowlby One SC', sans-serif;
+            font-size: 30px;
+            user-select: none;
+        }
+        .UI{
+            display: flex;
+            width: 100vw;
+            justify-content: space-around;
+        }
+        .display{
+            width: 90vw;
+            height: 55vw;
+            background-color: yellowgreen;
+            background: linear-gradient(to bottom, rgb(132, 214, 25) 20%, rgb(163, 131, 90) 20%);
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+        .mole{
+            width: 8vw;
+            height: 12vw;
+            background-color: sienna;
+            border-radius: 4vw 4vw 1vw 1vw;
+            border-bottom-left-radius: 4vw 1.5vw;
+            border-bottom-right-radius: 4vw 1.5vw;
+            position: absolute;
+            cursor: url(hammer.cur), auto;
+            left: 1vw;
+            bottom: 1vw;
+            transition: all ease 0.5s;
+            transform-origin: bottom;
+        }
+        .shadow{
+            content: "";
+            position: absolute;
+            width: 10vw;
+            height: 4vw;
+            background-color: rgb(78, 53, 36);
+            border-radius: 50%;
+            left: 10vw;
+            bottom: 30vw;
+        }
+        .face{
+            position: absolute;
+            width: 3vw;
+            height: 1vw;
+            background: red;
+            left: 2.5vw;
+            top: 4vw;
+            border-radius: 50%;
+        }
+        .face:before, .face:after{
+            content: "";
+            position: absolute;
+            width: 0.8vw;
+            height: 0.8vw;
+            background-color: black;
+            border-radius: 50%;
+        }
+        .face:before{
+            top: -1.3vw;
+            left: -0.2vw;
+        }
+        .face:after{
+            top: -1.3vw;
+            right: -0.2vw;
+        }
+        .down > .mole{
+            height: 0;
+            opacity: 0;
+            cursor: auto;
+        }
+        .panel{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+            visibility: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button{
+            display: block;
+            font-family: 'Bowlby One SC';
+            font-size: 5vw;
+            padding: 2vw;
+            border: none;
+            border-radius: 2vw;
+            visibility: visible;
+        }
+        button:active{
+            filter: brightness(0.85);
+        }
+        .countdown{
+            color: white;
+            font-size: 18vw;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .blink{
+            animation: blink 1s;
+            visibility: visible;
+        }
+        @keyframes blink{
+            from{
+                opacity: 0;
+                transform: scale(1);
+            }
+            5%{
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            10%{
+                opacity: 1;
+                transform: scale(1);
+            }
+            to{
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="UI">
+        <div>Score : <span id="scoreDisplay">0</span></div>
+        <div>Time Left : <span id="timeDisplay">0</span></div>
+    </div>
+    <div class="display">
+        <div class="panel" id="panel">
+            <button onclick="blinkStart();" id="start">Start</button>
+            <div class="countdown">3</div>
+            <div class="countdown">2</div>
+            <div class="countdown">1</div>
+            <div class="countdown">GO!</div>
+        </div>
+        <div class="shadow down" style="left: 10vw; bottom: 30vw;">
+            <div class="mole" id="mm">
+                <div class="face"></div>
+            </div>
+        </div>
+
+        <div class="shadow" style="left: 40vw; bottom: 30vw;">
+            <div class="mole" id="mm">
+                <div class="face"></div>
+            </div>
+        </div>
+
+        <div class="shadow" style="left: 70vw; bottom: 30vw;">
+            <div class="mole" id="mm">
+                <div class="face"></div>
+            </div>
+        </div>
+
+        <div class="shadow" style="left: 25vw; bottom: 18vw;">
+            <div class="mole" id="mm">
+                <div class="face"></div>
+            </div>
+        </div>
+
+        <div class="shadow" style="left: 55vw; bottom: 18vw;">
+            <div class="mole" id="mm">
+                <div class="face"></div>
+            </div>
+        </div>
+
+        <div class="shadow" style="left: 10vw; bottom: 6vw;">
+            <div class="mole" id="mm">
+                <div class="face"></div>
+            </div>
+        </div>
+
+        <div class="shadow" style="left: 40vw; bottom: 6vw;">
+            <div class="mole" id="mm">
+                <div class="face"></div>
+            </div>
+        </div>
+
+        <div class="shadow" style="left: 70vw; bottom: 6vw;">
+            <div class="mole" id="mm">
+                <div class="face"></div>
+            </div>
+        </div>
+            
+    </div>
+
+    <audio src="Polymetric Juggling - DivKid.mp3" id="audio1"></audio>
+    <audio src="Boing_3.m4a" id="audio2"></audio>
+    <audio src="Fanfare for Space - Kevin MacLeod.mp3" id="audio3" loop="loop"></audio>
+
+    <script>
+        var score = 0;
+        var scoreDisplay = document.getElementById("scoreDisplay");
+        var moles = document.getElementsByClassName("shadow");
+        var timeLeft = 60;
+        var timeDisplay = document.getElementById("timeDisplay");
+        var boingSound = document.getElementById("audio2");
+        var countdown = document.getElementsByClassName("countdown");
+        var panel = document.getElementById("panel");
+        var fanfareSound = document.getElementById("audio3");
+        var backgroundSound = document.getElementById("audio1");
+
+        function clickMole(){
+            if(this.classList.contains("down")==false){
+                score++;
+                scoreDisplay.innerHTML = score;
+                boingSound.currentTime = 0;
+                moleDown(this);
+                boingSound.play();
+            }
+        }
+
+        function moleDown(mole){
+            mole.classList.add("down");
+        }
+
+        function randomDown(mole){
+            var randTime = Math.floor( Math.random() * 1000 ) + 500;
+            setTimeout(moleDown, randTime, mole);
+        }
+
+        for(var i=0; i<8; i++){
+            moles[i].addEventListener("mousedown", clickMole);
+        }
+
+        function randomAppear(){
+            if(timeLeft > 0){
+                var rand = Math.floor( Math.random() * 8 + 1) - 1;
+                console.log(rand);
+                if( moles[rand].classList.contains("down") ){ //down인지
+                    moles[rand].classList = "shadow";
+                }
+                randomDown(moles[rand]);
+
+                var randtime = Math.floor( Math.random() * 1000) + 500;
+                setTimeout(randomAppear, randtime);
+            }
+            
+        }
+
+        function timeFlow(){
+            if(timeLeft > 0){
+                timeLeft--;
+                timeDisplay.innerHTML = timeLeft;
+                setTimeout(timeFlow, 1000);
+            }else{
+                gameOver();
+            }
+        }
+
+        function gameOver(){
+            backgroundSound.pause();
+            fanfareSound.currentTime = 0;
+            fanfareSound.volume = 0.1;
+            fanfareSound.play();
+            alert("Your score is " + score);
+        }
+
+        function gameStart(){
+            timeLeft = 60;
+            score = 0;
+            randomAppear();
+            timeFlow();
+            backgroundSound.currentTime = 0;
+            backgroundSound.volume = 0.1;
+            backgroundSound.play();
+        }
+
+        function blink(number){
+            if(number == 4){
+                gameStart();
+                panel.style.visibility = "hidden";
+                return;
+            }
+            countdown[number].classList.add("blink");
+            countdown[number].addEventListener("animationend", function(){
+                countdown[number].classList.remove("blink");
+                blink(number + 1);
+            });
+        }
+
+        function blinkStart(){
+            document.getElementById("start").style.visibility = "hidden";
+            blink(0);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button click image</title>
+    <style>
+        #image{
+            transition: all ease 1s;
+            opacity: 0;
+        }
+        #puppy{
+            transition: all ease 1s;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="clicked()">Hello</button>
+    <div id="image">
+        <img width="300px" src="https://lh3.googleusercontent.com/proxy/AYfy8IOjWdMwBIIhQgIpPtMD4XroRQhLWKmQJxtFG6Qjc6jxzgVSl1Q-4qGXDHVRQvy6AYWhJlvN5jBaqelXO5RDdc5buGIO0QO_oNRgN0VBxXMQzQ">
+    </div>
+    <button onclick="clicked2();">Puppy</button>
+    <div id="puppy">
+        <img width="300px" src="https://i.pinimg.com/736x/2d/b1/da/2db1da21f87123a9c708a8838435141c.jpg">
+    </div>
+
+    <script>
+        function clicked(){
+            var myImg = document.getElementById("image");
+            var setting = myImg.style.opacity;
+
+            if(setting == 0){
+                myImg.style.opacity = 1;
+            }else{
+                myImg.style.opacity = 0;
+            }
+        }
+
+        function clicked2(){
+            var myPuppy = document.getElementById("puppy");
+
+            myPuppy.style.opacity = 1;
+            
+            setTimeout(function (){
+                myPuppy.style.opacity = 0;
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

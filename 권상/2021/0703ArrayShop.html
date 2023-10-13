@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shopping Mall</title>
+    <style>
+        .display{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .box{
+            border: 1px solid gray;
+            margin: 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        img{
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+        }
+        h3{
+            font-family: courier;
+            text-align: center;
+        }
+        p{
+            font-family: courier;
+            text-align: right;
+            padding-right: 10px;
+        }
+        h5{
+            color: lightgray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="nameOrder();">Name</button>
+    <button onclick="priceOrder();">Price</button>
+    <button onclick="brandOrder();">Brand Name</button>
+    <div class="display" id="display"></div>
+    <script>
+        var shoes = [
+            {img: "whiteShoe.jpeg", title: "White Shoes", price: 1120000, brand: "Burberry"},
+            {img: "blackShoe.jpeg", title: "Black Shoes", price: 69000, brand: "Nike"},
+            {img: "checkPattern.jpeg", title: "Check Pattern Shoes", price: 660000, brand: "Burberry"},
+            {img: "blackStripe.jpeg", title: "Superstar", price: 109000, brand: "Adidas"},
+            {img: "mint.jpeg", title: "Mint Point", price: 33000, brand: "Reebok"}
+        ];
+        function printDiv(){
+            var fill = "";
+            for(var i=0; i<shoes.length; i++){
+                fill += "<div class='box'>";
+                fill += "<img src='" + shoes[i].img + "'>";
+                fill += "<h3>" + shoes[i].title + "</h3>";
+                fill += "<p>" + shoes[i].price + "</p>";
+                fill += "<h5>" + shoes[i].brand + "</h5>";
+                fill += "</div>";
+            }
+            document.getElementById("display").innerHTML = fill;
+        }
+        printDiv();
+
+
+        function nameOrder(){
+            shoes.sort(function(a,b){
+                if(a.title > b.title){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            printDiv();
+        }
+
+        function priceOrder(){
+            shoes.sort(function(a,b){
+                if(a.price > b.price){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            printDiv();
+        }
+
+        function brandOrder(){
+            shoes.sort(function(a,b){
+                if(a.brand > b.brand){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+            printDiv();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: cornflowerblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all ease 1s;
+        }
+        .shadow{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 186, 186);
+            margin: 50px;
+        }
+        .translateX:hover{
+            transform: translateX(30px);
+        }
+        .translateY:hover{
+            transform: translateY(40px);
+        }
+        .translateZ:hover{
+            transform: perspective(100px) translateZ(50px);
+        }
+        .translate:hover{
+            transform: translate(-30px, 20px);
+        }
+        .translate3d:hover{
+            transform: perspective(100px) translate3d(30px, -50px, -20px);
+        }
+        .rotateX:hover{
+            transform: perspective(100px) rotateX(50deg);
+        }
+        .rotateY:hover{
+            transform: perspective(100px) rotateY(120deg);
+        }
+        .rotateZ:hover{
+            transform: rotateZ(270deg);
+        }
+        .rotate:hover{
+            transform: rotate(110deg);
+        }
+        .rotate3d:hover{
+            transform: perspective(100px) rotate3d(1,2,2,40deg);
+        }
+        .scaleX:hover{
+            transform: scaleX(1.5);
+        }
+        .scaleY:hover{
+            transform: scaleY(1.8);
+        }
+        .scale:hover{
+            transform: scale(2, 0.5);
+        }
+        .skewX{
+            transform: skewX(30deg);
+        }
+        .skewY:hover{
+            transform: skewY(-20deg);
+        }
+        .skew:hover{
+            transform: skew(30deg, -20deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="shadow">
+        <div class="box translateX">translateX</div>
+    </div>
+    <div class="shadow">
+        <div class="box translateY">translateY</div>
+    </div>
+    <div class="shadow">
+        <div class="box translateZ">translateZ</div>
+    </div>
+    <div class="shadow">
+        <div class="box translate">translate</div>
+    </div>
+    <div class="shadow">
+        <div class="box translate3d">translate3d</div>
+    </div>
+    <div class="shadow">
+        <div class="box rotateX">rotateX</div>
+    </div>
+    <div class="shadow">
+        <div class="box rotateY">rotateY</div>
+    </div>
+    <div class="shadow">
+        <div class="box rotateZ">rotateZ</div>
+    </div>
+    <div class="shadow">
+        <div class="box rotate">rotate</div>
+    </div>
+    <div class="shadow">
+        <div class="box rotate3d">rotate3d</div>
+    </div>
+    <div class="shadow">
+        <div class="box scaleX">scaleX</div>
+    </div>
+    <div class="shadow">
+        <div class="box scaleY">scaleY</div>
+    </div>
+    <div class="shadow">
+        <div class="box scale">scale</div>
+    </div>
+    <div class="shadow">
+        <div class="box skewX">skewX</div>
+    </div>
+    <div class="shadow">
+        <div class="box skewY">skewY</div>
+    </div>
+    <div class="shadow">
+        <div class="box skew">skew</div>
+    </div>
+</body>
+</html>

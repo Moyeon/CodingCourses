@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice transform</title>
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+            background: rgb(255, 245, 219);
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: rgb(255, 149, 149);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all ease 1s;
+        }
+        .shadow{
+            width: 100px;
+            height: 100px;
+            margin: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        #matrix:hover{
+            transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+        }
+        #rotate:hover{
+            transform: rotate(0.5turn);
+        }
+        #rotate3d:hover{
+            transform: perspective(100px) rotate3d(1, 2.0, 3.0, 30deg);
+        }
+        #rotateX:hover{
+            transform: perspective(100px) rotateX(30deg);
+        }
+        #rotateY:hover{
+            transform: perspective(100px) rotateY(70deg);
+        }
+        #rotateZ:hover{
+            transform: perspective(100px) rotateZ(150deg);
+        }
+        #translate:hover{
+            transform: perspective(100px) translate(12px, 50%);
+        }
+        #translate3d:hover{
+            transform: perspective(100px) translate3d(12px, 50%, 30px);
+        }
+        #translateX:hover{
+            transform: perspective(100px) translateX(2em);
+        }
+        #translateY:hover{
+            transform: perspective(100px) translateY(3in);
+        }
+        #translateZ:hover{
+            transform: perspective(100px) translateZ(20px);
+        }
+        #scale:hover{
+            transform: scale(2, 0.5);
+        }
+        #scale3d:hover{
+            transform: perspective(100px) scale3d(2.5, 1.2, 0.3);
+        }
+        #scaleX:hover{
+            transform: scaleX(2);
+        }
+        #scaleY:hover{
+            transform: scaleY(0.5);
+        }
+        #skew:hover{
+            transform: skew(30deg, 20deg);
+        }
+        #skewX:hover{
+            transform: skewX(30deg);
+        }
+        #skewY:hover{
+            transform: skewY(1.07rad);
+        }
+    </style>
+</head>
+<body>
+    <div class="shadow">
+        <div class="box" id="matrix"><p>matrix</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="rotate"><p>rotate</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="rotate3d"><p>rotate3d</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="rotateX"><p>rotateX</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="rotateY"><p>rotateY</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="rotateZ"><p>rotateZ</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="translate"><p>translate</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="translate3d"><p>translate3d</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="translateX"><p>translateX</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="translateY"><p>translateY</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="translateZ"><p>translateZ</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="scale"><p>scale</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="scale3d"><p>scale3d</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="scaleX"><p>scaleX</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="scaleY"><p>scaleY</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="skew"><p>skew</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="skewX"><p>skewX</p></div>
+    </div>
+    <div class="shadow">
+        <div class="box" id="skewY"><p>skewY</p></div>
+    </div>
+</body>
+</html>

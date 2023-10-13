@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <style>
+            div{
+                width: 100px;
+                height: 100px;
+                background-color: cornflowerblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 50px;
+                transition: all ease 1s;
+            }
+            .translateX:hover{
+                transform: translateX(30px);
+            }
+            .translateY:hover{
+                transform: translateY(40px);
+            }
+            .translateZ:hover{
+                transform: perspective(100px) translateZ(40px);
+            }
+            .translate:hover{
+                transform: translate(20px, -30px);
+            }
+            .translate3d:hover{
+                transform: perspective(100px) translate3d(-30px, 30px, 20px);
+            }
+            .rotateX:hover{
+                transform: perspective(100px) rotateX(30deg);
+            }
+            .rotateY:hover{
+                transform: perspective(100px) rotateY(-135deg);
+            }
+            .rotateZ:hover{
+                transform: rotateZ(720deg);
+            }
+            .skewX:hover{
+                transform: skewX(50deg);
+            }
+            .skewY:hover{
+                transform: skewY(-40deg);
+            }
+            .scaleX:hover{
+                transform: scaleX(2);
+            }
+            .scaleY:hover{
+                transform: scaleY(0.3);
+            }
+            .prac:hover{
+                transform: rotateZ(-45deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="translateX">translateX</div>
+        <div class="translateY">translateY</div>
+        <div class="translateZ">translateZ</div>
+        <div class="translate">translate</div>
+        <div class="translate3d">translate3d</div>
+        <div class="rotateX">rotateX</div>
+        <div class="rotateY">rotateY</div>
+        <div class="rotateZ">rotateZ</div>
+        <div class="skewX">skewX</div>
+        <div class="skewY">skewY</div>
+        <div class="scaleX">scaleX</div>
+        <div class="scaleY">scaleY</div>
+
+        <div class="prac">prac</div>
+    </body>
+</html>

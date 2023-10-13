@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <div id="setting" class="icon" onclick="SettingOpen();"></div>
+    <div class="settingPopup" id="settingPopup">
+        <p>COLOR THEME</p>
+        <button class="theme" onclick="ThemeBasic();">BASIC</button>
+        <button class="theme" onclick="ThemeDark();">DARK</button>
+        <button class="theme" onclick="ThemeColor();">COLORFUL</button>
+        <div class="closeIcon">
+            <button class="icon" id="close" onclick="SettingClose();"></button>
+        </div>
+    </div>
+    <h2>DOWNLOAD SONGS</h2>
+    <div class="searchBar">
+        <input type="text" id="search">
+        <button class="icon"></button>
+    </div>
+    <div class="searchOptions">
+        <div id="fav" class="icon songFav"></div>
+        <select id="select">
+            <option value="default">Sort By ..</option>
+            <option value="alpha">A - Z</option>
+            <option value="alphaRev">Z - A</option>
+            <option value="dur">duration long</option>
+            <option value="durRev">duration short</option>
+        </select>
+    </div>
+    <div id="songList"></div>
+    <audio controls preload="metadata" class="songSrc" src="songs/As You Fade Away - NEFFEX.mp3"></audio>
+    <audio controls preload="metadata" class="songSrc" src="songs/Chasing the Dragons - Joel Cummins, Kris Myers, Andy Farag.mp3"></audio>
+    <audio controls preload="metadata" class="songSrc" src="songs/How's It Supposed to Feel (Clean) - NEFFEX.mp3"></audio>
+    <audio controls preload="metadata" class="songSrc" src="songs/Out On My Skateboard - Mini Vandals.mp3"></audio>
+    <audio controls preload="metadata" class="songSrc" src="songs/Play Dead - NEFFEX.mp3"></audio>
+    <audio controls preload="metadata" class="songSrc" src="songs/Sunshine - Telecasted.mp3"></audio>
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

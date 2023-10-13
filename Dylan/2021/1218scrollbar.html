@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Bar</title>
+    <style>
+        body{
+            background-color: blanchedalmond;
+        }
+        .box{
+            width: 400px;
+            height: 300px;
+            overflow: auto;
+            background-color: white;
+            margin: auto;
+            margin-top: 30px;
+        }
+        .inner{
+            height: 900px;
+            background: linear-gradient(white, dodgerblue);
+        }
+        .box1::-webkit-scrollbar{
+            background-color: thistle;
+        }
+        .box1::-webkit-scrollbar-thumb{
+            background-color: purple;
+        }
+        .box2::-webkit-scrollbar{
+            background-color: dodgerblue;
+            width: 30px;
+        }
+        .box2::-webkit-scrollbar-thumb{
+            background-color: white;
+            border-radius: 15px;
+        }
+        .box2::-webkit-scrollbar-track{
+            background-color: gold;
+        }
+        .box3::-webkit-scrollbar{
+            background-color: black;
+            width: 20px;
+            border-radius: 10px;
+        }
+        .box3::-webkit-scrollbar-thumb{
+            background-color: white;
+            border-radius: 10px;
+            background-clip: padding-box;
+            border: 5px solid transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">
+        <div class="inner"></div>
+    </div>
+    <div class="box box2">
+        <div class="inner"></div>
+    </div>
+    <div class="box box3">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table, th, td {
+                border: 2px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <th>이름</th><th>나이</th>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+        <br>
+        <input id = "name" placeholder="이름을 입력하세요." type="text">
+        <br>
+        <input id = "age" placeholder="나이를 입력하세요." type="number" onkeyup="enter();">
+        <button onclick="clicked();">입력</button>
+        <br>
+        <button onclick="deleterow();">삭제</button>
+
+        <script>
+            function enter(){
+                if(window.event.keyCode == 13){
+                    clicked();
+                }
+            }
+            function clicked(){
+                if(!document.getElementById("name").value || !document.getElementById("age").value){
+                    alert("제대로 입력해주세요!");
+                }else{
+                    var tB = document.getElementById("tableBody");
+                    var row = tB.insertRow(tB.rows.length);
+                    var namecell = row.insertCell(0);
+                    var agecell = row.insertCell(1);
+                    namecell.innerHTML = document.getElementById("name").value;
+                    agecell.innerHTML = document.getElementById("age").value;
+                    document.getElementById("name").value = "";
+                    document.getElementById("age").value = "";
+                }
+            }
+            function deleterow(){
+                var tB = document.getElementById("tableBody");
+                if(tB.rows.length < 1) return;
+                tB.deleteRow(tB.rows.length-1);
+            }
+
+        </script>
+    </body>
+</html>

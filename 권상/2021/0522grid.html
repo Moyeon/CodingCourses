@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Practice</title>
+    <style>
+        .container{
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            grid-template-rows: 1fr 2fr 5fr 200px;
+            grid-template-columns: 200px 200px 1fr 200px;
+        }
+        .item{
+            border: 1px solid black;
+        }
+        .pink{
+            background-color: pink;
+            grid-column: 2/4;
+            grid-row: 4/5;
+        }
+        .green{
+            background-color: green;
+            grid-row: -4/span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item pink">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item green">E</div>
+        <div class="item">F</div>
+        <div class="item green">G</div>
+        <div class="item">H</div>
+        <div class="item">I</div>
+        <div class="item">J</div>
+    </div>
+</body>
+</html>

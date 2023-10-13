@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    <p id="write">Hello</p>
+    <input id="a" type="date"><br>
+    <input id="b" type="date">
+    <button onclick="clicked();">Go!</button>
+    <br>
+    <p id="print">Answer will be printed here.</p>
+    <p id="sw">00:00:00</p>
+    <button onclick="start();">Start</button>
+    <br>
+
+    <script>
+        function printTime(){
+            var now = new Date();
+            var nowtime = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+            document.getElementById("write").innerHTML = nowtime;
+        }
+
+        function clicked(){
+            var datea = document.getElementById("a").value;
+            var dateb = document.getElementById("b").value;
+            var daa = new Date(datea);
+            var dab = new Date(dateb);
+            document.getElementById("print").innerHTML = Math.abs(dab - daa)/(1000*60*60*24);
+        }
+
+        var timerOn = null;
+        function start(){
+            if(timerOn!=null){
+                clearInterval(timerOn);
+            }
+            var startTime = new Date();
+            timerOn = setInterval(function () {
+                let nowTime = new Date();
+                let diff = nowTime - startTime;
+                let milsec = diff % 1000;
+                let sec = Math.floor(diff / 1000 % 60);
+                let min = Math.floor(diff / 1000 / 60);
+
+                document.getElementById("sw").innerHTML = min +':'+ sec +':'+ milsec;
+            },10);
+        }
+
+        var date = new Date("2000-03-26");
+        document.write(date);
+
+
+        printTime();
+        setInterval(printTime, 1000);
+
+        
+
+    </script>
+</body>
+</html>

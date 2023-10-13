@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- saved from url=(0122)file:///Users/hoyeonlee/Library/Mobile%20Documents/com~apple~CloudDocs/beyondcoding/htmlcss/%EA%B6%8C%EC%83%81/1218BS.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자야구</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+        .output{
+            border: 1px solid black;
+            width: 80vw;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 50px;
+            grid-auto-rows: 40px;
+        }
+        div{
+            text-align: center;
+            font-family: 'Bowlby One SC', sans-serif;
+            font-size: 25px;
+            color: rgb(102, 102, 102);
+        }
+        .title{
+            font-size: 30px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="output">
+        <div class="title">Round</div>
+        <div class="title">Guess</div>
+        <div class="title">Result</div>
+        <div>1</div>
+        <div>2 3 4 5</div>
+        <div>2B</div>
+        <div>2</div>
+        <div>2 3 4 5</div>
+        <div>2B</div>
+    </div>
+
+    <script>
+        var answer = [];
+        function generate(){
+            function random(){
+                var num = Math.floor( Math.random() * 10 );
+                return num;
+            }
+            
+            answer = [];
+
+            answer.push(random());
+
+            for(var i=0; i<3; i++){
+                var newnum = random();
+                if(answer.includes(newnum)){
+                    newnum = (newnum + random()) % 10;
+                }
+                answer.push(newnum);
+            }
+            
+            console.log(answer);
+        }
+
+    </script>
+
+</body></html>
