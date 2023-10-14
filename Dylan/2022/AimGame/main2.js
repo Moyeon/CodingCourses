@@ -12,6 +12,11 @@ var mapInfoList = [
         title : "Murder In My Mind",
         artist : "Kordhell",
         starRate : 3.28
+    },{
+        folderName : "phonk",
+        title : "Uptown Phonk",
+        artist : "Kordhell",
+        starRate : 3.28
     }
 ];
 
