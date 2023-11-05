@@ -9,16 +9,35 @@
 <body>
     <div class="tabWrap">
         <div class="tab" id="mainTab">
-            <h3 id="moneyAmount">$0</h3>
+            <div class="moneyWrap" id="moneyWrap">
+                <h3 id="moneyAmount">$0</h3>
+            </div>
             <p id="statusMsg">You are constantly struggling for food and shelter.</p>
             <div id="messageBox">
                 <p id="itemMsg">You can buy a cat tower.</p>
-                <button>Buy</button>
+                <button onclick="buyCurrentItem();">Buy</button>
             </div>
             <button class="popBtn" onclick="earnMoney();">Money</button>
-            <button class="popBtn2">Bonus</button>
+            <button class="popBtn2" onclick="bonusClickEarn()">Bonus</button>
+            <p id="bcAmount">62 bonus clicks</p>
+            <p id="bcRate">+0.1 bc/click</p>
         </div>
-        <div class="tab" id="upgradeTab">upgradeTab</div>
+        <div class="tab" id="upgradeTab">
+            <div class="boxWrap">
+                <div class="box">
+                    <h2>Income Boost</h2>
+                    <p>10% boost</p>
+                </div>
+                <button id="ibBtn" onclick="incomeBoostBuy();">$1000</button>
+            </div>
+            <div class="boxWrap">
+                <div class="box">
+                    <h2>Bonus Click</h2>
+                    <p>0.1 Bonus Click per Click</p>
+                </div>
+                <button id="bcBtn" onclick="bonusClickBuy();">$1000</button>
+            </div>
+        </div>
         <div class="tab" id="casinoTab">
             <div class="d">
                 <div>$</div>
@@ -35,7 +54,7 @@
             <button class="casinoBtn" onclick="clic();">GAMBLE</button>
         </div>
     </div>
-    <div class="UI">
+    <div class="UI" id="UI">
         <div id="upgradeBtn">UPGRADE</div>
         <div id="mainBtn">MAIN</div>
         <div id="casinoBtn">CASINO</div>

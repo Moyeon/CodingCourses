@@ -43,6 +43,7 @@ bgm.src = prefix + SONGS[0];
 
 var nowPlaying = 0;
 var isPlaying = false;
+var isLoop = false;
 
 function bgmTitleSet(){
     bgmTitle.innerHTML = SONGS[nowPlaying].split('_').join(' ');
@@ -87,5 +88,17 @@ function bgmNext(){
 }
 
 function bgmLoop(){
-
+    if(isLoop == true){
+        isLoop = false;
+        bgmBtnLoop.id = "bgmLoop";
+        bgm.loop = false;
+    }else{
+        isLoop = true;
+        bgmBtnLoop.id = "bgmLoopOn";
+        bgm.loop = true;
+    }
 }
+
+bgm.addEventListener("ended", () => {
+    bgmNext();
+});

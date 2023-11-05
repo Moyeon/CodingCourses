@@ -2,7 +2,7 @@ var box1 = document.getElementById("box1");
 var box2 = document.getElementById("box2");
 var box3 = document.getElementById("box3");
 var input = document.getElementById("input");
-var moneyVal = document.getElementById("moneyVal");
+
 
 function clic(){
     if(money < input.value){

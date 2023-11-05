@@ -31,6 +31,7 @@ body{
     border-top: none;
     grid-row: 1/5;
     grid-column: 2/3;
+    position: relative;
 }
 #nextBox{
     border: 1px solid white;
@@ -58,6 +59,8 @@ body{
 #gameGridCanvas{
     width: 300px;
     height: 600px;
+    position: absolute;
+    z-index: -1;
 }
 
 
@@ -185,4 +188,97 @@ body{
 }
 #bgmLoopOn{
     background-image: url(./src/repeat_on.svg);
+}
+
+
+.x0{
+    left: 0px;
+}
+.x1{
+    left: 30px;
+}
+.x2{
+    left: 60px;
+}
+.x3{
+    left: 90px;
+}
+.x4{
+    left: 120px;
+}
+.x5{
+    left: 150px;
+}
+.x6{
+    left: 180px;
+}
+.x7{
+    left: 210px;
+}
+.x8{
+    left: 240px;
+}
+.x9{
+    left: 270px;
+}
+
+.y0{
+    top: 0;
+}
+.y1{
+    top: 30px;
+}
+.y2{
+    top: 60px;
+}
+.y3{
+    top: 90px;
+}
+.y4{
+    top: 120px;
+}
+.y5{
+    top: 150px;
+}
+.y6{
+    top: 180px;
+}
+.y7{
+    top: 210px;
+}
+.y8{
+    top: 240px;
+}
+.y9{
+    top: 270px;
+}
+.y10{
+    top: 300px;
+}
+.y11{
+    top: 330px;
+}
+.y12{
+    top: 360px;
+}
+.y13{
+    top: 390px;
+}
+.y14{
+    top: 420px;
+}
+.y15{
+    top: 450px;
+}
+.y16{
+    top: 480px;
+}
+.y17{
+    top: 510px;
+}
+.y18{
+    top: 540px;
+}
+.y19{
+    top: 570px;
 }

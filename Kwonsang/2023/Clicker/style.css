@@ -12,6 +12,8 @@ body{
     width: 400px;
     height: 700px;
     border: 1px solid black;
+    box-sizing: border-box;
+    border-bottom: none;
     position: absolute;
     visibility: hidden;
     display: flex;
@@ -75,4 +77,75 @@ body{
 #messageBox{
     visibility: hidden;
     height: 0;
+}
+
+.boxWrap{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    padding: 20px;
+    align-items: center;
+}
+.boxWrap:last-of-type{
+    border-bottom: 1px solid black;
+}
+.boxWrap button{
+    padding: 24px 16px;
+}
+
+.moneyWrap{
+    position: relative;
+}
+.moneyEffect{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    animation: moneyEffect 0.3s;
+}
+
+@keyframes moneyEffect {
+    0%{
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(0, -50px);
+        opacity: 0;
+    }
+}
+
+.UI{
+    display: grid;
+    width: 400px;
+    grid-template-columns: 1fr 1fr 1fr;
+    transition: 0.3s;
+}
+.UIU{
+    grid-template-columns: 1.5fr 1fr 1fr;
+}
+.UIM{
+    grid-template-columns: 1fr 1.5fr 1fr;
+}
+.UIC{
+    grid-template-columns: 1fr 1fr 1.5fr;
+}
+
+.UIU #upgradeBtn{
+    border-top: none;
+}
+.UIM #mainBtn{
+    border-top: none;
+}
+.UIC #casinoBtn{
+    border-top: none;
+}
+
+.UI div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid black;
+    transition: 0.3s;
 }
