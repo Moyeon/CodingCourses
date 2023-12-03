@@ -149,3 +149,9 @@ body{
     border: 1px solid black;
     transition: 0.3s;
 }
+
+@media (max-width: 500px) {
+    .tab, .tabWrap, .UI{
+        width: 100vw;
+    }
+}

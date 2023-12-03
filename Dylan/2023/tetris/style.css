@@ -73,7 +73,8 @@ body{
     height: 30px;
     background-color: rgb(88, 152, 231);
     position: absolute;
-    border: 2px outset rgb(136, 180, 232);
+    border: 3px outset rgb(136, 180, 232);
+    filter: saturate(130%) brightness(120%);
 }
 .block:after{
     content: "";
@@ -83,62 +84,63 @@ body{
     width: 12px;
     height: 12px;
     border: 4px groove rgb(136, 180, 232);
+    filter: saturate(130%);
 }
 
 .mint{
     background-color: #4ad0a7;
-    border: 2px outset #95e3cc;
+    border-color: #95e3cc;
 }
 .mint::after{
-    border: 4px groove #95e3cc;
+    border-color: #95e3cc;
 }
 
 .pink{
     background-color: #c861b9;
-    border: 2px outset #e395d1;
+    border-color: #e395d1;
 }
 .pink::after{
-    border: 4px groove #e395d1;
+    border-color: #e395d1;
 }
 
 .orange{
     background-color: #d38c4a;
-    border: 2px outset #e3bb95;
+    border-color: #e3bb95;
 }
 .orange::after{
-    border: 4px groove #e3bb95;
+    border-color: #e3bb95;
 }
 
 .yellow{
     background-color: #d3be4a;
-    border: 2px outset #e8db93;
+    border-color: #e8db93;
 }
 .yellow::after{
-    border: 4px groove #e8db93;
+    border-color: #e8db93;
 }
 
 .green{
     background-color: #86c64a;
-    border: 2px outset #bbe893;
+    border-color: #bbe893;
 }
 .green::after{
-    border: 4px groove #bbe893;
+    border-color: #bbe893;
 }
 
 .blue{
     background-color: #5898e7;
-    border: 2px outset #88b4e8;
+    border-color: #88b4e8;
 }
 .blue::after{
-    border: 4px groove #88b4e8;
+    border-color: #88b4e8;
 }
 
 .red{
     background-color: #e75866;
-    border: 2px outset #e88898;
+    border-color: #e88898;
 }
 .red::after{
-    border: 4px groove #e88898;
+    border-color: #e88898;
 }
 
 .shadow{
@@ -148,10 +150,6 @@ body{
 .shadow::after{
     border: 2px solid #7f7f7f;
 }
-
-
-
-
 
 .tetro{
     position: relative;

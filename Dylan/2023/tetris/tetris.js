@@ -142,8 +142,11 @@ class Tetromino {
     y;
     shape; //size*size array
     divArray;
+    spinState;
+    shadow;
 
     constructor(num = -1){
+        this.spinState = 0;
         if (num == -1){
             this.type = nextTetromino.getFirstTetromino();
             didHolding = false;
@@ -157,6 +160,7 @@ class Tetromino {
         this.x = 3;
         this.y = 0;
         this.divArray = [];
+        this.shadow = [];
         if(this.type == 6){
             this.x = 4;
         }
@@ -174,6 +178,35 @@ class Tetromino {
 
                     gameGrid.appendChild(block);
                     this.divArray.push(block);
+
+                    const sblock = document.createElement("div");
+                    sblock.classList.add('block');
+                    sblock.classList.add('shadow');
+                    sblock.classList.add("x" + (this.x + j));
+                    sblock.classList.add("y" + (this.y + i));
+
+                    gameGrid.appendChild(sblock);
+                    this.shadow.push(sblock);
+                }
+            }
+        }
+    }
+
+    shadowUpdate(){
+        var num;
+        for(var y = this.y; y < 20; y++){
+            if(this.canMove(this.x, y, this.shape)){
+                num = y;
+            }
+        }
+
+        var block = 0;
+        for(var i = 0; i < this.shape.length; i++){
+            for(var j = 0; j < this.shape.length; j++){
+                if(this.shape[i][j] > 0){
+                    var b = this.shadow[block];
+                    
+
                 }
             }
         }
@@ -219,52 +252,98 @@ class Tetromino {
     }
 
     spinClock(){
-        for(var i = 0; i < this.shape.length; i++){
+        var p = JSON.parse(JSON.stringify(this.shape));
+
+        for(var i = 0; i < p.length; i++){
             for(var j = 0; j < i; j++){
-                [this.shape[i][j], this.shape[j][i]] = [this.shape[j][i], this.shape[i][j]];
+                [p[i][j], p[j][i]] = [p[j][i], p[i][j]];
             }
         }
-        this.shape.forEach((row) => row.reverse());
-        this.shape.forEach((row) => console.log(row));
+        p.forEach((row) => row.reverse());
+        p.forEach((row) => console.log(row));
 
-        for(var i = 0; i < 4; i++){
-            var block = this.divArray[i];
-            var xPos = block.classList[2];
-            var yPos = block.classList[3];
-            var newXPos = this.shape.length - 1 - (yPos.slice(1) - this.y) + this.x;
-            var newYPos = (xPos.slice(1) - this.x) + this.y;
+        for(var i = 0; i < 5; i++){
+            var newX = this.x;
+            var newY = this.y;
+            if(this.type < 5){
+                newX = newX + JLTSZ[this.spinState].clockwise[i][0];
+                newY = newY + JLTSZ[this.spinState].clockwise[i][1];
+            }if(this.type == 5){
+                newX = newX + I_SPIN[this.spinState].clockwise[i][0];
+                newY = newY + I_SPIN[this.spinState].clockwise[i][1];
+            }
 
-            block.classList.replace(xPos, "x" + newXPos);
-            block.classList.replace(yPos, "y" + newYPos);
+            if(!this.canMove(newX, newY, p)){
+                continue;
+            }
+            
+            this.shape = p;
+            this.spinState = (this.spinState + 1) % 4;
+
+            for(var i = 0; i < 4; i++){
+                var block = this.divArray[i];
+                var xPos = block.classList[2];
+                var yPos = block.classList[3];
+                var newXPos = this.shape.length - 1 - (yPos.slice(1) - this.y) + newX;
+                var newYPos = (xPos.slice(1) - this.x) + newY;
+
+                block.classList.replace(xPos, "x" + newXPos);
+                block.classList.replace(yPos, "y" + newYPos);
+            }
+            this.x = newX;
+            this.y = newY;
         }
     }
 
     spinCounter(){
-        for(var i = 0; i < this.shape.length; i++){
+        var p = JSON.parse(JSON.stringify(this.shape));
+
+        for(var i = 0; i < p.length; i++){
             for(var j = 0; j < i; j++){
-                [this.shape[i][j], this.shape[j][i]] = [this.shape[j][i], this.shape[i][j]];
+                [p[i][j], p[j][i]] = [p[j][i], p[i][j]];
             }
         }
-        this.shape = this.shape.reverse();
-        this.shape.forEach((row) => console.log(row));
+        p = p.reverse();
+        p.forEach((row) => console.log(row));
 
-        for(var i = 0; i < 4; i++){
-            var block = this.divArray[i];
-            var xPos = block.classList[2];
-            var yPos = block.classList[3];
-            var newXPos = (yPos.slice(1) - this.y) + this.x;
-            var newYPos = this.shape.length - 1 - (xPos.slice(1) - this.x) + this.y;
+        for(var i = 0; i < 5; i++){
+            var newX = this.x;
+            var newY = this.y;
+            if(this.type < 5){
+                newX = newX + JLTSZ[this.spinState].counter[i][0];
+                newY = newY + JLTSZ[this.spinState].counter[i][1];
+            }if(this.type == 5){
+                newX = newX + I_SPIN[this.spinState].counter[i][0];
+                newY = newY + I_SPIN[this.spinState].counter[i][1];
+            }
 
-            block.classList.replace(xPos, "x" + newXPos);
-            block.classList.replace(yPos, "y" + newYPos);
+            if(!this.canMove(newX, newY, p)){
+                continue;
+            }
+            
+            this.shape = p;
+            this.spinState = (this.spinState + 3) % 4;
+
+            for(var i = 0; i < 4; i++){
+                var block = this.divArray[i];
+                var xPos = block.classList[2];
+                var yPos = block.classList[3];
+                var newXPos = (yPos.slice(1) - this.y) + newX;
+                var newYPos = this.shape.length - 1 - (xPos.slice(1) - this.x) + newY;
+    
+                block.classList.replace(xPos, "x" + newXPos);
+                block.classList.replace(yPos, "y" + newYPos);
+            }
+            this.x = newX;
+            this.y = newY;
         }
     }
 
-    canMove(x, y){
+    canMove(x, y, p = this.shape){
         //wall? map check
-        for(var i = 0; i < this.shape.length; i++){
-            for(var j = 0; j < this.shape.length; j++){
-                if(this.shape[i][j] > 0){
+        for(var i = 0; i < p.length; i++){
+            for(var j = 0; j < p.length; j++){
+                if(p[i][j] > 0){
                     if(x + j >= 10 || y + i >= 20 || x + j < 0){
                         return false;
                     }
@@ -300,7 +379,7 @@ class GameBoard {
     constructor(){
         this.map = [];
         for(var i = 0; i < 20; i++){
-            this.map.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            this.map.push([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
         }
         this.divMap = [];
         for(var i = 0; i < 20; i++){
@@ -334,16 +413,41 @@ class GameBoard {
     }
 
     clearLines(){
+        var lines = 0;
         for(var row = 19; row >= 0; row--){
             var clear = true;
             for(var j = 0; j<10; j++){
-                if(this.map[row][j] == 0){
+                if(this.map[row][j] == -1){
                     clear = false;
                 }
             }
 
             if(clear){
-                console.log("clear row " + row);
+                lines++;
+                for(var j = 0; j < 10; j++){
+                    gameGrid.removeChild(this.divMap[row][j]);
+                }
+                this.divMap.splice(row, 1);
+                this.divMap.unshift([null, null, null, null, null,
+                                    null, null, null, null, null]);
+                this.map.splice(row, 1);
+                this.map.unshift([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
+
+                row++;
+            }
+        }
+        if(lines == 0){
+            return;
+        }
+
+        for(var row = 0; row < 20; row++){
+            for(var col = 0; col < 10; col++){
+                if(this.divMap[row][col] != null){
+                    var xpos = this.divMap[row][col].classList[2];
+                    var ypos = this.divMap[row][col].classList[3];
+                    this.divMap[row][col].classList.replace(xpos, "x" + col);
+                    this.divMap[row][col].classList.replace(ypos, "y" + row);
+                }
             }
         }
     }
@@ -376,6 +480,12 @@ window.addEventListener("keydown", (event) => {
     else if(event.keyCode == 67){ //c
         var holded = current.hold();
         current = new Tetromino(holded);
+    }else if(event.keyCode == 32){ // spacebar
+        while(current.moveDown()){
+            continue;
+        }
+        gameBoard.appendDiv(current);
+        current = new Tetromino();
     }
 
     console.log(event.keyCode);
