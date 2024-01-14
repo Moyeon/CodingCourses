@@ -23,5 +23,7 @@ for i in range(3):
     arr[i].oneYear()
     arr[i].oneYear()
 
+a = arr[1].shear()
+
 print(arr[2].age)
 print(arr[1].fleece)

@@ -190,13 +190,16 @@ class Tetromino {
                 }
             }
         }
+        this.shadowUpdate();
     }
 
     shadowUpdate(){
-        var num;
+        var num = this.y;
         for(var y = this.y; y < 20; y++){
             if(this.canMove(this.x, y, this.shape)){
                 num = y;
+            }else{
+                break;
             }
         }
 
@@ -205,10 +208,19 @@ class Tetromino {
             for(var j = 0; j < this.shape.length; j++){
                 if(this.shape[i][j] > 0){
                     var b = this.shadow[block];
-                    
-
+                    var newYPos = num + i;
+                    var newXPos = this.x + j;
+                    b.classList.replace(b.classList[3], "y" + newYPos);
+                    b.classList.replace(b.classList[2], "x" + newXPos);
+                    block++;
                 }
             }
+        }
+    }
+
+    shadowDelete(){
+        for(var i = 0; i < 4; i++){
+            gameGrid.removeChild(this.shadow[i]);
         }
     }
 
@@ -237,6 +249,7 @@ class Tetromino {
                 block.classList.replace(xPos, "x" + newXPos);
             }
         }
+        this.shadowUpdate();
     }
 
     moveRight(){
@@ -249,6 +262,7 @@ class Tetromino {
                 block.classList.replace(xPos, "x" + newXPos);
             }
         }
+        this.shadowUpdate();
     }
 
     spinClock(){
@@ -293,6 +307,7 @@ class Tetromino {
             this.x = newX;
             this.y = newY;
         }
+        this.shadowUpdate();
     }
 
     spinCounter(){
@@ -337,6 +352,7 @@ class Tetromino {
             this.x = newX;
             this.y = newY;
         }
+        this.shadowUpdate();
     }
 
     canMove(x, y, p = this.shape){
@@ -454,50 +470,122 @@ class GameBoard {
 }
 var gameBoard = new GameBoard();
 
-
-//Arrow Key Events
-window.addEventListener("keydown", (event) => {
-    if(event.keyCode == 37){
-        //Move Left
-        current.moveLeft();
-    }
-    else if(event.keyCode == 39){
-        //Move Right
-        current.moveRight();
-    }
-    else if(event.keyCode == 40){
-        if(!current.moveDown()){
-            gameBoard.appendDiv(current);
-            current = new Tetromino();
-        }
-    }
-    else if(event.keyCode == 38){
-        current.spinClock();
-    }
-    else if(event.keyCode == 90){ //z
-        current.spinCounter();
-    }
-    else if(event.keyCode == 67){ //c
-        var holded = current.hold();
-        current = new Tetromino(holded);
-    }else if(event.keyCode == 32){ // spacebar
-        while(current.moveDown()){
-            continue;
-        }
+function keyMoveLeft(){
+    current.moveLeft();
+}
+function keyMoveRight(){
+    current.moveRight();
+}
+function keyMoveDown(){
+    if(!current.moveDown()){
         gameBoard.appendDiv(current);
+        current.shadowDelete();
         current = new Tetromino();
     }
+}
+function keySpinClock(){
+    current.spinClock();
+}
+function keySpinCounter(){
+    current.spinCounter();
+}
+function keyHold(){
+    var holded = current.hold();
+    if(holded == -2) return;
+    current.shadowDelete();
+    current = new Tetromino(holded);
+}
+function keyHardDrop(){
+    while(current.moveDown()){
+        continue;
+    }
+    gameBoard.appendDiv(current);
+    current.shadowDelete();
+    current = new Tetromino();
+}
 
-    console.log(event.keyCode);
+var pressedKeyList = [];
+
+window.addEventListener("keydown", (event) => {
+    event.preventDefault();
+
+    if(event.keyCode == KEYSETTING[5].keyCode){
+        keySpinClock();
+    }
+    if(event.keyCode == KEYSETTING[7].keyCode){
+        keyHold();
+    }
+    if(event.keyCode == KEYSETTING[3].keyCode){
+        keyHardDrop();
+    }
+    if(event.keyCode == KEYSETTING[4].keyCode){
+        keySpinCounter();
+    }
+    if(event.keyCode == KEYSETTING[6].keyCode){
+        keySpinClock();
+        keySpinClock();
+    }
+    
+    pressedKeyList[event.keyCode] = true;
+});
+
+window.addEventListener("keyup", (event)=>{
+    pressedKeyList[event.keyCode] = false;
 });
 
 var current = new Tetromino();
 var animateTime = 0;
+var arrTime = 0; //keyDelay
+var dasTime = -2; //keyHoldDelay, -1 = allowed, -2 = not pressed yet
+var sdfTime = 0; //softDrop
 
 function animate(now = 0){
+    if(dasTime == -2){
+        if(pressedKeyList[KEYSETTING[0].keyCode] ||
+            pressedKeyList[KEYSETTING[1].keyCode] ||
+            pressedKeyList[KEYSETTING[2].keyCode]){
+                dasTime = now + Number(SETTING.keyHoldDelay);
+            }
+    }
+    else if(dasTime == -1 || dasTime < now){
+        if(now - arrTime > SETTING.keyDelay){
+            if(pressedKeyList[KEYSETTING[0].keyCode]){
+                keyMoveLeft();
+                arrTime = now;
+            }
+            if(pressedKeyList[KEYSETTING[1].keyCode]){
+                keyMoveRight();
+                arrTime = now;
+            }
+            if(!(pressedKeyList[KEYSETTING[0].keyCode] ||
+                pressedKeyList[KEYSETTING[1].keyCode] ||
+                pressedKeyList[KEYSETTING[2].keyCode])){
+                dasTime = -2;
+            }
+        }
+        if(now - sdfTime > SETTING.softDrop){
+            if(pressedKeyList[KEYSETTING[2].keyCode]){
+                keyMoveDown();
+                sdfTime = now;
+            }
+            if(!(pressedKeyList[KEYSETTING[0].keyCode] ||
+                pressedKeyList[KEYSETTING[1].keyCode] ||
+                pressedKeyList[KEYSETTING[2].keyCode])){
+                dasTime = -2;
+            }
+        }
+        if(!(pressedKeyList[KEYSETTING[0].keyCode] ||
+            pressedKeyList[KEYSETTING[1].keyCode] ||
+            pressedKeyList[KEYSETTING[2].keyCode])){
+            dasTime = -2;
+        }
+    }
+    
+    
     if(now - animateTime > 1000){
         if(!current.moveDown()){
             gameBoard.appendDiv(current);
+            current.shadowDelete();
             current = new Tetromino();
         }
         animateTime = now;

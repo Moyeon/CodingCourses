@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tabWrap">
+        <div class="tab">
+            <h1>CONTROLS</h1>
+            <div class="tabInner" id="tabInner"></div>
+            <button class="settingBtn" onclick="loadDefaultKeySetting()">RESET KEY SETTINGS</button>
+        </div>
+        <div class="tab">
+            <h1>HANDLING</h1>
+            <div class="option">
+                <h3>ARR</h3>
+                <input type="range" id="arrInput" min="0" max="5" step="0.1">
+                <h4 id="arrH4">70MS</h4>
+                <h3 class="optionRSLT" id="arrResult">2</h3>
+                <h3>F</h3>
+            </div>
+            <div class="option">
+                <h3>DAS</h3>
+                <input type="range" id="dasInput" min="1" max="20" step="0.1">
+                <h4 id="dasH4">70MS</h4>
+                <h3 class="optionRSLT" id="dasResult">2</h3>
+                <h3>F</h3>
+            </div>
+            <div class="option">
+                <h3>SDF</h3>
+                <input type="range" id="sdfInput" min="5" max="41" step="1">
+                <h4 id="sdfH4">70MS</h4>
+                <h3 class="optionRSLT" id="sdfResult">2</h3>
+                <h3>F</h3>
+            </div>
+            <button class="settingBtn" onclick="loadDefaultHandlingSetting()">RESET HANDLING SETTINGS</button>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="setting.js"></script>
+    <script type="text/javascript" src="setting_2.js"></script>
+</body>
+</html>
