@@ -3,25 +3,33 @@ var ctx = gameGridCanvas.getContext('2d');
 
 var dpr = window.devicePixelRatio;
 
-gameGridCanvas.width = 300 * dpr;
-gameGridCanvas.height = 600 * dpr;
+function gameGridCanvasSet(){
+    gameGridCanvas = document.getElementById('gameGridCanvas');
+    ctx = gameGridCanvas.getContext('2d');
 
-ctx.strokeStyle = 'rgb(60,60,60)';
+    dpr = window.devicePixelRatio;
 
-for(var i = 1; i <= 9; i++){
-    ctx.beginPath();
-    ctx.moveTo(Math.floor(30 * i * dpr)+0.5, 0);
-    ctx.lineTo(Math.floor(30 * i * dpr)+0.5, Math.floor(600 * dpr)-2);
-    ctx.stroke();
+    gameGridCanvas.width = 300 * dpr;
+    gameGridCanvas.height = 600 * dpr;
+
+    ctx.strokeStyle = 'rgb(60,60,60)';
+
+    for(var i = 1; i <= 9; i++){
+        ctx.beginPath();
+        ctx.moveTo(Math.floor(30 * i * dpr)+0.5, 0);
+        ctx.lineTo(Math.floor(30 * i * dpr)+0.5, Math.floor(600 * dpr)-2);
+        ctx.stroke();
+    }
+
+    for(var i = 1; i <= 19; i++){
+        ctx.beginPath();
+        ctx.moveTo(0, Math.floor(30 * i * dpr)+0.5);
+        ctx.lineTo(Math.floor(300 * dpr)-2, Math.floor(30 * i * dpr));
+        ctx.stroke();
+    }
 }
 
-for(var i = 1; i <= 19; i++){
-    ctx.beginPath();
-    ctx.moveTo(0, Math.floor(30 * i * dpr)+0.5);
-    ctx.lineTo(Math.floor(300 * dpr)-2, Math.floor(30 * i * dpr));
-    ctx.stroke();
-}
-
+gameGridCanvasSet();
 
 
 
@@ -102,3 +110,16 @@ function bgmLoop(){
 bgm.addEventListener("ended", () => {
     bgmNext();
 });
+
+function toGameStart(){
+    location.href = "./game.html";
+}
+function toConfig(){
+    location.href = "./setting.html";
+}
+function toLine30(){
+    location.href = "./line30.html";
+}
+function toMin2(){
+    location.href = "./min2.html";
+}

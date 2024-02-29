@@ -138,7 +138,9 @@ class NextTetromino {
 var nextTetromino = new NextTetromino();
 
 var gameGrid = document.getElementById("gameGrid");
-var levelText = document.getElementById("levelText");
+var linesText = document.getElementById("lines");
+var timeText = document.getElementById("time");
+var piecesText = document.getElementById("pieces");
 
 class Tetromino {
     type; // 0~6
@@ -150,6 +152,7 @@ class Tetromino {
     shadow;
 
     constructor(num = -1){
+        pieces ++;
         this.spinState = 0;
         if (num == -1){
             this.type = nextTetromino.getFirstTetromino();
@@ -466,7 +469,7 @@ class GameBoard {
             return;
         }else{
             level += lines;
-            levelText.innerHTML = level;
+            linesText.innerHTML = level;
         }
 
         for(var row = 0; row < BOARDHEIGHT; row++){
@@ -593,7 +596,7 @@ retryNotice.addEventListener("animationend", ()=>{
     retryNotice.style.bottom = "-100px";
     retryNotice.style.animation = "";
     isGaming = false;
-    gameStart();
+    location.reload();
 });
 
 var current = new Tetromino();
@@ -602,9 +605,18 @@ var arrTime = 0; //keyDelay
 var dasTime = -2; //keyHoldDelay, -1 = allowed, -2 = not pressed yet
 var sdfTime = 0; //softDrop
 var requestId;
+var pieces = -1;
 
 function animate(now = 0){
     requestId = undefined;
+    timeText.innerHTML = (now/1000).toFixed(3);
+    piecesText.innerHTML = (pieces / now * 1000).toFixed(3);
+    if(level == 1){
+        alert("Your record is " + (now/1000).toFixed(3));
+        isGaming = false;
+        location.reload();
+    }
+
     if(dasTime == -2){
         if(pressedKeyList[KEYSETTING[0].keyCode] ||
             pressedKeyList[KEYSETTING[1].keyCode] ||
@@ -684,7 +696,7 @@ function gameStart(){
     animateTime = 0;
     gameBoard = new GameBoard();
     level = 0;
-    levelText.innerHTML = level;
+    linesText.innerHTML = level;
     isGaming = true;
     animate();
 }

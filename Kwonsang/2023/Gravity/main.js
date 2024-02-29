@@ -54,7 +54,7 @@ function drawGround(){
 const FLOOR_Y = 5.75 * unit;
 const CEIL_Y = unit;
 
-const SPEED_X = -3;
+const SPEED_X = -10 * ratio;
 const START_X = canvas.width;
 
 class Obstacle { //combined spikes
@@ -97,6 +97,14 @@ class Obstacle { //combined spikes
             this.spikes[i].draw();
         }
     }
+    onCollision(x, y){
+        for(var i = 0; i < this.spikes.length; i++){
+            if(this.spikes[i].onCollision(x, y)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 class Spike { //single spike
@@ -108,6 +116,78 @@ class Spike { //single spike
         this.height = height;
         this.direction = direction;
         this.xPos = xPos;
+    }
+
+    onCollision(x, y){
+        if(this.xPos >= x + unit || this.xPos <= 0){
+            return false;
+        }
+
+        if(this.height == 1 && this.direction == -1){
+            var vertex_x = this.xPos + unit/2;
+            var vertex_y = CEIL_Y + unit;
+            if(x < vertex_x && x + unit > vertex_x
+                && y < vertex_y){
+                    console.log(vertex_x, vertex_y, x, y);
+                return true;
+            }
+        }
+        else if(this.height == 2 && this.direction == -1){
+            var vertex_x = this.xPos + unit/2;
+            var vertex_y = CEIL_Y + unit * 2;
+            if(x < vertex_x && x + unit > vertex_x
+                && y < vertex_y){
+                    console.log(vertex_x, vertex_y, x, y);
+                return true;
+            }else if(y < vertex_y - unit){
+                return true;
+            }
+        }
+        else if(this.height == 3 && this.direction == -1){
+            var vertex_x = this.xPos + unit/2;
+            var vertex_y = CEIL_Y + unit * 3;
+            if(x < vertex_x && x + unit > vertex_x
+                && y < vertex_y){
+                console.log(vertex_x, vertex_y, x, y);
+                return true;
+            }else if(y < vertex_y - unit){
+                console.log(vertex_x, vertex_y, x, y);
+                return true;
+            }
+        }
+        else if(this.height == 1 && this.direction == 1){
+            var vertex_x = this.xPos + unit/2;
+            var vertex_y = FLOOR_Y - unit;
+            if(x < vertex_x && x + unit > vertex_x
+                && y + unit > vertex_y){
+                console.log(vertex_x, vertex_y, x, y);
+                return true;
+            }
+        }
+        else if(this.height == 2 && this.direction == 1){
+            var vertex_x = this.xPos + unit/2;
+            var vertex_y = FLOOR_Y - unit * 2;
+            if(x < vertex_x && x + unit > vertex_x
+                && y + unit > vertex_y){
+                    console.log(vertex_x, vertex_y, x, y);
+                return true;
+            }
+            else if(y - unit > vertex_y){
+                return true;
+            }
+        }
+        else if(this.height == 3 && this.direction == 1){
+            var vertex_x = this.xPos + unit/2;
+            var vertex_y = FLOOR_Y - unit * 3;
+            if(x < vertex_x && x + unit > vertex_x
+                && y + unit > vertex_y){
+                    console.log(vertex_x, vertex_y, x, y);
+                return true;
+            }
+            else if(y - unit > vertex_y){
+                return true;
+            }
+        }
     }
 
     move(){
@@ -180,14 +260,21 @@ class Player {
 }
 
 var player = new Player();
+var isGaming = false;
 function gameStart(){
+    isGaming = true;
     player = new Player();
     player.direction = -1;
     animate();
 }
 
+function gameOver(){
+    isGaming = false;
+}
+
 var animateTime = 0;
 var respawnTime = 0;
+var keyTime = 0;
 var requestId = 0;
 
 var obstacles = [];
@@ -203,10 +290,17 @@ function deletePassedObstacle(){
 }
 
 function animate(now = 0){
+    if(!isGaming) return;
     if(now - respawnTime > 1000){
         respawnObstacle();
         deletePassedObstacle();
         respawnTime = now;
+    }
+    if(keyPressed){
+        if(now - keyTime > 100){
+            player.reverse();
+            keyTime = now;
+        }
     }
     if(now - animateTime > 30){
         ctx.clearRect(0, 0, 960, 540);
@@ -218,6 +312,9 @@ function animate(now = 0){
         for(var o = 0; o < obstacles.length; o++){
             obstacles[o].move();
             obstacles[o].draw();
+            if(obstacles[o].onCollision(player.xPos, player.yPos)){
+                gameOver();
+            }
         }
 
         animateTime = now;
@@ -228,11 +325,17 @@ function animate(now = 0){
 gameStart();
 
 
+var keyPressed = false;
 
 //event
 window.addEventListener("keydown", (event)=>{
-    console.log(event.keyCode);
     if(event.keyCode == 32){
-        player.reverse();
+        keyPressed = true;
+    }
+});
+
+window.addEventListener("keyup", (event)=>{
+    if(event.keyCode == 32){
+        keyPressed = false;
     }
 });

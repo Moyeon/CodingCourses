@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TETRIS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="retryNotice">KEEP HOLDING TO RETRY</div>
+    <div id="gameBoard">
+        <div class="text">HOLD</div>
+        <div id="holdBox"></div>
+        <div id="gameGrid">
+            <canvas id="gameGridCanvas"></canvas>
+        </div>
+        <div class="text">NEXT</div>
+        <div id="nextBox"></div>
+        <div class="UI">
+            <h2 id="levelText">0</h2>
+            <p id="bgmTitle">Island Dream - Chris Haugen.mp3</p>
+            <div class="bgmBar">
+                <button class="bgmBtn" id="bgmBack" onclick="bgmBack()"></button>
+                <button class="bgmBtn" id="bgmPlay" onclick="bgmPlayPause()"></button>
+                <button class="bgmBtn" id="bgmNext" onclick="bgmNext()"></button>
+                <button class="bgmBtn" id="bgmLoop" onclick="bgmLoop()"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="spindata.js"></script>
+    <script type="text/javascript" src="setting.js"></script>
+    <script type="text/javascript" src="tetris.js"></script>
+</body>
+</html>

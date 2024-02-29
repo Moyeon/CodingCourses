@@ -63,6 +63,9 @@ function renderHandlingSetting(){
 
     sdfInput.value = SETTING.SDF;
     sdfResult.innerHTML = SETTING.SDF;
+    if(SETTING.SDF == 41){
+        sdfResult.innerHTML = "INF";
+    }
     sdfH4.innerHTML = SETTING.softDrop + "MS";
 }
 

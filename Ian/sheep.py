@@ -12,18 +12,29 @@ class Sheep:
         self.age += 1
         self.fleece += 4
 
+class Cat:
+    def __init__(self):
+        self.age = 1
+
+    def oneYear(self):
+        self.age += 2
 
 
-arr = []
-arr.append(Sheep())
-arr.append(Sheep())
-arr.append(Sheep())
+animals = []
 
-for i in range(3):
-    arr[i].oneYear()
-    arr[i].oneYear()
+animals.append(Sheep())
+animals.append(Cat())
+animals.append(Sheep())
 
-a = arr[1].shear()
+for a in animals:
+    print(a.age)
 
-print(arr[2].age)
-print(arr[1].fleece)
+for i in range(len(animals)):
+    animals[i].oneYear()
+    animals[i].oneYear()
+    animals[i].oneYear()
+    animals[i].oneYear()
+
+print("After 4 years,")
+for a in animals:
+    print(a.age)

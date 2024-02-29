@@ -78,6 +78,10 @@ function loadDefaultKeySetting(){
             description: "Swap Hold Piece",
             keyCode: 67,
             code: "KeyC"
+        },{
+            description: "Restart Game",
+            keyCode: 82,
+            code: "KeyR"
         }
     ];
     localStorage.setItem("keySetting", JSON.stringify(KEYSETTING));
