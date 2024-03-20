@@ -47,8 +47,8 @@
             text-align: center;
         }
         .display{
-            width: 90vw;
-            height: 55vw;
+            width: 70vw;
+            height: 40vw;
             display: flex;
             justify-content: center;
             border: 1px solid slategray;
@@ -69,7 +69,7 @@
             border-radius: 7px;
         }
         .inputs{
-            width: 90vw;
+            width: 70vw;
             height: 6vw;
             background-color: burlywood;
             display: flex;
@@ -98,7 +98,7 @@
             padding: 1.5vw;
             border: none;
             border-radius: 1vw;
-            left: 34vw;
+            left: 24vw;
             top: 25vw;
             visibility: hidden;
         }
@@ -204,7 +204,7 @@
             var topVal = quiz.style.top;
             topVal = topVal.split('vw')[0] * 1 + 1;
 
-            if (topVal > 52){
+            if (topVal > 40){
                 gameDisplay.removeChild(quiz);
                 q.isDeleted = true;
                 life -= 1;
