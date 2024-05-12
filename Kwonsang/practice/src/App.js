@@ -6,7 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./screens/NotFound";
 import Main from "./screens/Main";
 import TicTacToe from "./screens/TicTacToe";
-import Orthello from "./screens/Orthello";
+import Othello from "./screens/Orthello";
+import Picross from "./screens/Picross";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path="/random" element={<RandomGame></RandomGame>}></Route>
           <Route path="/hello" element={<div>HELLO</div>}></Route>
           <Route path="/tictactoe" element={<TicTacToe></TicTacToe>}></Route>
-          <Route path="/orthello" element={<Orthello></Orthello>}></Route>
+          <Route path="/othello" element={<Othello></Othello>}></Route>
+          <Route path="/picross" element={<Picross></Picross>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       </BrowserRouter>

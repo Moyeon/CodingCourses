@@ -1,6 +1,6 @@
 .body{
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,6 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 8px;
 }
 .white{
     width: 60px;
@@ -36,4 +37,44 @@
     border: 2px solid black;
     border-radius: 50%;
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.UI{
+    display: flex;
+    width: 640px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.turnBox{
+    border: 1px solid black;
+    display: flex;
+    padding: 12px;
+    width: 120px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    transition: 1s;
+}
+.whiteCircle{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+}
+.blackCircle{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.highlight{
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    
 }

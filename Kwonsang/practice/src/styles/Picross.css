@@ -1,0 +1,102 @@
+.picrossBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.row {
+  display: flex;
+}
+
+.key {
+  background-color: lightgrey;
+  box-sizing: border-box;
+}
+
+.key:first-child {
+  width: 50px;
+}
+
+.top {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4px;
+}
+
+.left {
+  width: 50px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  box-sizing: border-box;
+}
+
+.cell:hover {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.colored {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.wrong {
+  position: relative;
+  overflow: hidden;
+}
+.wrong::after,
+.wrong::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  left: 50%;
+  background-color: red;
+  transform: rotate(45deg);
+}
+.wrong::before {
+  transform: rotate(-45deg);
+}
+
+.marked {
+  position: relative;
+  overflow: hidden;
+}
+.marked::after,
+.marked::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: rotate(45deg);
+}
+.marked::before {
+  transform: rotate(-45deg);
+}
+
+.container .row:nth-child(5n + 1) {
+  border-bottom: 1px solid black;
+}
+.row div:nth-child(5n + 1) {
+  border-right: 1px solid black;
+}

@@ -4,7 +4,7 @@ import { HashLink } from "react-router-hash-link";
 
 function Main() {
     return(
-        <div className="body">
+        <div className="bodyMain">
             <div className="TobBar">
                 <HashLink smooth to='/#main'>
                     <div>Main</div>
@@ -29,9 +29,14 @@ function Main() {
                             TicTacToe Game
                         </button>
                     </Link>
-                    <Link to='/orthello'>
+                    <Link to='/othello'>
                         <button>
-                            Orthello Game
+                            Othello Game
+                        </button>
+                    </Link>
+                    <Link to='/picross'>
+                        <button>
+                            Picross
                         </button>
                     </Link>
                 </div>
