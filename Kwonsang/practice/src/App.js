@@ -8,6 +8,7 @@ import Main from "./screens/Main";
 import TicTacToe from "./screens/TicTacToe";
 import Othello from "./screens/Orthello";
 import Picross from "./screens/Picross";
+import CreatePicrossMap from "./screens/CreatePicrossMap";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path="/hello" element={<div>HELLO</div>}></Route>
           <Route path="/tictactoe" element={<TicTacToe></TicTacToe>}></Route>
           <Route path="/othello" element={<Othello></Othello>}></Route>
-          <Route path="/picross" element={<Picross></Picross>}></Route>
+          <Route path="/picross" element={<Picross />}></Route>
+          <Route path="/picross-create" element={<CreatePicrossMap />}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       </BrowserRouter>
