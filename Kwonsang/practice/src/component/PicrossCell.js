@@ -1,15 +1,21 @@
-function PicrossCell({ cellType }) {
+function PicrossCell({ cellType, cellSize, isFinished }) {
   function getClassName() {
-    if (cellType == "colored") {
-      return "cell colored";
+    var result = "cell";
+
+    result += " ";
+    if(isFinished){
+      if(cellType == "colored"){
+        result += "rainbow";
+      }
+    }else{
+      result += cellType;
     }
-    if (cellType === "wrong") {
-      return "cell wrong";
-    }
-    if (cellType == "marked") {
-      return "cell marked";
-    }
-    return "cell";
+
+    // cellSize 5, 10, 15, 20, ...
+    result += " ";
+    result += "cell" + cellSize;
+
+    return result;
   }
 
   return <div className={getClassName()}></div>;

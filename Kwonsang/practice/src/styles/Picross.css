@@ -5,28 +5,27 @@
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   font-size: 12px;
   font-weight: 700;
+  grid-template-rows: 100px auto;
 }
 
 .row {
-  display: flex;
+  display: grid;
+  width: 600px;
+  grid-template-columns: 100px repeat(auto-fit, minmax(0, 1fr));
 }
 
 .key {
   background-color: lightgrey;
   box-sizing: border-box;
-}
-
-.key:first-child {
-  width: 50px;
+  user-select: none;
+  -webkit-user-select: none; /* safari */
+  grid-row: 0;
 }
 
 .top {
-  width: 100px;
-  height: 50px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -34,8 +33,6 @@
 }
 
 .left {
-  width: 50px;
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -48,6 +45,21 @@
   border-right: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
   box-sizing: border-box;
+}
+
+.cell10 {
+  width: 50px;
+  height: 50px;
+}
+
+.cell15 {
+  width: 33px;
+  height: 33px;
+}
+
+.cell20 {
+  width: 25px;
+  height: 25px;
 }
 
 .cell:hover {
@@ -76,6 +88,10 @@
   transform: rotate(-45deg);
 }
 
+.drag{
+  background-color: rgb(158, 158, 158);
+}
+
 .marked {
   position: relative;
   overflow: hidden;
@@ -97,6 +113,40 @@
 .container .row:nth-child(5n + 1) {
   border-bottom: 1px solid black;
 }
-.row div:nth-child(5n + 1) {
+.row .key:nth-child(5n + 1) {
   border-right: 1px solid black;
+}
+.row .wrap:nth-child(5n + 1) div {
+  border-right: 1px solid black;
+}
+
+.rainbow{
+  animation: rainbow infinite 2s;
+  filter: opacity(0.5);
+}
+@keyframes rainbow {
+  0%{
+    background-color: hsl(0, 100%, 50%);
+  }
+  25%{
+    background-color: hsl(60, 100%, 50%);
+  }
+  50%{
+    background-color: hsl(120, 100%, 50%);
+  }
+  75%{
+    background-color: hsl(180, 100%, 50%);
+  }
+  100%{
+    background-color: hsl(0, 100%, 50%);
+  }
+}
+
+.UI{
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: center;
+  column-gap: 16px;
+  margin-top: 32px;
 }
