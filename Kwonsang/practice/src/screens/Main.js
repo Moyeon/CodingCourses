@@ -39,6 +39,11 @@ function Main() {
                             Picross
                         </button>
                     </Link>
+                    <Link to='/picross-create'>
+                        <button>
+                            Picross Map Generator
+                        </button>
+                    </Link>
                 </div>
             </div>
             
