@@ -206,7 +206,7 @@ function CreatePicrossMap() {
       <h1>Picross Map Generator</h1>
       <div className="container">
         <div className="row">
-          <div className="key"></div>
+          <div className="key left"></div>
           {hint.col.map((colHint) => (
             <div className="key top">
               {colHint.map((num) => {
@@ -223,9 +223,9 @@ function CreatePicrossMap() {
         {hint.row.map((rowHint, rowIdx) => 
           <div className="row">
             <div className="key left">
-              {rowHint.map(num => <>{num} </>)}
+              {rowHint.map((num) => <> {num} </>)}
             </div>
-            {userMap[rowIdx].map((state, colIdx) => {
+            {rowIdx < height && userMap[rowIdx].map((state, colIdx) => {
               return (
                 <div
                   className="wrap"

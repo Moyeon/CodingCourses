@@ -9,12 +9,11 @@
   font-size: 12px;
   font-weight: 700;
   grid-template-rows: 100px auto;
+  position: relative;
 }
 
 .row {
-  display: grid;
-  width: 600px;
-  grid-template-columns: 100px repeat(auto-fit, minmax(0, 1fr));
+  display: flex;
 }
 
 .key {
@@ -30,6 +29,8 @@
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 4px;
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
 .left {
@@ -37,6 +38,7 @@
   align-items: center;
   justify-content: flex-end;
   padding-right: 4px;
+  width: 100px;
 }
 
 .cell {

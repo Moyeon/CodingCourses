@@ -1,5 +1,5 @@
 import PicrossCell from "../component/PicrossCell";
-import { MAP_ALTERNATING, MAP_HEART } from "../script/PicrossMap";
+import { MAP_LIST } from "../script/PicrossMap";
 import "../styles/Picross.css";
 import { useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ function Picross() {
   const [currPoint, setCP] = useState({row: -1, col: -1});
   const [cellSize, setCellSize] = useState(5);
   const [isFinished, setIsFinished] = useState(false);
-  const [selectedMap, selectMap] = useState('');
+  const [selectedMap, selectMap] = useState(0);
 
   // userMap Rule
   // 0 = Empty
@@ -20,7 +20,7 @@ function Picross() {
   // 3 = Wrong
 
   function mapSetting() {
-    setMap(MAP_HEART);
+    setMap(MAP_LIST[0].map);
   }
   useEffect(mapSetting, []);
 
@@ -255,7 +255,7 @@ function Picross() {
       <h1>Picross</h1>
       <div className="container">
         <div className="row">
-          <div className="key"></div>
+          <div className="key left"></div>
           {hint.col.map((colHint) => (
             <div className="key top">
               {colHint.map((num) => {
@@ -304,17 +304,14 @@ function Picross() {
       </div>
       <div className="UI">
         <select onChange={(e) => {
-          selectMap(e.target.value);
+          selectMap(Number(e.target.value));
         }}>
-          <option value="MAPSELECT_1">HEART</option>
-          <option value="MAPSELECT_2">ALTERNATING</option>
+          {MAP_LIST.map((m, idx) => {
+            return <option value={idx}>{m.name}</option>
+          })}
         </select>
         <button onClick={() => { 
-          if(selectedMap == "MAPSELECT_1"){
-            setMap(MAP_HEART);
-          }if(selectedMap == "MAPSELECT_2"){
-            setMap(MAP_ALTERNATING);
-          }
+          setMap(MAP_LIST[selectedMap].map);
         }}>New Game</button>
       </div>
     </div>
