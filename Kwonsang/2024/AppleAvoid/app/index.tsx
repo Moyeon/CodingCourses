@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Dimensions, Text, View } from "react-native";
 import {
   GameEngine,
@@ -18,6 +18,9 @@ const FLOOR = height - 100;
 export default function Index() {
   const [characterDirection, setCharacterDirection] = useState(0);
   const [isTouching, setIsTouching] = useState(0);
+  const spawnTime = 1000;
+  const fallingSpeed = 3;
+  const lastAppleSpawnTime = useRef(0);
 
   const updateGame = (
     entities: Entities,
@@ -29,6 +32,14 @@ export default function Index() {
     touches.forEach((t) => {
       if (t.type === "start") {
         setIsTouching(isTouching + 1);
+
+        if (t.event.pageX < width / 2) {
+          // Move left
+          setCharacterDirection(-5);
+        } else {
+          // Move right
+          setCharacterDirection(5);
+        }
       } else if (t.type === "end") {
         setIsTouching(isTouching - 1);
         setCharacterDirection(0);
@@ -55,6 +66,33 @@ export default function Index() {
     }
 
     character.renderer = <Character x={character.x} y={character.y} />;
+
+    lastAppleSpawnTime.current += time.delta;
+    if (lastAppleSpawnTime.current >= spawnTime) {
+      lastAppleSpawnTime.current = 0;
+
+      const newKey = "apple-" + time.current;
+      entities[newKey] = {
+        x: Math.random() * (width - APPLE_SIZE),
+        y: 0,
+        renderder: <Apple x={0} y={0} />,
+      };
+    }
+
+    Object.keys(entities).forEach((key) => {
+      if (key.startsWith("apple")) {
+        let apple = entities[key];
+
+        apple.y += fallingSpeed;
+
+        if (apple.y > height) {
+          delete entities[key];
+        }
+
+        apple.renderer = <Apple x={apple.x} y={apple.y} />;
+      }
+    });
+
     return entities;
   };
 
@@ -94,6 +132,7 @@ const Character = ({ x, y }: { x: number; y: number }) => {
         position: "absolute",
         left: x,
         top: y,
+        zIndex: 10,
       }}
     ></View>
   );
@@ -111,6 +150,7 @@ const Apple = ({ x, y }: { x: number; y: number }) => {
         borderRadius: APPLE_SIZE,
         left: x,
         top: y,
+        zIndex: 11,
       }}
     ></View>
   );
@@ -126,6 +166,7 @@ const Background = ({ width, height }: { width: number; height: number }) => {
         top: 0,
         left: 0,
         backgroundColor: "lightgreen",
+        zIndex: 0,
       }}
     />
   );
