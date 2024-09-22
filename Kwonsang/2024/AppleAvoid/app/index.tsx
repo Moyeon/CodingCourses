@@ -18,6 +18,7 @@ const FLOOR = height - 100;
 export default function Index() {
   const [characterDirection, setCharacterDirection] = useState(0);
   const [isTouching, setIsTouching] = useState(0);
+  const [isGaming, setIsGaming] = useState(true);
   const spawnTime = 1000;
   const fallingSpeed = 3;
   const lastAppleSpawnTime = useRef(0);
@@ -26,6 +27,8 @@ export default function Index() {
     entities: Entities,
     { touches, time, dispatch }: GameEngineUpdateEventOptionType
   ) => {
+    if (!isGaming) return entities;
+
     let character = entities.character;
 
     // TODO: move the character with touch
@@ -85,8 +88,33 @@ export default function Index() {
 
         apple.y += fallingSpeed;
 
-        if (apple.y > height) {
+        if (apple.y > FLOOR - APPLE_SIZE) {
           delete entities[key];
+        }
+
+        // Collision check
+        if (apple.y + APPLE_SIZE > character.y) {
+          var radius = APPLE_SIZE / 2;
+          var appleCenterX = apple.x + radius;
+          var appleCenterY = apple.y + radius;
+
+          var closestX = Math.max(
+            character.x,
+            Math.min(appleCenterX, character.x + CHARACTER_SIZE)
+          );
+          var closestY = Math.max(
+            character.y,
+            Math.min(appleCenterY, character.y + CHARACTER_SIZE)
+          );
+
+          if (
+            radius * radius >
+            (closestX - appleCenterX) * (closestX - appleCenterX) +
+              (closestY - appleCenterY) * (closestY - appleCenterY)
+          ) {
+            setIsGaming(false);
+            delete entities[key];
+          }
         }
 
         apple.renderer = <Apple x={apple.x} y={apple.y} />;
@@ -118,6 +146,35 @@ export default function Index() {
           },
         }}
       ></GameEngine>
+      {!isGaming && (
+        <View
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            right: 0,
+            bottom: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "rgba(0, 0, 0, 0.2)",
+          }}
+        >
+          <View
+            style={{
+              width: width / 2,
+              height: width / 2,
+              backgroundColor: "white",
+              borderRadius: 20,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text>Game Over!</Text>
+          </View>
+        </View>
+      )}
     </View>
   );
 }
