@@ -17,11 +17,42 @@ const FLOOR = height - 100;
 
 export default function Index() {
   const [characterDirection, setCharacterDirection] = useState(0);
-  const [isTouching, setIsTouching] = useState(0);
+  const isTouching = useRef(false);
   const [isGaming, setIsGaming] = useState(true);
+  const [score, setScore] = useState(0);
+  const [gameEngine, setGameEngine] = useState<GameEngine | null>(null);
+
   const spawnTime = 1000;
   const fallingSpeed = 3;
   const lastAppleSpawnTime = useRef(0);
+
+  function resetGame() {
+    setScore(0);
+    setIsGaming(true);
+    setCharacterDirection(0);
+    isTouching.current = false;
+
+    if (gameEngine) {
+      gameEngine.swap({
+        background: {
+          width,
+          height,
+          score,
+          renderer: <Background width={width} height={height} score={score} />,
+        },
+        character: {
+          x: width / 2 - CHARACTER_SIZE / 2,
+          y: FLOOR - CHARACTER_SIZE,
+          renderer: (
+            <Character
+              x={width / 2 - CHARACTER_SIZE / 2}
+              y={FLOOR - CHARACTER_SIZE}
+            />
+          ),
+        },
+      });
+    }
+  }
 
   const updateGame = (
     entities: Entities,
@@ -34,7 +65,7 @@ export default function Index() {
     // TODO: move the character with touch
     touches.forEach((t) => {
       if (t.type === "start") {
-        setIsTouching(isTouching + 1);
+        isTouching.current = true;
 
         if (t.event.pageX < width / 2) {
           // Move left
@@ -44,11 +75,11 @@ export default function Index() {
           setCharacterDirection(5);
         }
       } else if (t.type === "end") {
-        setIsTouching(isTouching - 1);
+        isTouching.current = false;
         setCharacterDirection(0);
       }
 
-      if (isTouching > 0) {
+      if (isTouching.current == true) {
         if (t.event.pageX < width / 2) {
           // Move left
           setCharacterDirection(-5);
@@ -59,7 +90,7 @@ export default function Index() {
       }
     });
 
-    if (isTouching > 0) {
+    if (isTouching.current == true) {
       character.x += characterDirection;
       if (character.x < 0) {
         character.x = 0;
@@ -132,17 +163,26 @@ export default function Index() {
       }}
     >
       <GameEngine
+        ref={(ref) => setGameEngine(ref)}
         systems={[updateGame]}
         entities={{
           background: {
             width,
             height,
-            renderer: <Background width={width} height={height} />,
+            score,
+            renderer: (
+              <Background width={width} height={height} score={score} />
+            ),
           },
           character: {
-            x: 50,
+            x: width / 2 - CHARACTER_SIZE / 2,
             y: FLOOR - CHARACTER_SIZE,
-            renderer: <Character x={50} y={FLOOR - CHARACTER_SIZE} />,
+            renderer: (
+              <Character
+                x={width / 2 - CHARACTER_SIZE / 2}
+                y={FLOOR - CHARACTER_SIZE}
+              />
+            ),
           },
         }}
       ></GameEngine>
@@ -159,11 +199,11 @@ export default function Index() {
             alignItems: "center",
             backgroundColor: "rgba(0, 0, 0, 0.2)",
           }}
+          onTouchEnd={resetGame}
         >
           <View
             style={{
-              width: width / 2,
-              height: width / 2,
+              padding: 40,
               backgroundColor: "white",
               borderRadius: 20,
               display: "flex",
@@ -171,7 +211,23 @@ export default function Index() {
               alignItems: "center",
             }}
           >
-            <Text>Game Over!</Text>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: 700,
+                marginBottom: 20,
+              }}
+            >
+              Game Over!
+            </Text>
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: 700,
+              }}
+            >
+              SCORE: {score}
+            </Text>
           </View>
         </View>
       )}
@@ -213,7 +269,15 @@ const Apple = ({ x, y }: { x: number; y: number }) => {
   );
 };
 
-const Background = ({ width, height }: { width: number; height: number }) => {
+const Background = ({
+  width,
+  height,
+  score,
+}: {
+  width: number;
+  height: number;
+  score: number;
+}) => {
   return (
     <View
       style={{
@@ -224,7 +288,12 @@ const Background = ({ width, height }: { width: number; height: number }) => {
         left: 0,
         backgroundColor: "lightgreen",
         zIndex: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
-    />
+    >
+      <Text>{score}</Text>
+    </View>
   );
 };
