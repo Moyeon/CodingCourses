@@ -22,8 +22,9 @@ export default function Index() {
   const [score, setScore] = useState(0);
   const [gameEngine, setGameEngine] = useState<GameEngine | null>(null);
 
-  const spawnTime = 1000;
-  const fallingSpeed = 3;
+  const [spawnTime, setSpawnTime] = useState(1000);
+  const [fallingSpeed, setFallingSpeed] = useState(3);
+  // TODO: Change difficulty based on score
   const lastAppleSpawnTime = useRef(0);
 
   function resetGame() {
@@ -120,6 +121,8 @@ export default function Index() {
         apple.y += fallingSpeed;
 
         if (apple.y > FLOOR - APPLE_SIZE) {
+          setScore(score + 1);
+          console.log(score);
           delete entities[key];
         }
 
@@ -151,6 +154,12 @@ export default function Index() {
         apple.renderer = <Apple x={apple.x} y={apple.y} />;
       }
     });
+
+    let background = entities.background;
+    background.score = score;
+    background.renderer = (
+      <Background width={width} height={height} score={score} />
+    );
 
     return entities;
   };
@@ -289,11 +298,20 @@ const Background = ({
         backgroundColor: "lightgreen",
         zIndex: 0,
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <Text>{score}</Text>
+      <Text
+        style={{
+          fontSize: 50,
+          color: "white",
+          fontWeight: 700,
+          marginBottom: height / 3,
+        }}
+      >
+        {score}
+      </Text>
     </View>
   );
 };
